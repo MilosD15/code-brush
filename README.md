@@ -1,5 +1,3 @@
-## 💎 CodeBrush 💎
+## 💎 CodeBrush Online Code Editor 💎
 
-Online Code Editor ✨
-
-IN PROGRESS... 🔨
+🔨 IN PROGRESS 🔨
