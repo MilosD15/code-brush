@@ -77,22 +77,24 @@ body {
   color: var(--color-text);
 }
 
-body[data-color-theme=light] {
-  --color-primary: #FBFAFA;
-  --color-secondary: #F0EEEE;
-  --color-bg-btn: #D9D9D9;
-  --color-btn-edge: #FFFFFF;
-  --color-text: #000000;
+@media (prefers-color-scheme: light) {
+  body {
+    --color-primary: #FBFAFA;
+    --color-secondary: #F0EEEE;
+    --color-bg-btn: #D9D9D9;
+    --color-btn-edge: #FFFFFF;
+    --color-text: #000000;
+  }
 }
-
-body[data-color-theme=dark] {
-  --color-primary: #262626;
-  --color-secondary: #343434;
-  --color-bg-btn: #151515;
-  --color-btn-edge: #585353;
-  --color-text: #FFFFFF;
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-primary: #262626;
+    --color-secondary: #343434;
+    --color-bg-btn: #151515;
+    --color-btn-edge: #585353;
+    --color-text: #FFFFFF;
+  }
 }
-
 html {
   font-family: Calibri, sans-serif;
 }

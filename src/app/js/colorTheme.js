@@ -1,10 +1,13 @@
-
+// determining color theme once the page is loaded
 window.onload = () => {
-    determinePreferredColorScheme();
+    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setColorTheme(isDark);
 }
 
-function determinePreferredColorScheme() {
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const theme = isDark ? 'dark' : 'light';
-    document.body.dataset.colorTheme = theme;
+// watching for changing preferred color theme
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => setColorTheme(e.matches));
+
+function setColorTheme(isDark) {
+    const currentColorTheme = isDark ? 'dark' : 'light';
+    document.body.dataset.colorTheme = currentColorTheme;
 }

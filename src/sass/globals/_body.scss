@@ -6,10 +6,14 @@ body {
     color: var(--color-text);
 }
 
-body[data-color-theme="light"] {
-    @include themes.light-theme();
+@media (prefers-color-scheme: light) {
+    body {
+        @include themes.light-theme();
+    }
 }
 
-body[data-color-theme="dark"] {
-    @include themes.dark-theme();
+@media (prefers-color-scheme: dark) {
+    body {
+        @include themes.dark-theme();
+    }
 }
