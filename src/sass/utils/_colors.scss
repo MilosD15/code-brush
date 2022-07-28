@@ -1,32 +1,17 @@
 
 // white colors
-$color-white-900: #FBFAFA;
-$color-white-800: #F0EEEE;
-$color-white-700: #D9D9D9;
+$color-white-primary: #FBFAFA;
+$color-white-secondary: #F0EEEE;
+$color-white-bg-btn: #D9D9D9;
+$color-white-btn-edge: #FFFFFF;
 $color-white-text: #FFFFFF;
 
 // black colors
-$color-black-900: #151515;
-$color-black-800: #262626;
-$color-black-700: #343434;
-$color-black-600: #585353;
+$color-black-primary: #262626;
+$color-black-secondary: #343434;
+$color-black-bg-btn: #151515;
+$color-black-btn-edge: #585353;
 $color-black-text: #000000;
 
-// other colors
+// main colors
 $color-specific-red: #E71E1E;
-
-@mixin dark-theme {
-    $color-900: $color-black-900;
-    $color-800: $color-black-800;
-    $color-700: $color-black-700;
-    $color-600: $color-black-600;
-    $color-text: $color-white-text;
-}
-
-@mixin light-theme {
-    $color-900: $color-white-900;
-    $color-800: $color-white-800;
-    $color-700: $color-white-700;
-    $color-600: $color-white-text;
-    $color-text: $color-black-text;
-}

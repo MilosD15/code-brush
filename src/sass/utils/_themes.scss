@@ -1,0 +1,17 @@
+@use './colors' as *;
+
+@mixin dark-theme {
+    --color-primary: #{$color-black-primary};
+    --color-secondary: #{$color-black-secondary};
+    --color-bg-btn: #{$color-black-bg-btn};
+    --color-btn-edge: #{$color-black-btn-edge};
+    --color-text: #{$color-white-text};
+}
+
+@mixin light-theme {
+    --color-primary: #{$color-white-primary};
+    --color-secondary: #{$color-white-secondary};
+    --color-bg-btn: #{$color-white-bg-btn};
+    --color-btn-edge: #{$color-white-btn-edge};
+    --color-text: #{$color-black-text};
+}

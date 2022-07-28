@@ -1,0 +1,15 @@
+@use '../utils/themes';
+
+body {
+    font-family: inherit;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+body[data-color-theme="light"] {
+    @include themes.light-theme();
+}
+
+body[data-color-theme="dark"] {
+    @include themes.dark-theme();
+}
