@@ -4,6 +4,30 @@ body {
     font-family: inherit;
     background-color: var(--color-primary);
     color: var(--color-text);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: background-color 300ms ease;
+}
+
+body[data-color-theme="dark"] {
+    @include themes.dark-theme;
+
+    .moon {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+        pointer-events: initial !important;
+    }
+}
+
+body[data-color-theme="light"] {
+    @include themes.light-theme;
+
+    .sun {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) scale(1) !important;
+        pointer-events: initial !important;
+    }
 }
 
 @media (prefers-color-scheme: light) {

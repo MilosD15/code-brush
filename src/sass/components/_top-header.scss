@@ -1,0 +1,85 @@
+@use '../utils/functions' as f;
+
+.website-name {
+    height: f.pixelsToEm(65);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-secondary);
+    border-bottom: f.pixelsToEm(2) solid var(--color-text);
+    transition: 
+        background-color 300ms ease,
+        border-color 300ms ease;
+
+    .logo-container {
+        margin-left: f.pixelsToEm(10);
+        display: flex;
+        align-items: center;
+        height: 80%;
+        transform: translateX(0);
+        transition: transform 500ms ease;
+
+        @media (min-width: f.pixelsToEm(900)) {
+            transform: translateX(f.pixelsToEm(50));
+        }
+
+        .logo-img {
+            height: 90%;
+            width: auto;
+
+            img {
+                height: 100%;
+                width: auto;
+                user-select: none;
+            }
+        }
+
+        .logo-name {
+            margin-left: f.pixelsToEm(2);
+            font-size: f.pixelsToRem(26);
+        }
+    }
+
+    .dark-mode-btn {
+        margin-right: f.pixelsToEm(10);
+        height: 80%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        border: 2px solid var(--color-btn-edge);
+        position: relative;
+        transition: 
+            background-color .3s ease,
+            transform 500ms ease;
+        cursor: pointer;
+        transform: translateX(0);
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-btn-edge);
+        }
+
+        @media (min-width: f.pixelsToEm(900)) {
+            transform: translateX(f.pixelsToEm(50, true));
+        }
+
+        .sun, .moon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            height: 90%;
+            aspect-ratio: 1 / 1;
+            opacity: 0;
+            pointer-events: none;
+            transition: 
+                opacity .3s ease,
+                transform .3s ease;
+
+            svg {
+                height: 100%;
+            }
+        }
+    }
+}

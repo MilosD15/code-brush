@@ -10,97 +10,124 @@
     <script src="./js/main.js" type="module"></script>
 </head>
 <body>
-    <header>
-        <div class="website-name">
-            <div class="logo-container">
-                <div class="logo-img">
-                    <img src="./images/code-brush-logo-white-background.png" alt="CodeBrush Logo">
+    <div class="app">
+        <header>
+            <div class="website-name">
+                <div class="logo-container">
+                    <div class="logo-img">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45" height="45" viewBox="0 0 150 150">
+                            <defs>
+                              <style>
+                                .cls-1 {
+                                  fill: #fcfcfc;
+                                  stroke: #000;
+                                  stroke-width: 6.35px;
+                                }
+                              </style>
+                            </defs>
+                            <circle class="cls-1" cx="74.5" cy="75.5" r="68.5"/>
+                            <image x="18" y="36" width="111" height="76" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAXCAYAAACFxybfAAAEk0lEQVRIiaVWe0ibVxT/qYnTpUkTX/WxOmKnEMsWu7TzUWSg6R5FI2xOZY71H8dgw3bDwWB1ZSj7Yy0M66iMtcIWUDphZbaKj66pVtvGuTGROFpm6nMOq/FtfJtxbnPD7devWO2Bw03uOed3fvfec8/9/LADKS4uRmVl5ZaBNpvtHbvdPmswGFpXVlbYXGBgIFOPx8NGnU63EwpAVlYWA1ldXX1EKRnZbNdsR2Oiotd6enri6D/XjY0NTNy/D5fLhYGBAVyur4diZzQeyMLCAjY3Nx+aCwkJwdTUlDojM6PxvcLCeqPReM/tdqOpqQkOhwO3bt5Ev9MJf39/zM/PY3x8fGfJIyMjsbS0xFYlKl9takpqFwDP5ORkGCU2mUxPs1Z5CQ4OxuLiIsRt5nr6m9NfEYETx09cpf9RUVFPlSsQAAEelRo0Gg1oi6UErlxpyCACpENDQykVFRXkngLgDID92yUQB6DXC+iSGs1mM6sFSszH2dlZTXhY2DzFWLKz/6Qi1ev15P6rF2cJQPaTEsgEMMtXBOBdqUNHR8dDBEhzLJbfeMyN9vYsmouPjyf3AwD6BbzPtyLwqeD8D4CXpQ5VVVUsKR3H8vIy+11dXf0xjzucmubkxCw5OTxsF4AmAfvHxxH4QXC6CkAtdSgqKvKtfH19nY1Op3OvUqnkcZ5Lv1x6m/t4a0KUb4UctwD4qjYEwHXB+L0cQ96gpMfwmvnIHzz2QFLSEF3diYkJZmtva2NdUSIfCLmoSaSTeVgonDflCKSlpfk6oahWq/VDitWo1Az0cn19Hs3zYyKNjY2Vg3wOwD2BDEa8P5ZpwXIRhYWFDHBxccF3DC6XSx0dFe0O8PdnQOZMc6+UZF1dndxOwFtrfPHsUQkFcENgdVYuqre3l70Nd+/ewcz0NEpPnvya/NXPqliczXY9fW1tDdPT04xAZ2cnAgIC5KC+kBT/S6LxO8F4DUCEaOzu7mbgzc3NGBwcRFlZWQn3/6yk5DzZiADVy8zMDJRKpRyBn4QcjQBUck4fCU7/AvA1fbvdzkjU1NS8mJ+fd/bnixffqDp37lhBQcEF8QiIRHp6uhR3L4AuAfuMXHJRXgcw53WmJzKXbGP/jdGr+XxMdMw6B7NarW8NDgywJ3l0dJS9iBaLRYr3KoBJgUDRVgS47APAr944PUK0ylNfnqIm44kIC2eA8ftecPX19aG1pQUtLc2w376N0NBQKRZv23QdD8sle9z3hBPAIQCfAPgrISGBTTY2NByh0eN54KSPi7uj1emgUCjg5+cHlUqF3Vot+2ARhAqxE0AtbeiT7sIj0tbWRt8PkbrdWs8zCqUnIjSM7URpaWk5FeHQ8DBT19QUysvLd5xHVrRaLQOlo6itrT1GiXUaLSOwJ2LP0sjISPTc3BzrkLxLdnV1bTuPgu6y0Whk2xkUFITk5GRmoA+X3NxcJCUlEfD+48XF7NFxL7uRmJj494Xz1e+Hh4eP9ff3s1gSOg4q0m2ToCZkMBh8QFKhK+dwOEx6fVyryXTwd7VmV2deXn7LoVcOsoTUD3gsjVQf2xIA/wMHBbgVRnlddAAAAABJRU5ErkJggg=="/>
+                          </svg>
+                    </div>
+                    <div class="logo-name">
+                        <div>CodeBrush</div>
+                    </div>
                 </div>
-                <div class="logo-name">
-                    <div>CodeBrush</div>
-                </div>
+                <button class="dark-mode-btn">
+                    <div class="sun">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FCF530" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="12" r="4" fill="#FCF530" />
+                            <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                        </svg>
+                    </div>
+                    <div class="moon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FCC730" fill="#FCC730" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                        </svg>
+                    </div>
+                </button>
             </div>
-            <div class="dark-mode-btn">
-                <div class="sun">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sun" width="64" height="64" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FCF530" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <circle cx="12" cy="12" r="4" fill="#FCF530" />
-                        <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
-                    </svg>
+            <!-- <div class="features-container">
+                <div class="features-title">
+                    <div class="title">Feature</div>
+                    <div class="arrow">
+                        <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                        </svg>
+                    </div>
                 </div>
-                <div class="moon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon" width="64" height="64" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FCC730" fill="#FCC730" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <div class="features-container">
-            <div class="features-title">
-                <div class="title">Feature</div>
-                <div class="arrow">
-                    <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="title">Languages</div>
-                <div class="arrow">
-                    <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                    </svg>
-                </div>
-                <div class="description">
-                    <p>This will be added later...</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="title">Hints</div>
-                <div class="arrow">
-                    <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                    </svg>
-                </div>
-                <div class="description">
-                    <p>This will be added later...</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="title">Search bar</div>
-                <div class="arrow">
-                    <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                    </svg>
-                </div>
-                <div class="description">
-                    <p>This will be added later...</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="title">Lint</div>
-                <div class="arrow">
-                    <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                    </svg>
-                </div>
-                <div class="description">
-                    <p>This will be added later...</p>
-                </div>
-            </div>
-            <div class="feature">
-                <div class="title">Folding</div>
-                <div class="arrow">
-                    <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                    </svg>
-                </div>
-                <div class="description">
-                    <p>This will be added later...</p>
-                </div>
-            </div>
-        </div>
-    </header>
+                <button class="feature">
+                    <div class="wrapper">
+                        <div class="title">Languages</div>
+                        <div class="arrow">
+                            <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                            </svg>
+                        </div>
+                        <div class="description">
+                            <p>This will be added later...</p>
+                        </div>
+                    </div>
+                </button>
+                <button class="feature">
+                    <div class="wrapper">
+                        <div class="title">Hints</div>
+                        <div class="arrow">
+                            <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                            </svg>
+                        </div>
+                        <div class="description">
+                            <p>This will be added later...</p>
+                        </div>
+                    </div>
+                </button>
+                <button class="feature">
+                    <div class="wrapper">
+                        <div class="title">Search bar</div>
+                        <div class="arrow">
+                            <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                            </svg>
+                        </div>
+                        <div class="description">
+                            <p>This will be added later...</p>
+                        </div>
+                    </div>
+                </button>
+                <button class="feature">
+                    <div class="wrapper">
+                        <div class="title">Lint</div>
+                        <div class="arrow">
+                            <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                            </svg>
+                        </div>
+                        <div class="description">
+                            <p>This will be added later...</p>
+                        </div>
+                    </div>
+                </button>
+                <button class="feature">
+                    <div class="wrapper">
+                        <div class="title">Folding</div>
+                        <div class="arrow">
+                            <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                            </svg>
+                        </div>
+                        <div class="description">
+                            <p>This will be added later...</p>
+                        </div>
+                    </div>
+                </button>
+            </div> -->
+        </header>
+        <main>
+
+        </main>
+    </div>
 </body>
 </html>
