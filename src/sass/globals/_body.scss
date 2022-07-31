@@ -2,7 +2,6 @@
 
 body {
     font-family: inherit;
-    background-color: var(--color-primary);
     color: var(--color-text);
     width: 100%;
     display: flex;
@@ -11,6 +10,7 @@ body {
 }
 
 body[data-color-theme="dark"] {
+    background-color: var(--color-primary);
     @include themes.dark-theme;
 
     .moon {
@@ -21,6 +21,7 @@ body[data-color-theme="dark"] {
 }
 
 body[data-color-theme="light"] {
+    background-color: var(--color-btn-edge);
     @include themes.light-theme;
 
     .sun {

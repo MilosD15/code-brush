@@ -1,16 +1,16 @@
 
 @function pixelsToEm($pixels, $negative: false) {
     @if $negative {
-        @return ($pixels / 16) * -1 + em;
+        @return calc($pixels / 16) * -1 + em;
     } @else {
-        @return ($pixels / 16) + em;
+        @return calc($pixels / 16) + em;
     }
 }
 
 @function pixelsToRem($pixels, $negative: false) {
     @if $negative {
-        @return ($pixels / 16) * -1 + rem;
+        @return calc($pixels / 16) * -1 + rem;
     } @else {
-        @return ($pixels / 16) + rem;
+        @return calc($pixels / 16) + rem;
     }
 }

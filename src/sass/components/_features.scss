@@ -1,0 +1,60 @@
+@use '../utils/functions' as f;
+
+.features-container {
+    width: 100%;
+    height: auto;
+    color: var(--color-text);
+
+    svg, path {
+        fill: var(--color-text);
+    }
+
+    .features-title {
+        border-left: 0;
+        border-right: 0;
+        color: inherit;
+        height: f.pixelsToEm(60);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-secondary);
+        border-bottom: f.pixelsToEm(2) solid var(--color-text);
+        transition: 
+            background-color 300ms ease,
+            border-color 300ms ease;
+        cursor: pointer;
+
+        @media (min-width: f.pixelsToEm(900)) {
+            height: f.pixelsToEm(65);
+        }
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-btn-edge);
+        }
+
+        .title {
+            margin-left: f.pixelsToEm(10);
+            font-size: f.pixelsToRem(24);
+
+            @media (min-width: f.pixelsToEm(900)) {
+                font-size: f.pixelsToRem(26);
+            }
+        }
+
+        .arrow {
+            margin-right: f.pixelsToEm(28);
+            width: f.pixelsToEm(14);
+            height: f.pixelsToEm(7);
+            position: relative;
+            transform: translateY(f.pixelsToEm(3));
+
+            svg {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 @use '../utils/functions' as f;
 
 .website-name {
-    height: f.pixelsToEm(65);
+    height: f.pixelsToEm(60);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -11,6 +11,10 @@
     transition: 
         background-color 300ms ease,
         border-color 300ms ease;
+
+    @media (min-width: f.pixelsToEm(900)) {
+        height: f.pixelsToEm(65);
+    }
 
     .logo-container {
         margin-left: f.pixelsToEm(10);
@@ -37,7 +41,11 @@
 
         .logo-name {
             margin-left: f.pixelsToEm(2);
-            font-size: f.pixelsToRem(26);
+            font-size: f.pixelsToRem(24);
+
+            @media (min-width: f.pixelsToEm(900)) {
+                font-size: f.pixelsToRem(26);
+            }
         }
     }
 
