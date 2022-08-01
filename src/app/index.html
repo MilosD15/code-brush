@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeBrush - Online Code Editor</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./js/main.js" type="module"></script>
 </head>
 <body>
@@ -54,89 +55,101 @@
                     <div class="title">Features</div>
                     <div class="arrow">
                         <svg viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
+                            <path d="M9 9L0.339745 0L17.6603 0L9 9Z"/>
                         </svg>
                     </div>
                 </button>
-                <!-- <div class="feature">
-                    <div class="wrapper">
-                        <button>
-                            <div class="title">Languages</div>
-                            <div class="arrow">
-                                <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </button>
+                <div class="features">
+                    <div class="feature">
+                        <div class="wrapper">
+                            <button>
+                                <div class="title">Languages</div>
+                                <div class="arrow">
+                                    <svg viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
                         <div class="description">
-                            <p>This will be added later...</p>
+                            <div class="content">
+                                This editor supports following programming languages and file extensions:
+                                <li>HTML and XML (.html, .xml)</li>
+                                <li>CSS (.css)</li>
+                                <li>JavaScript (.js, .json)</li>
+                                <li>Python (.py)</li>
+                                <li>Go (.go)</li>
+                                <li>Ruby (.rb)</li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="wrapper">
+                            <button>
+                                <div class="title">Hints</div>
+                                <div class="arrow">
+                                    <svg viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="description">
+                            <div class="content">
+                                <!-- Populate description of each feature -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="wrapper">
+                            <button>
+                                <div class="title">Search bar</div>
+                                <div class="arrow">
+                                    <svg viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="description">
+                            <div class="content">This will be added later...</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="wrapper">
+                            <button>
+                                <div class="title">Lint</div>
+                                <div class="arrow">
+                                    <svg viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="description">
+                            <div class="content">This will be added later...</div>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="wrapper">
+                            <button>
+                                <div class="title">Folding</div>
+                                <div class="arrow">
+                                    <svg viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 9L0.339745 0L17.6603 0L9 9Z"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="description">
+                            <div class="content">This will be added later...</div>
                         </div>
                     </div>
                 </div>
-                <div class="feature">
-                    <div class="wrapper">
-                        <button>
-                            <div class="title">Hints</div>
-                            <div class="arrow">
-                                <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="description">
-                            <p>This will be added later...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature">
-                    <div class="wrapper">
-                        <button>
-                            <div class="title">Search bar</div>
-                            <div class="arrow">
-                                <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="description">
-                            <p>This will be added later...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature">
-                    <div class="wrapper">
-                        <button>
-                            <div class="title">Lint</div>
-                            <div class="arrow">
-                                <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="description">
-                            <p>This will be added later...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature">
-                    <div class="wrapper">
-                        <button>
-                            <div class="title">Folding</div>
-                            <div class="arrow">
-                                <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9 9L0.339745 0L17.6603 0L9 9Z" fill="#000000"/>
-                                </svg>
-                            </div>
-                        </button>
-                        <div class="description">
-                            <p>This will be added later...</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </header>
         <main>
-
+            
         </main>
     </div>
 </body>

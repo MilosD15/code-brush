@@ -1,5 +1,8 @@
 @use '../utils/functions' as f;
 
+$animation-feature-container-duration: 900;
+$animation-feature-duration: 600;
+
 .features-container {
     width: 100%;
     height: auto;
@@ -9,9 +12,20 @@
         fill: var(--color-text);
     }
 
+    button {
+        color: inherit;
+    }
+
+    &[data-menu-opened="true"] {
+        .features-title {
+            .arrow {
+                transform: translateY(f.pixelsToEm(3)) rotate(180deg);
+            }
+        }
+    }
+
     .features-title {
-        border-left: 0;
-        border-right: 0;
+        border: 0;
         color: inherit;
         height: f.pixelsToEm(60);
         width: 100%;
@@ -48,12 +62,127 @@
             width: f.pixelsToEm(14);
             height: f.pixelsToEm(7);
             position: relative;
-            transform: translateY(f.pixelsToEm(3));
+            transform: translateY(f.pixelsToEm(3)) rotate(0deg);
+            transition: transform $animation-feature-container-duration + ms ease;
 
             svg {
                 position: absolute;
                 left: 0;
                 top: 0;
+            }
+        }
+    }
+
+    .features {
+        width: 100%;
+        height: auto;
+
+        .feature {
+            width: 100%;
+            height: auto;
+
+            &[data-description-opened="true"] {
+                .wrapper {
+                    button {
+                        .arrow {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+    
+            .wrapper {
+                width: inherit;
+                height: f.pixelsToEm(60);
+                background-color: var(--color-bg-btn);
+                border-bottom: f.pixelsToEm(2) solid var(--color-btn-edge);
+                transition: 
+                        background-color 300ms ease,
+                        border-color 300ms ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // overflow: hidden;
+                position: relative;
+    
+                button {
+                    width: max(f.pixelsToEm(250), 70%);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: transparent;
+                    border: 0;
+                    height: f.pixelsToEm(58);
+                    cursor: pointer;
+                    transition: 
+                        background-color 300ms ease,
+                        border-color 300ms ease;
+    
+                    &:hover,
+                    &:focus {
+                        background-color: var(--color-secondary);
+                    }
+    
+                    .title {
+                        margin-left: f.pixelsToEm(10);
+                        font-size: f.pixelsToRem(20);
+                        text-transform: uppercase;
+            
+                        @media (min-width: f.pixelsToEm(900)) {
+                            font-size: f.pixelsToRem(22);
+                        }
+                    }
+            
+                    .arrow {
+                        margin-right: f.pixelsToEm(28);
+                        width: f.pixelsToEm(14);
+                        height: f.pixelsToEm(7);
+                        position: relative;
+                        transform: rotate(0deg);
+                        transition: transform $animation-feature-duration + ms ease;
+            
+                        svg {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+                    }
+                }
+            }
+
+            .description {
+                width: inherit;
+                height: auto;
+                background-color: var(--color-bg-btn);
+                border-bottom: f.pixelsToEm(2) solid var(--color-btn-edge);
+                color: var(--color-text);
+                transition: 
+                        background-color 300ms ease,
+                        border-color 300ms ease;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .content {
+                    padding-bottom: f.pixelsToEm(20);
+                    padding-left: f.pixelsToEm(10);
+                    padding-right: f.pixelsToEm(10);
+                    width: max(f.pixelsToEm(200), 70%);
+                    height: auto;
+                    font-size: f.pixelsToRem(18);
+
+                    &:first-child {
+                        padding-top: f.pixelsToEm(20);
+                    }
+
+                    li {
+                        
+
+                        &:first-child {
+                            margin-top: f.pixelsToEm(10);
+                        }
+                    }
+                }
             }
         }
     }

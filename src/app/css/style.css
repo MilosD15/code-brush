@@ -87,9 +87,14 @@
 .features-container svg, .features-container path {
   fill: var(--color-text);
 }
+.features-container button {
+  color: inherit;
+}
+.features-container[data-menu-opened=true] .features-title .arrow {
+  transform: translateY(0.1875em) rotate(180deg);
+}
 .features-container .features-title {
-  border-left: 0;
-  border-right: 0;
+  border: 0;
   color: inherit;
   height: 3.75em;
   width: 100%;
@@ -123,12 +128,97 @@
   width: 0.875em;
   height: 0.4375em;
   position: relative;
-  transform: translateY(0.1875em);
+  transform: translateY(0.1875em) rotate(0deg);
+  transition: transform 900ms ease;
 }
 .features-container .features-title .arrow svg {
   position: absolute;
   left: 0;
   top: 0;
+}
+.features-container .features {
+  width: 100%;
+  height: auto;
+}
+.features-container .features .feature {
+  width: 100%;
+  height: auto;
+}
+.features-container .features .feature[data-description-opened=true] .wrapper button .arrow {
+  transform: rotate(180deg);
+}
+.features-container .features .feature .wrapper {
+  width: inherit;
+  height: 3.75em;
+  background-color: var(--color-bg-btn);
+  border-bottom: 0.125em solid var(--color-btn-edge);
+  transition: background-color 300ms ease, border-color 300ms ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.features-container .features .feature .wrapper button {
+  width: max(15.625em, 70%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  height: 3.625em;
+  cursor: pointer;
+  transition: background-color 300ms ease, border-color 300ms ease;
+}
+.features-container .features .feature .wrapper button:hover, .features-container .features .feature .wrapper button:focus {
+  background-color: var(--color-secondary);
+}
+.features-container .features .feature .wrapper button .title {
+  margin-left: 0.625em;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+@media (min-width: 56.25em) {
+  .features-container .features .feature .wrapper button .title {
+    font-size: 1.375rem;
+  }
+}
+.features-container .features .feature .wrapper button .arrow {
+  margin-right: 1.75em;
+  width: 0.875em;
+  height: 0.4375em;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 600ms ease;
+}
+.features-container .features .feature .wrapper button .arrow svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.features-container .features .feature .description {
+  width: inherit;
+  height: auto;
+  background-color: var(--color-bg-btn);
+  border-bottom: 0.125em solid var(--color-btn-edge);
+  color: var(--color-text);
+  transition: background-color 300ms ease, border-color 300ms ease;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.features-container .features .feature .description .content {
+  padding-bottom: 1.25em;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  width: max(12.5em, 70%);
+  height: auto;
+  font-size: 1.125rem;
+}
+.features-container .features .feature .description .content:first-child {
+  padding-top: 1.25em;
+}
+.features-container .features .feature .description .content li:first-child {
+  margin-top: 0.625em;
 }
 
 /* Box sizing rules */
@@ -263,6 +353,9 @@ body[data-color-theme=light] .sun {
 *::before,
 *::after {
   outline: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .app {
@@ -279,6 +372,24 @@ body[data-color-theme=light] .sun {
 ::selection {
   background-color: var(--color-text);
   color: var(--color-primary);
+}
+
+::-webkit-scrollbar {
+  width: 0.625em;
+  background-color: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-btn-edge);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-btn-edge);
 }
 
 html {
