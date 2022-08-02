@@ -175,8 +175,22 @@ $animation-feature-duration: 600;
                         padding-top: f.pixelsToEm(20);
                     }
 
+                    &.has-shortcut {
+                        line-height: 1.8;
+                    }
+
+                    kbd {
+                        background-color: var(--color-secondary);
+                        border-radius: f.pixelsToEm(6);
+                        font-family: monospace;
+                        padding: f.pixelsToEm(4) f.pixelsToEm(8);
+                        box-shadow: 
+                            0 f.pixelsToEm(1) f.pixelsToEm(1) var(--color-text),
+                            0 f.pixelsToEm(2) 0 var(--color-text);
+                    }
+
                     li {
-                        
+                        margin-left: f.pixelsToEm(15);
 
                         &:first-child {
                             margin-top: f.pixelsToEm(10);

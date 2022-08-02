@@ -217,6 +217,19 @@
 .features-container .features .feature .description .content:first-child {
   padding-top: 1.25em;
 }
+.features-container .features .feature .description .content.has-shortcut {
+  line-height: 1.8;
+}
+.features-container .features .feature .description .content kbd {
+  background-color: var(--color-secondary);
+  border-radius: 0.375em;
+  font-family: monospace;
+  padding: 0.25em 0.5em;
+  box-shadow: 0 0.0625em 0.0625em var(--color-text), 0 0.125em 0 var(--color-text);
+}
+.features-container .features .feature .description .content li {
+  margin-left: 0.9375em;
+}
 .features-container .features .feature .description .content li:first-child {
   margin-top: 0.625em;
 }
