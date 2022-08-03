@@ -24,6 +24,25 @@ $animation-feature-duration: 600;
         }
     }
 
+    & > .title {
+        height: f.pixelsToRem(65);
+        width: 100%;
+        background-color: var(--color-secondary);
+        border-bottom: f.pixelsToEm(1) solid var(--color-text);
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        transition: 
+            background-color 300ms ease,
+            border-color 300ms ease;
+        padding-left: f.pixelsToEm(10);
+        font-size: f.pixelsToRem(26);
+
+        @media (min-width: f.pixelsToEm(900)) {
+            display: flex;
+        }
+    }
+
     .features-title {
         border: 0;
         color: inherit;
@@ -39,31 +58,36 @@ $animation-feature-duration: 600;
             border-color 300ms ease;
         cursor: pointer;
 
-        @media (min-width: f.pixelsToEm(900)) {
-            height: f.pixelsToEm(65);
-        }
-
         &:hover,
         &:focus {
             background-color: var(--color-btn-edge);
         }
 
+        @media (min-width: f.pixelsToEm(900)) {
+            display: none;
+        }
+
         .title {
             margin-left: f.pixelsToEm(10);
             font-size: f.pixelsToRem(24);
-
-            @media (min-width: f.pixelsToEm(900)) {
-                font-size: f.pixelsToRem(26);
-            }
         }
 
         .arrow {
             margin-right: f.pixelsToEm(28);
             width: f.pixelsToEm(14);
             height: f.pixelsToEm(7);
+            opacity: 1;
+            pointer-events: initial;
             position: relative;
             transform: translateY(f.pixelsToEm(3)) rotate(0deg);
-            transition: transform $animation-feature-container-duration + ms ease;
+            transition: 
+                transform $animation-feature-container-duration + ms ease,
+                opacity 300ms ease;
+
+            @media (min-width: f.pixelsToEm(900)) {
+                opacity: 0;
+                pointer-events: none;
+            }
 
             svg {
                 position: absolute;
