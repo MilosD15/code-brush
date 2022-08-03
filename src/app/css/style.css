@@ -90,24 +90,31 @@
 .features-container button {
   color: inherit;
 }
+@media (min-width: 56.25em) {
+  .features-container {
+    height: 4.375rem;
+    width: 100%;
+    background-color: var(--color-secondary);
+    border-bottom: 0.125em solid var(--color-text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 300ms ease, border-color 300ms ease;
+    position: relative;
+  }
+}
 .features-container[data-menu-opened=true] .features-title .arrow {
   transform: translateY(0.1875em) rotate(180deg);
 }
 .features-container > .title {
-  height: 4.0625rem;
-  width: 100%;
-  background-color: var(--color-secondary);
-  border-bottom: 0.0625em solid var(--color-text);
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 300ms ease, border-color 300ms ease;
-  padding-left: 0.625em;
+  margin-left: 0.625em;
+  margin-right: 0.625em;
   font-size: 1.625rem;
+  display: none;
 }
 @media (min-width: 56.25em) {
   .features-container > .title {
-    display: flex;
+    display: block;
   }
 }
 .features-container .features-title {
@@ -160,9 +167,22 @@
   width: 100%;
   height: auto;
 }
+@media (min-width: 56.25em) {
+  .features-container .features {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 0.9375em;
+    width: 82%;
+  }
+}
 .features-container .features .feature {
   width: 100%;
   height: auto;
+}
+@media (min-width: 56.25em) {
+  .features-container .features .feature {
+    width: max-content;
+  }
 }
 .features-container .features .feature[data-description-opened=true] .wrapper button .arrow {
   transform: rotate(180deg);
@@ -178,6 +198,12 @@
   align-items: center;
   position: relative;
 }
+@media (min-width: 56.25em) {
+  .features-container .features .feature .wrapper {
+    height: auto;
+    border-bottom: 0;
+  }
+}
 .features-container .features .feature .wrapper button {
   width: max(15.625em, 70%);
   display: flex;
@@ -188,9 +214,21 @@
   height: 3.625em;
   cursor: pointer;
   transition: background-color 300ms ease, border-color 300ms ease;
+  padding: 0;
 }
 .features-container .features .feature .wrapper button:hover, .features-container .features .feature .wrapper button:focus {
   background-color: var(--color-secondary);
+}
+@media (min-width: 56.25em) {
+  .features-container .features .feature .wrapper button {
+    width: inherit;
+    height: auto;
+    padding: 0.5em 1em;
+    border: 0.125em solid var(--color-btn-edge);
+  }
+  .features-container .features .feature .wrapper button:hover, .features-container .features .feature .wrapper button:focus {
+    background-color: var(--color-btn-edge);
+  }
 }
 .features-container .features .feature .wrapper button .title {
   margin-left: 0.625em;
@@ -199,7 +237,8 @@
 }
 @media (min-width: 56.25em) {
   .features-container .features .feature .wrapper button .title {
-    font-size: 1.375rem;
+    font-size: 1.125rem;
+    margin-left: 0em;
   }
 }
 .features-container .features .feature .wrapper button .arrow {
@@ -208,7 +247,19 @@
   height: 0.4375em;
   position: relative;
   transform: rotate(0deg);
-  transition: transform 600ms ease;
+  transition: transform 600ms ease, margin-left 300ms ease;
+  margin-left: 0;
+}
+@media (min-width: 56.25em) {
+  .features-container .features .feature .wrapper button .arrow {
+    margin-right: 0em;
+    margin-left: 1.5625em;
+  }
+}
+@media (min-width: 68.75em) {
+  .features-container .features .feature .wrapper button .arrow {
+    margin-left: 5vw;
+  }
 }
 .features-container .features .feature .wrapper button .arrow svg {
   position: absolute;
@@ -219,12 +270,23 @@
   width: inherit;
   height: auto;
   background-color: var(--color-bg-btn);
+  border: 0;
   border-bottom: 0.125em solid var(--color-btn-edge);
   color: var(--color-text);
   transition: background-color 300ms ease, border-color 300ms ease;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+@media (min-width: 56.25em) {
+  .features-container .features .feature .description {
+    width: auto;
+    position: absolute;
+    top: calc(100% + 0.125em);
+    left: 0;
+    right: 0;
+    border-top: 0;
+  }
 }
 .features-container .features .feature .description .content {
   padding-bottom: 1.25em;
@@ -236,6 +298,12 @@
 }
 .features-container .features .feature .description .content:first-child {
   padding-top: 1.25em;
+}
+@media (min-width: 56.25em) {
+  .features-container .features .feature .description .content {
+    width: 100%;
+    font-size: 1.125rem;
+  }
 }
 .features-container .features .feature .description .content.has-shortcut {
   line-height: 1.8;

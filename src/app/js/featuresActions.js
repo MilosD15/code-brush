@@ -2,8 +2,16 @@
 const ANIMATION_FEATURE_CONTAINER_DURATION = 900;
 const ANIMATION_FEATURE_DURATION = 600;
 
+const LARGE_SCREENS_BREAKPOINT = 900;
+
+// TASKS:
+// Menu closes when user clicks outside of the features menu
+// Just one feature description is opened at a certain moment
+
 $("document").ready(() => {
-    $(".features").hide();
+    if (window.innerWidth < LARGE_SCREENS_BREAKPOINT) {
+        $(".features").hide();
+    }
     $(".features .description").hide();
 
     $(".features-title").click(() => {

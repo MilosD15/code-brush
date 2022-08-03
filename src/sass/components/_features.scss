@@ -3,6 +3,8 @@
 $animation-feature-container-duration: 900;
 $animation-feature-duration: 600;
 
+$large-screens-breakpoint: 900;
+
 .features-container {
     width: 100%;
     height: auto;
@@ -16,6 +18,20 @@ $animation-feature-duration: 600;
         color: inherit;
     }
 
+    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        height: f.pixelsToRem(70);
+        width: 100%;
+        background-color: var(--color-secondary);
+        border-bottom: f.pixelsToEm(2) solid var(--color-text);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 
+            background-color 300ms ease,
+            border-color 300ms ease;
+        position: relative;
+    }
+
     &[data-menu-opened="true"] {
         .features-title {
             .arrow {
@@ -25,21 +41,13 @@ $animation-feature-duration: 600;
     }
 
     & > .title {
-        height: f.pixelsToRem(65);
-        width: 100%;
-        background-color: var(--color-secondary);
-        border-bottom: f.pixelsToEm(1) solid var(--color-text);
-        display: none;
-        justify-content: space-between;
-        align-items: center;
-        transition: 
-            background-color 300ms ease,
-            border-color 300ms ease;
-        padding-left: f.pixelsToEm(10);
+        margin-left: f.pixelsToEm(10);
+        margin-right: f.pixelsToEm(10);
         font-size: f.pixelsToRem(26);
+        display: none;
 
-        @media (min-width: f.pixelsToEm(900)) {
-            display: flex;
+        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+            display: block;
         }
     }
 
@@ -63,7 +71,7 @@ $animation-feature-duration: 600;
             background-color: var(--color-btn-edge);
         }
 
-        @media (min-width: f.pixelsToEm(900)) {
+        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
             display: none;
         }
 
@@ -84,7 +92,7 @@ $animation-feature-duration: 600;
                 transform $animation-feature-container-duration + ms ease,
                 opacity 300ms ease;
 
-            @media (min-width: f.pixelsToEm(900)) {
+            @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
                 opacity: 0;
                 pointer-events: none;
             }
@@ -101,9 +109,20 @@ $animation-feature-duration: 600;
         width: 100%;
         height: auto;
 
+        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+            display: flex;
+            justify-content: space-between;
+            margin-right: f.pixelsToEm(15);
+            width: 82%;
+        }
+
         .feature {
             width: 100%;
             height: auto;
+
+            @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                width: max-content;
+            }
 
             &[data-description-opened="true"] {
                 .wrapper {
@@ -128,6 +147,11 @@ $animation-feature-duration: 600;
                 align-items: center;
                 // overflow: hidden;
                 position: relative;
+
+                @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                    height: auto;
+                    border-bottom: 0;
+                }
     
                 button {
                     width: max(f.pixelsToEm(250), 70%);
@@ -141,10 +165,23 @@ $animation-feature-duration: 600;
                     transition: 
                         background-color 300ms ease,
                         border-color 300ms ease;
+                    padding: 0;
     
                     &:hover,
                     &:focus {
                         background-color: var(--color-secondary);
+                    }
+
+                    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                        width: inherit;
+                        height: auto;
+                        padding: f.pixelsToEm(8) f.pixelsToEm(16);
+                        border: f.pixelsToEm(2) solid var(--color-btn-edge);
+
+                        &:hover,
+                        &:focus {
+                            background-color: var(--color-btn-edge);
+                        }
                     }
     
                     .title {
@@ -152,8 +189,9 @@ $animation-feature-duration: 600;
                         font-size: f.pixelsToRem(20);
                         text-transform: uppercase;
             
-                        @media (min-width: f.pixelsToEm(900)) {
-                            font-size: f.pixelsToRem(22);
+                        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                            font-size: f.pixelsToRem(18);
+                            margin-left: f.pixelsToEm(0);
                         }
                     }
             
@@ -163,7 +201,19 @@ $animation-feature-duration: 600;
                         height: f.pixelsToEm(7);
                         position: relative;
                         transform: rotate(0deg);
-                        transition: transform $animation-feature-duration + ms ease;
+                        transition: 
+                            transform $animation-feature-duration + ms ease,
+                            margin-left 300ms ease;
+                        margin-left: 0;
+
+                        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                            margin-right: f.pixelsToEm(0);
+                            margin-left: f.pixelsToEm(25);
+                        }
+
+                        @media (min-width: f.pixelsToEm(1100)) {
+                            margin-left: 5vw;
+                        }
             
                         svg {
                             position: absolute;
@@ -178,6 +228,7 @@ $animation-feature-duration: 600;
                 width: inherit;
                 height: auto;
                 background-color: var(--color-bg-btn);
+                border: 0;
                 border-bottom: f.pixelsToEm(2) solid var(--color-btn-edge);
                 color: var(--color-text);
                 transition: 
@@ -186,6 +237,16 @@ $animation-feature-duration: 600;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
+
+                @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                    width: auto;
+                    position: absolute;
+                    top: calc(100% + f.pixelsToEm(2));
+                    left: 0;
+                    right: 0;
+                    // border: f.pixelsToEm(2) solid var(--color-btn-edge);
+                    border-top: 0;
+                }
 
                 .content {
                     padding-bottom: f.pixelsToEm(20);
@@ -197,6 +258,11 @@ $animation-feature-duration: 600;
 
                     &:first-child {
                         padding-top: f.pixelsToEm(20);
+                    }
+
+                    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                        width: 100%;
+                        font-size: f.pixelsToRem(18);
                     }
 
                     &.has-shortcut {
