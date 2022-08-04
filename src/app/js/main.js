@@ -1,2 +1,2 @@
 import './colorTheme.js';
-import './featuresActions.js';
+import './featuresAnimations.js';

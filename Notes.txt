@@ -1,0 +1,1 @@
+Implement that previous content is saved and rerendered every time you open a website.
