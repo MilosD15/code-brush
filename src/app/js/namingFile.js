@@ -1,18 +1,6 @@
 
 import ProgLanguages from "./ProgrammingLanguages.js";
 
-const namingFileBtn = document.querySelector('#name-file-frm button');
-
-// namingFileBtn.addEventListener('click', () => {
-//     const namingFileContainer = namingFileBtn.closest('.naming-file-container');
-//     isFileNamed = namingFileContainer.dataset.file === 'named';
-//     if (isFileNamed) {
-
-//     } else {
-
-//     }
-// });
-
 $("document").ready(() => {
     $("#name-file-frm").submit(e => {
         e.preventDefault();
@@ -24,7 +12,14 @@ $("document").ready(() => {
             const result = validateInput();
             if (result.isValid) {
                 // apply programming language
+                $("#editor").attr('data-prog-lang', result.fileType);
                 // change other things that should be changed
+                $("#name-file-frm .input").hide();
+                const inputValue = $('#name-file-frm input')[0].value;
+                $("#name-file-frm .file-name").text(`./${inputValue}`);
+                $("#name-file-frm .file-name").fadeIn(300);
+                $("#name-file-frm button").text('Change file name');
+                $(".naming-file-container").attr('data-file', 'named');
             } else {
                 $("#name-file-frm .input span").text(`${result.errorMessage}.`);
                 $("#name-file-frm .input span").slideDown(300).fadeIn(300);
@@ -45,13 +40,15 @@ function validateInput() {
     if (inputValue === '' || inputValue.trim() === '') {
         return {
             isValid: false,
-            errorMessage: 'The file must have its name'
+            errorMessage: 'File name omitted'
         }
     }
 
     if (inputValue.includes('.')) {
         const fileNamePieces = inputValue.split('.');
         const fileExtension = fileNamePieces[fileNamePieces.length - 1];
+
+        // write check for special characters(/,?"")
         
         const fileType = ProgLanguages().get(fileExtension);
         if (fileType) {

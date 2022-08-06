@@ -542,10 +542,12 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 .naming-file-container #name-file-frm .input {
   width: 100%;
   overflow: hidden;
+  margin-bottom: 0.9375em;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input {
     width: calc(70% + 2.5em);
+    margin-bottom: 0em;
   }
 }
 .naming-file-container #name-file-frm .input .error {
@@ -554,7 +556,6 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   margin-left: 0;
   color: #E71E1E;
   position: relative;
-  margin-bottom: 0.625em;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input .error {
@@ -589,7 +590,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   display: none;
 }
 .naming-file-container #name-file-frm button {
-  padding: 0.3125em 1.25em;
+  padding: 0.375em 1.25em;
   border: 0.125em solid var(--color-btn-edge);
   background-color: var(--color-bg-btn);
   color: var(--color-text);
@@ -612,7 +613,6 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   }
 }
 .naming-file-container[data-file=named] #name-file-frm .file-name {
-  display: block;
   word-wrap: break-word;
   width: 100%;
   height: auto;
@@ -626,6 +626,11 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   .naming-file-container[data-file=named] #name-file-frm .file-name {
     width: 70%;
     margin: 0.3125em 1.25em;
+  }
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container[data-file=named] #name-file-frm button {
+    width: 10.625em;
   }
 }
 

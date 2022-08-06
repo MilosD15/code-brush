@@ -1,7 +1,7 @@
 @use '../utils/functions' as f;
 
 @mixin primary-btn-styling {
-    padding: f.pixelsToEm(5) f.pixelsToEm(20);
+    padding: f.pixelsToEm(6) f.pixelsToEm(20);
     border: f.pixelsToEm(2) solid var(--color-btn-edge);
     background-color: var(--color-bg-btn);
     color: var(--color-text);

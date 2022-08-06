@@ -1,0 +1,4 @@
+Every time you make a new file, it will be saved and you can see all of your previous files by clicking on History icon in the right top corner just below page header.
+
+Every time you make a change on any of your file, it will be saved automatically.
+

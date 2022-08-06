@@ -26,9 +26,11 @@
         .input {
             width: 100%;
             overflow: hidden;
+            margin-bottom: f.pixelsToEm(15);
 
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                 width: calc(70% + f.pixelsToEm(40));
+                margin-bottom: f.pixelsToEm(0);
             }
 
             .error {
@@ -37,7 +39,6 @@
                 margin-left: 0;
                 color: $color-specific-red;
                 position: relative;
-                margin-bottom: f.pixelsToEm(10);
 
                 @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                     margin-left: f.pixelsToEm(20);
@@ -93,7 +94,6 @@
             }
 
             .file-name {
-                display: block;
                 word-wrap: break-word;
                 width: 100%;
                 height: auto;
@@ -106,6 +106,12 @@
                 @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                     width: 70%;
                     margin: f.pixelsToEm(5) f.pixelsToEm(20);
+                }
+            }
+
+            button {
+                @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                    width: f.pixelsToEm(170);
                 }
             }
         }
