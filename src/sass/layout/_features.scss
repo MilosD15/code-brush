@@ -1,9 +1,8 @@
 @use '../utils/functions' as f;
+@use '../utils/variables' as *;
 
 $animation-feature-container-duration: 900;
 $animation-feature-duration: 600;
-
-$large-screens-breakpoint: 900;
 
 .features-container {
     width: 100%;
@@ -108,8 +107,10 @@ $large-screens-breakpoint: 900;
     .features {
         width: 100%;
         height: auto;
+        opacity: 0;
 
         @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+            opacity: 1;
             display: flex;
             justify-content: space-between;
             margin-right: f.pixelsToEm(15);
@@ -237,8 +238,11 @@ $large-screens-breakpoint: 900;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
+                opacity: 1;
+                z-index: 100;
 
                 @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                    opacity: 0;
                     width: auto;
                     position: absolute;
                     top: calc(100% + f.pixelsToEm(2));

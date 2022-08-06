@@ -1,0 +1,137 @@
+@use '../utils/functions' as f;
+@use '../utils/colors' as *;
+@use '../components' as *;
+@use '../utils/variables' as *;
+
+.naming-file-container {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-secondary);
+    border-bottom: f.pixelsToEm(2) solid var(--color-text);
+    transition: 
+            background-color 300ms ease,
+            border-color 300ms ease;
+    
+    #name-file-frm {
+        padding: f.pixelsToEm(20);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .input {
+            width: 100%;
+            overflow: hidden;
+
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                width: calc(70% + f.pixelsToEm(40));
+            }
+
+            .error {
+                margin-top: f.pixelsToEm(5);
+                display: none;
+                margin-left: 0;
+                color: $color-specific-red;
+                position: relative;
+                margin-bottom: f.pixelsToEm(10);
+
+                @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                    margin-left: f.pixelsToEm(20);
+                    margin-top: 0;
+                }
+            }
+
+            .error::after {
+                content: '*';
+                position: absolute;
+                top: 0;
+                right: f.pixelsToEm(5);
+            }
+        }
+
+        input {
+            width: 100%;
+            height: auto;
+            background-color: transparent;
+            border: 0;
+            border-bottom: f.pixelsToEm(2) solid var(--color-text);
+            color: var(--color-text);
+            font-size: f.pixelsToRem(17);
+            padding: 0 f.pixelsToEm(5);
+            position: relative;
+            transition: border-bottom-color 300ms ease;
+
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                margin: f.pixelsToEm(5) f.pixelsToEm(20);
+            }
+        }
+
+        .file-name {
+            display: none;
+        }
+
+        button {
+            @include primary-btn-styling();
+            font-size: f.pixelsToRem(20);
+            width: max-content;
+
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                margin-right: f.pixelsToEm(10);
+            }
+        }
+    }
+
+    &[data-file=named] {
+        #name-file-frm {
+
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                flex-direction: row-reverse;
+            }
+
+            .file-name {
+                display: block;
+                word-wrap: break-word;
+                width: 100%;
+                height: auto;
+                background-color: transparent;
+                color: var(--color-text);
+                margin-top: f.pixelsToEm(20);
+                font-size: f.pixelsToRem(17);
+                padding: 0 f.pixelsToEm(5);
+
+                @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                    width: 70%;
+                    margin: f.pixelsToEm(5) f.pixelsToEm(20);
+                }
+            }
+        }
+    }
+}
+
+body[data-color-theme="light"] {
+    .naming-file-container {
+        #name-file-frm {
+            input {
+                &::placeholder {
+                    color: $color-black-secondary;
+                }
+            }
+        }
+    }
+}
+
+body[data-color-theme="dark"] {
+    .naming-file-container {
+        #name-file-frm {
+            input {
+                &::placeholder {
+                    color: $color-white-bg-btn;
+                }
+            }
+        }
+    }
+}

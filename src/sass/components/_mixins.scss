@@ -1,0 +1,18 @@
+@use '../utils/functions' as f;
+
+@mixin primary-btn-styling {
+    padding: f.pixelsToEm(5) f.pixelsToEm(20);
+    border: f.pixelsToEm(2) solid var(--color-btn-edge);
+    background-color: var(--color-bg-btn);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: 
+            background-color 300ms ease,
+            color 300ms ease,
+            border-color 300ms ease;
+    
+    &:hover,
+    &:focus {
+        background-color: var(--color-btn-edge);
+    }
+}

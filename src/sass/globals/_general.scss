@@ -1,4 +1,5 @@
 @use '../utils/functions' as f;
+@use '../utils/variables' as *;
 
 *,
 *::before,
@@ -15,11 +16,28 @@ $max-content-width: 1400;
 .app {
     min-height: inherit;
     width: min(100%, f.pixelsToEm($max-content-width));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     @media (min-width: f.pixelsToEm($max-content-width)) {
         border-left: f.pixelsToEm(2) solid var(--color-text);
         border-right: f.pixelsToEm(2) solid var(--color-text);
     }
+}
+
+main {
+    width: 100%;
+    margin: f.pixelsToEm(100) auto;
+
+    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        width: 85%;
+    }
+}
+
+footer {
+    width: 100%;
+    height: 60px;
 }
 
 ::selection {

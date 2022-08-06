@@ -159,17 +159,23 @@
             </div>
         </header>
         <main>
-            <div class="naming-file-conatiner">
+            <div class="naming-file-container" data-file="unnamed">
                 <form id="name-file-frm">
-                    <input type="text" placeholder="Name your file... ( e.g. script.js )">
-                    <button class="save-file-btn">Save</button>
-                    <button class="change-file-btn">Change file name</button>
+                    <div class="input">
+                        <input type="text" placeholder="Name your file... ( e.g. script.js )">
+                        <span class="error">The file must be named</span>
+                    </div>
+                    <button>Save</button>
+                    <div class="file-name">./script.js</div>
                 </form>
             </div>
             <div class="editor">
-                
+
             </div>
         </main>
+        <footer>
+
+        </footer>
     </div>
 </body>
 </html>

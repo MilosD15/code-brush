@@ -1,3 +1,196 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  font-family: inherit;
+  color: var(--color-text);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: background-color 300ms ease;
+}
+
+body[data-color-theme=dark] {
+  background-color: var(--color-primary);
+  --color-primary: #262626;
+  --color-secondary: #343434;
+  --color-bg-btn: #151515;
+  --color-btn-edge: #585353;
+  --color-text: #FFFFFF;
+}
+body[data-color-theme=dark] .moon {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  pointer-events: initial !important;
+}
+
+body[data-color-theme=light] {
+  background-color: var(--color-btn-edge);
+  --color-primary: #f4f4f4;
+  --color-secondary: #F0EEEE;
+  --color-bg-btn: #D9D9D9;
+  --color-btn-edge: #FFFFFF;
+  --color-text: #000000;
+}
+body[data-color-theme=light] .sun {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+  pointer-events: initial !important;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    --color-primary: #f4f4f4;
+    --color-secondary: #F0EEEE;
+    --color-bg-btn: #D9D9D9;
+    --color-btn-edge: #FFFFFF;
+    --color-text: #000000;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-primary: #262626;
+    --color-secondary: #343434;
+    --color-bg-btn: #151515;
+    --color-btn-edge: #585353;
+    --color-text: #FFFFFF;
+  }
+}
+*,
+*::before,
+*::after {
+  outline: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  min-height: inherit;
+  width: min(100%, 87.5em);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 87.5em) {
+  .app {
+    border-left: 0.125em solid var(--color-text);
+    border-right: 0.125em solid var(--color-text);
+  }
+}
+
+main {
+  width: 100%;
+  margin: 6.25em auto;
+}
+@media (min-width: 56.25em) {
+  main {
+    width: 85%;
+  }
+}
+
+footer {
+  width: 100%;
+  height: 60px;
+}
+
+::selection {
+  background-color: var(--color-text);
+  color: var(--color-primary);
+}
+
+::-webkit-scrollbar {
+  width: 0.625em;
+  background-color: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+}
+
+body[data-color-theme=dark]::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-btn-edge);
+}
+
+body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-bg-btn);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-btn-edge);
+}
+
 .website-name {
   height: 3.75em;
   width: 100%;
@@ -166,9 +359,11 @@
 .features-container .features {
   width: 100%;
   height: auto;
+  opacity: 0;
 }
 @media (min-width: 56.25em) {
   .features-container .features {
+    opacity: 1;
     display: flex;
     justify-content: space-between;
     margin-right: 0.9375em;
@@ -277,9 +472,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  opacity: 1;
+  z-index: 100;
 }
 @media (min-width: 56.25em) {
   .features-container .features .feature .description {
+    opacity: 0;
     width: auto;
     position: absolute;
     top: calc(100% + 0.125em);
@@ -322,175 +520,121 @@
   margin-top: 0.625em;
 }
 
-/* Box sizing rules */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role=list],
-ol[role=list] {
-  list-style: none;
-}
-
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-  *,
-*::before,
-*::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-body {
-  font-family: inherit;
-  color: var(--color-text);
+.naming-file-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  transition: background-color 300ms ease;
-}
-
-body[data-color-theme=dark] {
-  background-color: var(--color-primary);
-  --color-primary: #262626;
-  --color-secondary: #343434;
-  --color-bg-btn: #151515;
-  --color-btn-edge: #585353;
-  --color-text: #FFFFFF;
-}
-body[data-color-theme=dark] .moon {
-  opacity: 1 !important;
-  transform: translate(-50%, -50%) scale(1) !important;
-  pointer-events: initial !important;
-}
-
-body[data-color-theme=light] {
-  background-color: var(--color-btn-edge);
-  --color-primary: #f4f4f4;
-  --color-secondary: #F0EEEE;
-  --color-bg-btn: #D9D9D9;
-  --color-btn-edge: #FFFFFF;
-  --color-text: #000000;
-}
-body[data-color-theme=light] .sun {
-  opacity: 1 !important;
-  transform: translate(-50%, -50%) scale(1) !important;
-  pointer-events: initial !important;
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    --color-primary: #f4f4f4;
-    --color-secondary: #F0EEEE;
-    --color-bg-btn: #D9D9D9;
-    --color-btn-edge: #FFFFFF;
-    --color-text: #000000;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  body {
-    --color-primary: #262626;
-    --color-secondary: #343434;
-    --color-bg-btn: #151515;
-    --color-btn-edge: #585353;
-    --color-text: #FFFFFF;
-  }
-}
-*,
-*::before,
-*::after {
-  outline: none;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.app {
-  min-height: inherit;
-  width: min(100%, 87.5em);
-}
-@media (min-width: 87.5em) {
-  .app {
-    border-left: 0.125em solid var(--color-text);
-    border-right: 0.125em solid var(--color-text);
-  }
-}
-
-::selection {
-  background-color: var(--color-text);
-  color: var(--color-primary);
-}
-
-::-webkit-scrollbar {
-  width: 0.625em;
-  background-color: var(--color-primary);
-}
-
-::-webkit-scrollbar-thumb {
+  height: auto;
   background-color: var(--color-secondary);
+  border-bottom: 0.125em solid var(--color-text);
+  transition: background-color 300ms ease, border-color 300ms ease;
 }
-
-::-webkit-scrollbar-thumb:hover {
+.naming-file-container #name-file-frm {
+  padding: 1.25em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container #name-file-frm {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.naming-file-container #name-file-frm .input {
+  width: 100%;
+  overflow: hidden;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container #name-file-frm .input {
+    width: calc(70% + 2.5em);
+  }
+}
+.naming-file-container #name-file-frm .input .error {
+  margin-top: 0.3125em;
+  display: none;
+  margin-left: 0;
+  color: #E71E1E;
+  position: relative;
+  margin-bottom: 0.625em;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container #name-file-frm .input .error {
+    margin-left: 1.25em;
+    margin-top: 0;
+  }
+}
+.naming-file-container #name-file-frm .input .error::after {
+  content: "*";
+  position: absolute;
+  top: 0;
+  right: 0.3125em;
+}
+.naming-file-container #name-file-frm input {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 0.125em solid var(--color-text);
+  color: var(--color-text);
+  font-size: 1.0625rem;
+  padding: 0 0.3125em;
+  position: relative;
+  transition: border-bottom-color 300ms ease;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container #name-file-frm input {
+    margin: 0.3125em 1.25em;
+  }
+}
+.naming-file-container #name-file-frm .file-name {
+  display: none;
+}
+.naming-file-container #name-file-frm button {
+  padding: 0.3125em 1.25em;
+  border: 0.125em solid var(--color-btn-edge);
+  background-color: var(--color-bg-btn);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+  font-size: 1.25rem;
+  width: max-content;
+}
+.naming-file-container #name-file-frm button:hover, .naming-file-container #name-file-frm button:focus {
   background-color: var(--color-btn-edge);
 }
+@media (min-width: 56.25rem) {
+  .naming-file-container #name-file-frm button {
+    margin-right: 0.625em;
+  }
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container[data-file=named] #name-file-frm {
+    flex-direction: row-reverse;
+  }
+}
+.naming-file-container[data-file=named] #name-file-frm .file-name {
+  display: block;
+  word-wrap: break-word;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  color: var(--color-text);
+  margin-top: 1.25em;
+  font-size: 1.0625rem;
+  padding: 0 0.3125em;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container[data-file=named] #name-file-frm .file-name {
+    width: 70%;
+    margin: 0.3125em 1.25em;
+  }
+}
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-btn-edge);
+body[data-color-theme=light] .naming-file-container #name-file-frm input::placeholder {
+  color: #343434;
+}
+
+body[data-color-theme=dark] .naming-file-container #name-file-frm input::placeholder {
+  color: #D9D9D9;
 }
 
 html {
