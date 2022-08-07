@@ -548,6 +548,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   .naming-file-container #name-file-frm .input {
     width: calc(70% + 2.5em);
     margin-bottom: 0em;
+    margin-left: 0.9375em;
   }
 }
 .naming-file-container #name-file-frm .input .error {
@@ -556,10 +557,10 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   margin-left: 0;
   color: #E71E1E;
   position: relative;
+  margin-left: 0.3125em;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input .error {
-    margin-left: 1.25em;
     margin-top: 0;
   }
 }
@@ -583,7 +584,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm input {
-    margin: 0.3125em 1.25em;
+    margin: 0.3125em 0;
   }
 }
 .naming-file-container #name-file-frm .file-name {

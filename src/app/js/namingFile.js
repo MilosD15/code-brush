@@ -1,13 +1,27 @@
 
-import ProgLanguages from "./ProgrammingLanguages.js";
+const PROGRAMMING_LANGUAGES = new Map([
+    [ 'xml' , 'application/xml' ],
+    [ 'html' , 'text/html' ],
+    [ 'css' , 'text/css' ],
+    [ 'js' , 'text/javascript' ],
+    [ 'json' , 'application/x-json' ],
+    [ 'py' , 'text/x-python' ],
+    [ 'go' , 'text/x-go' ],
+    [ 'rb' , 'text/x-ruby' ]
+]);
 
 $("document").ready(() => {
     $("#name-file-frm").submit(e => {
         e.preventDefault();
         const namingFileContainer = $(".naming-file-container");
-        const isFileNamed = namingFileContainer.attr('file') === 'named';
+        const isFileNamed = namingFileContainer.attr('data-file') === 'named';
         if (isFileNamed) {
-            console.log('file named');
+            console.log('in')
+            $("#name-file-frm .input").fadeIn(300);
+            $("#name-file-frm .file-name").hide();
+            $(".naming-file-container").attr('data-file', 'unnamed');
+            $("#name-file-frm button").text('Save');
+            $("#name-file-frm input").focus();
         } else {
             const result = validateInput();
             if (result.isValid) {
@@ -15,7 +29,7 @@ $("document").ready(() => {
                 $("#editor").attr('data-prog-lang', result.fileType);
                 // change other things that should be changed
                 $("#name-file-frm .input").hide();
-                const inputValue = $('#name-file-frm input')[0].value;
+                const inputValue = $('#name-file-frm input')[0].value.trim();
                 $("#name-file-frm .file-name").text(`./${inputValue}`);
                 $("#name-file-frm .file-name").fadeIn(300);
                 $("#name-file-frm button").text('Change file name');
@@ -36,36 +50,28 @@ $("#name-file-frm input").keyup(() => {
 });
 
 function validateInput() {
-    const inputValue = $('#name-file-frm input')[0].value;
-    if (inputValue === '' || inputValue.trim() === '') {
+    const inputValue = $('#name-file-frm input')[0].value.trim();
+    if (inputValue === '') {
         return {
             isValid: false,
             errorMessage: 'File name omitted'
         }
     }
 
-    if (inputValue.includes('.')) {
-        const fileNamePieces = inputValue.split('.');
-        const fileExtension = fileNamePieces[fileNamePieces.length - 1];
+    const FILE_NAME_REGEX = /^\w+\.(xml|html|css|js|json|py|go|rb)$/;
 
-        // write check for special characters(/,?"")
-        
-        const fileType = ProgLanguages().get(fileExtension);
-        if (fileType) {
-            return {
-                isValid: true,
-                fileType
-            }
-        } else {
-            return {
-                isValid: false,
-                errorMessage: 'Entered file extension is not supported'
-            }
-        }
-    } else {
+    if (inputValue.match(FILE_NAME_REGEX) == null) {
         return {
             isValid: false,
-            errorMessage: 'Please, enter file extension'
+            errorMessage: 'Incorrect file name format'
         }
+    }
+
+    const fileNamePieces = inputValue.split('.');
+    const fileExtension = fileNamePieces[fileNamePieces.length - 1].toLowerCase();
+    const fileType = PROGRAMMING_LANGUAGES.get(fileExtension);
+    return {
+        isValid: true,
+        fileType
     }
 }

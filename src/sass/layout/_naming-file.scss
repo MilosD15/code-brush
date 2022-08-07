@@ -31,6 +31,7 @@
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                 width: calc(70% + f.pixelsToEm(40));
                 margin-bottom: f.pixelsToEm(0);
+                margin-left: f.pixelsToEm(15);
             }
 
             .error {
@@ -39,9 +40,9 @@
                 margin-left: 0;
                 color: $color-specific-red;
                 position: relative;
+                margin-left: f.pixelsToEm(5);
 
                 @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
-                    margin-left: f.pixelsToEm(20);
                     margin-top: 0;
                 }
             }
@@ -67,7 +68,7 @@
             transition: border-bottom-color 300ms ease;
 
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
-                margin: f.pixelsToEm(5) f.pixelsToEm(20);
+                margin: f.pixelsToEm(5) 0;
             }
         }
 
