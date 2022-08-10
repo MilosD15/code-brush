@@ -6,6 +6,7 @@
     --color-bg-btn: #{$color-black-bg-btn};
     --color-btn-edge: #{$color-black-btn-edge};
     --color-text: #{$color-white-text};
+    --color-specific-red: #{$lighter-red};
 }
 
 @mixin light-theme {
@@ -14,4 +15,5 @@
     --color-bg-btn: #{$color-white-bg-btn};
     --color-btn-edge: #{$color-white-btn-edge};
     --color-text: #{$color-black-text};
+    --color-specific-red: #{$darker-red};
 }

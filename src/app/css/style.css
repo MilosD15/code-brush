@@ -87,6 +87,7 @@ body[data-color-theme=dark] {
   --color-bg-btn: #151515;
   --color-btn-edge: #585353;
   --color-text: #FFFFFF;
+  --color-specific-red: #f84242;
 }
 body[data-color-theme=dark] .moon {
   opacity: 1 !important;
@@ -101,6 +102,7 @@ body[data-color-theme=light] {
   --color-bg-btn: #D9D9D9;
   --color-btn-edge: #FFFFFF;
   --color-text: #000000;
+  --color-specific-red: #E71E1E;
 }
 body[data-color-theme=light] .sun {
   opacity: 1 !important;
@@ -115,6 +117,7 @@ body[data-color-theme=light] .sun {
     --color-bg-btn: #D9D9D9;
     --color-btn-edge: #FFFFFF;
     --color-text: #000000;
+    --color-specific-red: #E71E1E;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -124,6 +127,7 @@ body[data-color-theme=light] .sun {
     --color-bg-btn: #151515;
     --color-btn-edge: #585353;
     --color-text: #FFFFFF;
+    --color-specific-red: #f84242;
   }
 }
 *,
@@ -230,7 +234,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 }
 .website-name .logo-container .logo-name {
   margin-left: 0.125em;
-  font-size: 1.5rem;
+  font-size: 1.4375rem;
 }
 @media (min-width: 56.25em) {
   .website-name .logo-container .logo-name {
@@ -333,7 +337,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 }
 .features-container .features-title .title {
   margin-left: 0.625em;
-  font-size: 1.5rem;
+  font-size: 1.4375rem;
 }
 .features-container .features-title .arrow {
   margin-right: 1.75em;
@@ -427,12 +431,12 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 }
 .features-container .features .feature .wrapper button .title {
   margin-left: 0.625em;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   text-transform: uppercase;
 }
 @media (min-width: 56.25em) {
   .features-container .features .feature .wrapper button .title {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     margin-left: 0em;
   }
 }
@@ -492,7 +496,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   padding-right: 0.625em;
   width: max(12.5em, 70%);
   height: auto;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 .features-container .features .feature .description .content:first-child {
   padding-top: 1.25em;
@@ -500,7 +504,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 @media (min-width: 56.25em) {
   .features-container .features .feature .description .content {
     width: 100%;
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
 }
 .features-container .features .feature .description .content.has-shortcut {
@@ -555,7 +559,7 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
   margin-top: 0.3125em;
   display: none;
   margin-left: 0;
-  color: #E71E1E;
+  color: var(--color-specific-red);
   position: relative;
   margin-left: 0.3125em;
 }

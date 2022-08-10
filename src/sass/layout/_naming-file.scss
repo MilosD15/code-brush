@@ -38,7 +38,7 @@
                 margin-top: f.pixelsToEm(5);
                 display: none;
                 margin-left: 0;
-                color: $color-specific-red;
+                color: var(--color-specific-red);
                 position: relative;
                 margin-left: f.pixelsToEm(5);
 
@@ -62,7 +62,7 @@
             border: 0;
             border-bottom: f.pixelsToEm(2) solid var(--color-text);
             color: var(--color-text);
-            font-size: f.pixelsToRem(17);
+            font-size: f.pixelsToRem($extra-small-font-size + 1);
             padding: 0 f.pixelsToEm(5);
             position: relative;
             transition: border-bottom-color 300ms ease;
@@ -78,7 +78,7 @@
 
         button {
             @include primary-btn-styling();
-            font-size: f.pixelsToRem(20);
+            font-size: f.pixelsToRem($small-font-size + 1);
             width: max-content;
 
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
@@ -101,7 +101,7 @@
                 background-color: transparent;
                 color: var(--color-text);
                 margin-top: f.pixelsToEm(20);
-                font-size: f.pixelsToRem(17);
+                font-size: f.pixelsToRem($extra-small-font-size + 1);
                 padding: 0 f.pixelsToEm(5);
 
                 @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {

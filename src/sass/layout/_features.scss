@@ -42,7 +42,7 @@ $animation-feature-duration: 600;
     & > .title {
         margin-left: f.pixelsToEm(10);
         margin-right: f.pixelsToEm(10);
-        font-size: f.pixelsToRem(26);
+        font-size: f.pixelsToRem($large-font-size);
         display: none;
 
         @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
@@ -76,7 +76,7 @@ $animation-feature-duration: 600;
 
         .title {
             margin-left: f.pixelsToEm(10);
-            font-size: f.pixelsToRem(24);
+            font-size: f.pixelsToRem($medium-font-size);
         }
 
         .arrow {
@@ -187,11 +187,11 @@ $animation-feature-duration: 600;
     
                     .title {
                         margin-left: f.pixelsToEm(10);
-                        font-size: f.pixelsToRem(20);
+                        font-size: f.pixelsToRem($extra-small-font-size + 2);
                         text-transform: uppercase;
             
                         @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
-                            font-size: f.pixelsToRem(18);
+                            font-size: f.pixelsToRem($small-font-size);
                             margin-left: f.pixelsToEm(0);
                         }
                     }
@@ -257,7 +257,7 @@ $animation-feature-duration: 600;
                     padding-right: f.pixelsToEm(10);
                     width: max(f.pixelsToEm(200), 70%);
                     height: auto;
-                    font-size: f.pixelsToRem(18);
+                    font-size: f.pixelsToRem($extra-small-font-size);
 
                     &:first-child {
                         padding-top: f.pixelsToEm(20);
@@ -265,7 +265,7 @@ $animation-feature-duration: 600;
 
                     @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
                         width: 100%;
-                        font-size: f.pixelsToRem(18);
+                        font-size: f.pixelsToRem($extra-small-font-size + 1);
                     }
 
                     &.has-shortcut {

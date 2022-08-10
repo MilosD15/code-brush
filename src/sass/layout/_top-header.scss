@@ -1,4 +1,5 @@
 @use '../utils/functions' as f;
+@use '../utils/variables' as *;
 
 .website-name {
     height: f.pixelsToEm(60);
@@ -41,10 +42,10 @@
 
         .logo-name {
             margin-left: f.pixelsToEm(2);
-            font-size: f.pixelsToRem(24);
+            font-size: f.pixelsToRem($medium-font-size);
 
             @media (min-width: f.pixelsToEm(900)) {
-                font-size: f.pixelsToRem(26);
+                font-size: f.pixelsToRem($large-font-size);
             }
         }
     }
