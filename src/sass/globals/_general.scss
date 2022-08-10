@@ -28,7 +28,8 @@ $max-content-width: 1400;
 
 main {
     width: 100%;
-    margin: f.pixelsToEm(100) auto;
+    margin: f.pixelsToEm(50) auto;
+    height: max(60vh, 300px);
 
     @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
         width: 85%;

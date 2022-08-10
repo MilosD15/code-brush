@@ -1,2 +1,80 @@
 @use '../utils/functions' as f;
+@use '../utils/variables' as *;
 
+.editor-container {
+    height: calc(100% - f.pixelsToRem($naming-file-container-height-sm));
+
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+        height: calc(100% - f.pixelsToRem($naming-file-container-height));
+    }
+
+    /* OVERRIDING DEFAULT CodeMirror STYLINGS */
+    .CodeMirror {
+        // border: 1px solid currentColor !important;
+        padding-top: 5px;
+        font-size: f.pixelsToRem($extra-small-font-size);
+        height: 100%;
+    }
+
+    .CodeMirror-hints {
+        -webkit-box-shadow: 2px 3px 5px #454756;
+        -moz-box-shadow: 2px 3px 5px #454756;
+        box-shadow: 2px 3px 5px #454756;
+        border-radius: 3px;
+        border: 1px solid #2a2b31;
+        background: #31333f;
+    }
+      
+    .CodeMirror-hint {
+        color: white;
+    }
+    
+    li.CodeMirror-hint-active {
+        background: rgb(69, 168, 255);
+        color: black;
+    }
+    
+    .CodeMirror-linenumber {
+        text-align: center;
+    }
+    
+    .cm-searching {
+        background-color: #9a9a9c;
+    }
+    
+    .CodeMirror-search-hint {
+        display: none;
+    }
+    
+    .CodeMirror-dialog-top {
+        margin-top: 10px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
+    
+    .CodeMirror-dialog {
+        left: 50%;
+        width: 70%;
+        transform: translateX(-50%);
+    }
+    
+    #CodeMirror-search-field {
+        margin-left: 5px;
+        width: 70% !important;
+    }
+    
+    .CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+        background: #454756;
+        border: none;
+        border-radius: 5px;
+    }
+    
+    .CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+        background: #282a36;
+    }
+    
+    .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
+        background-color: #2a2b31;
+    }
+}

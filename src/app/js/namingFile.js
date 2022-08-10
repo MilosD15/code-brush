@@ -26,7 +26,7 @@ $("document").ready(() => {
             const result = validateInput();
             if (result.isValid) {
                 // apply programming language
-                $("#editor").attr('data-prog-lang', result.fileType);
+                $(".editor-container").attr('data-prog-lang', result.fileType);
                 // change other things that should be changed
                 $("#name-file-frm .input").hide();
                 const inputValue = $('#name-file-frm input')[0].value.trim();

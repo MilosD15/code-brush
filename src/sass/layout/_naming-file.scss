@@ -11,6 +11,14 @@
     transition: 
             background-color 300ms ease,
             border-color 300ms ease;
+    height: f.pixelsToRem($naming-file-container-height-sm);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+        height: f.pixelsToRem($naming-file-container-height);
+    }
     
     #name-file-frm {
         padding: f.pixelsToEm(20);
@@ -78,10 +86,11 @@
 
         button {
             @include primary-btn-styling();
-            font-size: f.pixelsToRem($small-font-size + 1);
+            font-size: f.pixelsToRem($small-font-size - 1);
             width: max-content;
 
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                font-size: f.pixelsToRem($small-font-size + 1);
                 margin-right: f.pixelsToEm(10);
             }
         }
