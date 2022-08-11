@@ -1,4 +1,6 @@
 
+import { editor } from "./main.js";
+
 const PROGRAMMING_LANGUAGES = new Map([
     [ 'xml' , 'application/xml' ],
     [ 'html' , 'text/html' ],
@@ -27,6 +29,8 @@ $("document").ready(() => {
             if (result.isValid) {
                 // apply programming language
                 $(".editor-container").attr('data-prog-lang', result.fileType);
+                editor.setLanguage(result.fileType);
+                editor.clear();
                 // change other things that should be changed
                 $("#name-file-frm .input").hide();
                 const inputValue = $('#name-file-frm input')[0].value.trim();

@@ -1,3 +1,5 @@
+import { editor } from './main.js';
+
 $("document").ready(() => {
     // determining color theme once the page is loaded
     const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -15,4 +17,5 @@ $("document").ready(() => {
 function setColorTheme(isDark) {
     const currentColorTheme = isDark ? 'dark' : 'light';
     $("body").attr('data-color-theme', currentColorTheme);
+    editor.setTheme(currentColorTheme);
 }
