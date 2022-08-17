@@ -19,3 +19,7 @@ function setColorTheme(isDark) {
     $("body").attr('data-color-theme', currentColorTheme);
     editor.setTheme(currentColorTheme);
 }
+
+export function getCurrentColorTheme() {
+    return document.body.dataset.colorTheme;
+}

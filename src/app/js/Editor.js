@@ -2,10 +2,11 @@
 export default class Editor {
     #editor
 
-    constructor(id) {
+    constructor(id, currentColorTheme) {
         const editorElement = document.querySelector(`textarea#${id}`);
         this.#editor = Editor.#initializeEditor(editorElement);
         this.#setInitialValue();
+        this.setTheme(currentColorTheme);
     }
 
     static #initializeEditor(editorElement) {

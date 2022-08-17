@@ -1,5 +1,6 @@
 @use '../utils/functions' as f;
 @use '../utils/variables' as *;
+@use '../utils/typography' as *;
 
 $animation-feature-container-duration: 900;
 $animation-feature-duration: 600;
@@ -115,6 +116,10 @@ $animation-feature-duration: 600;
             justify-content: space-between;
             margin-right: f.pixelsToEm(15);
             width: 82%;
+        }
+
+        @media (min-width: f.pixelsToEm($extra-large-screens-breakpoint)) {
+            margin-right: f.pixelsToEm(40);
         }
 
         .feature {
@@ -263,9 +268,17 @@ $animation-feature-duration: 600;
                         padding-top: f.pixelsToEm(20);
                     }
 
+                    @media (min-width: f.pixelsToEm($medium-screens-breakpoint)) {
+                        font-size: f.pixelsToRem($extra-small-font-size + 1);
+                    }
+
                     @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
                         width: 100%;
-                        font-size: f.pixelsToRem($extra-small-font-size + 1);
+                        font-size: f.pixelsToRem($extra-small-font-size + 2);
+                    }
+
+                    @media (min-width: f.pixelsToEm($extra-large-screens-breakpoint)) {
+                        font-size: f.pixelsToRem($small-font-size);
                     }
 
                     &.has-shortcut {

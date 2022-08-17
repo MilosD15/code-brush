@@ -1,6 +1,7 @@
 @use '../utils/functions' as f;
 @use '../utils/variables' as *;
 @use '../utils/colors' as *;
+@use '../utils/typography' as *;
 
 .editor-container {
     height: calc(100% - f.pixelsToRem($naming-file-container-height-sm));
@@ -8,80 +9,89 @@
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         height: calc(100% - f.pixelsToRem($naming-file-container-height));
     }
+}
 
-    /* OVERRIDING DEFAULT CodeMirror STYLINGS */
-    .CodeMirror {
-        // border: 1px solid currentColor !important;
-        padding-top: 5px;
+/* OVERRIDING DEFAULT CodeMirror STYLINGS */
+.CodeMirror {
+    // border: 1px solid currentColor !important;
+    padding-top: 5px;
+    font-size: f.pixelsToRem($extra-small-font-size - 1);
+    height: 100%;
+
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         font-size: f.pixelsToRem($extra-small-font-size);
-        height: 100%;
-    }
-
-    .CodeMirror-hints {
-        -webkit-box-shadow: 2px 3px 5px #454756;
-        -moz-box-shadow: 2px 3px 5px #454756;
-        box-shadow: 2px 3px 5px #454756;
-        border-radius: 3px;
-        border: 1px solid #2a2b31;
-        background: #31333f;
-    }
-
-    // change appearance of hints container (dark/light mode)
-    // hide scrollbar 
-      
-    .CodeMirror-hint {
-        color: black;
-    }
-    
-    li.CodeMirror-hint-active {
-        background: rgb(69, 168, 255);
-        color: black;
-    }
-    
-    .CodeMirror-linenumber {
-        text-align: center;
-    }
-    
-    .cm-searching {
-        background-color: #9a9a9c;
-    }
-    
-    .CodeMirror-search-hint {
-        display: none;
-    }
-    
-    .CodeMirror-dialog-top {
-        margin-top: 10px;
-        padding: 10px 15px;
-        border-radius: 10px;
-        border: 1px solid #eee;
-    }
-    
-    .CodeMirror-dialog {
-        left: 50%;
-        width: 70%;
-        transform: translateX(-50%);
-    }
-    
-    #CodeMirror-search-field {
-        margin-left: 5px;
-        width: 70% !important;
-    }
-    
-    .CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-        background: $color-black-secondary;
-        border: none;
-        border-radius: 5px;
-        transition: background 300ms ease;
-    }
-    
-    .CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
-        background: $color-black-bg-btn;
-        transition: background 300ms ease;
-    }
-    
-    .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-        background-color: $color-black-bg-btn;
-        transition: background-color 300ms ease;
     }
 }
+
+.CodeMirror-hints {
+    -webkit-box-shadow: 2px 3px 5px var(--color-btn-edge);
+    -moz-box-shadow: 2px 3px 5px var(--color-btn-edge);
+    box-shadow: 2px 3px 5px var(--color-btn-edge);
+    border-radius: 3px;
+    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+}
+
+// change appearance of hints container (dark/light mode)
+// hide scrollbar 
+
+.CodeMirror-hints::-webkit-scrollbar {
+    width: 0 !important;
+}
+  
+.CodeMirror-hint {
+    color: var(--color-text);
+}
+
+li.CodeMirror-hint-active {
+    background: rgb(69, 168, 255);
+    color: var(--color-primary);
+}
+
+.CodeMirror-linenumber {
+    text-align: center;
+}
+
+.cm-searching {
+    background-color: var(--color-specific-red);
+}
+
+.CodeMirror-search-hint {
+    display: none;
+}
+
+.CodeMirror-dialog-top {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--color-text);
+}
+
+.CodeMirror-dialog {
+    left: 50%;
+    width: 70%;
+    transform: translateX(-50%);
+}
+
+#CodeMirror-search-field {
+    margin-left: 5px;
+    width: 70% !important;
+}
+
+.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+    border: none;
+    border-radius: 5px;
+    transition: background 300ms ease;
+}
+
+.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+    background: var(--color-secondary);
+    transition: background 300ms ease;
+}
+
+.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
+    background: var(--color-secondary);
+    transition: background-color 300ms ease;
+}
+
+// make editor height fixed, but responsive

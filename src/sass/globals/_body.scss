@@ -18,6 +18,10 @@ body[data-color-theme="dark"] {
         transform: translate(-50%, -50%) scale(1) !important;
         pointer-events: initial !important;
     }
+
+    .CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+        background: var(--color-btn-edge);
+    }
 }
 
 body[data-color-theme="light"] {
@@ -28,6 +32,10 @@ body[data-color-theme="light"] {
         opacity: 1 !important;
         transform: translate(-50%, -50%) scale(1) !important;
         pointer-events: initial !important;
+    }
+
+    .CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+        background: var(--color-bg-btn);
     }
 }
 

@@ -1,5 +1,6 @@
 @use '../utils/functions' as f;
 @use '../utils/variables' as *;
+@use '../utils/typography' as *;
 
 .website-name {
     height: f.pixelsToEm(60);

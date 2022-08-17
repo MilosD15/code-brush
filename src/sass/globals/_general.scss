@@ -10,7 +10,7 @@
     margin: 0;
 }
 
-$max-content-width: 1400;
+$max-content-width: 1600;
 
 // centers content on the page
 .app {
@@ -29,7 +29,7 @@ $max-content-width: 1400;
 main {
     width: 100%;
     margin: f.pixelsToEm(50) auto;
-    height: max(60vh, 300px);
+    height: max(60vh, 500px);
 
     @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
         width: 85%;

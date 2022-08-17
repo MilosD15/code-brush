@@ -7,7 +7,7 @@
     "snowpack": "snowpack",
     "start": "snowpack dev",
     "build": "snowpack build",
-    "compileSass": "sass --watch src/sass:src/app/css"
+    "compile-sass": "sass --watch src/sass:src/app/css"
   },
   "repository": {
     "type": "git",
