@@ -1,0 +1,87 @@
+@use '../utils/functions' as f;
+@use '../utils/variables' as *;
+@use '../utils/colors' as *;
+@use '../utils/typography' as *;
+
+/* OVERRIDING DEFAULT CodeMirror STYLINGS */
+.CodeMirror {
+    // border: 1px solid currentColor !important;
+    padding-top: f.pixelsToRem(5);
+    font-size: f.pixelsToRem($extra-small-font-size - 1);
+    height: 100%;
+
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+        font-size: f.pixelsToRem($extra-small-font-size);
+    }
+}
+
+.CodeMirror-hints {
+    -webkit-box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge);
+    -moz-box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge);
+    box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge);
+    border-radius: f.pixelsToRem(3);
+    border: f.pixelsToRem(1) solid var(--color-primary);
+    background: var(--color-secondary);
+}
+
+// change appearance of hints container (dark/light mode)
+// hide scrollbar 
+
+.CodeMirror-hints::-webkit-scrollbar {
+    width: 0 !important;
+}
+  
+.CodeMirror-hint {
+    color: var(--color-text);
+}
+
+li.CodeMirror-hint-active {
+    background: $specific-blue;
+    color: var(--color-primary);
+}
+
+.CodeMirror-linenumber {
+    text-align: center;
+}
+
+.cm-searching {
+    background-color: var(--color-specific-red);
+}
+
+.CodeMirror-search-hint {
+    display: none;
+}
+
+.CodeMirror-dialog-top {
+    margin-top: f.pixelsToRem(10);
+    padding: f.pixelsToRem(10) f.pixelsToRem(15);
+    border-radius: f.pixelsToRem(10);
+    border: f.pixelsToRem(1) solid var(--color-text);
+}
+
+.CodeMirror-dialog {
+    left: 50%;
+    width: 70%;
+    transform: translateX(-50%);
+}
+
+#CodeMirror-search-field {
+    margin-left: f.pixelsToRem(5);
+    width: 70% !important;
+}
+
+.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
+    border: none;
+    border-radius: f.pixelsToRem(5);
+    transition: background 300ms ease;
+}
+
+.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
+    background: var(--color-secondary);
+    transition: background 300ms ease;
+}
+
+.CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
+    background: var(--color-secondary);
+    transition: background-color 300ms ease;
+}

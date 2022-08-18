@@ -12,7 +12,7 @@
 
 $max-content-width: 1600;
 
-// centers content on the page
+// wrapper for all page content
 .app {
     min-height: inherit;
     width: min(100%, f.pixelsToEm($max-content-width));
@@ -26,6 +26,7 @@ $max-content-width: 1600;
     }
 }
 
+// main content on the home page (naming file and editor sections)
 main {
     width: 100%;
     margin: f.pixelsToEm(50) auto;
@@ -34,11 +35,6 @@ main {
     @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
         width: 85%;
     }
-}
-
-footer {
-    width: 100%;
-    height: 60px;
 }
 
 ::selection {

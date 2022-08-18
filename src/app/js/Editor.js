@@ -35,7 +35,10 @@ export default class Editor {
         initialMessage += '// you can see all of your previous files by clicking on\n';
         initialMessage += '// History icon in the top right corner of the editor.\n';
         initialMessage += '\n// Every time you make a change on any of your files,\n';
-        initialMessage += '// it will be saved automatically.';
+        initialMessage += '// it will be saved automatically.\n';
+        initialMessage += '\n// The editor is optimized for mobile phones and tablets\n';
+        initialMessage += '// as well, but it is mainly made for computers and laptops.\n';
+        initialMessage += '// Some of the editor features won\'t work on mobile devices.';
         this.#editor.setValue(initialMessage);
     }
 

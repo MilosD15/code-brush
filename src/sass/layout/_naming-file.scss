@@ -9,6 +9,7 @@
     height: auto;
     background-color: var(--color-secondary);
     border-bottom: f.pixelsToEm(2) solid var(--color-text);
+    // border: f.pixelsToEm(2) solid var(--color-text);
     transition: 
             background-color 300ms ease,
             border-color 300ms ease;
