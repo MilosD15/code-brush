@@ -56,4 +56,8 @@ export default class Editor {
     setLanguage(language = 'text/javascript') {
         this.#editor.setOption('mode', language);
     }
+
+    getEditorCode() {
+        return this.#editor.getValue();
+    }
 }

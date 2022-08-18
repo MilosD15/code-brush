@@ -1,14 +1,5 @@
 
-const PROGRAMMING_LANGUAGES = new Map([
-    [ 'xml' , 'application/xml' ],
-    [ 'html' , 'text/html' ],
-    [ 'css' , 'text/css' ],
-    [ 'js' , 'text/javascript' ],
-    [ 'json' , 'application/x-json' ],
-    [ 'py' , 'text/x-python' ],
-    [ 'go' , 'text/x-go' ],
-    [ 'rb' , 'text/x-ruby' ]
-]);
+import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 
 $("document").ready(() => {
     $("#name-file-frm").submit(e => {
@@ -68,11 +59,15 @@ function validateInput() {
 
     const fileNamePieces = inputValue.split('.');
     const fileExtension = fileNamePieces[fileNamePieces.length - 1].toLowerCase();
-    const fileType = PROGRAMMING_LANGUAGES.get(fileExtension);
+    const fileType = getEditorLandMode(fileExtension);
     return {
         isValid: true,
         fileType
     }
+}
+
+function getEditorLandMode(fileExtension) {
+    return PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.extension === fileExtension).editorModeName;
 }
 
 export function isFileNamedProperly() {

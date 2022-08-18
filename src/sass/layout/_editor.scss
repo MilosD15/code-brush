@@ -23,7 +23,10 @@
         border-radius: f.pixelsToRem(10);
         padding: 0 f.pixelsToEm(5);
         overflow: hidden;
-        transition: padding 300ms ease;
+        transition: 
+            padding 300ms ease,
+            background-color 300ms ease;
+        right: f.pixelsToRem(15);
 
         svg {
             stroke: var(--color-text);
@@ -31,6 +34,7 @@
         }
 
         &::after {
+            white-space: nowrap;
             content: attr(data-tooltip);
             position: absolute;
             font-size: f.pixelsToRem($extra-small-font-size + 2);
@@ -47,12 +51,21 @@
     }
 
     .copy-code-btn {
-        bottom: f.pixelsToRem(10);
-        right: f.pixelsToRem(10);
+        bottom: f.pixelsToRem(70);
 
         &:hover,
         &:focus {
             padding-left: f.pixelsToRem(54);
+        }
+
+        &.clicked {
+            background-color: $success-green;
+            border-color: $success-green;
+            padding-left: f.pixelsToRem(106);
+
+            &::after {
+                opacity: 1;
+            }
         }
 
         &::after {
@@ -62,17 +75,32 @@
     }
 
     .open-compiler-btn {
-        bottom: f.pixelsToRem(10);
-        left: f.pixelsToRem(10);
+        bottom: f.pixelsToRem(15);
 
         &:hover,
         &:focus {
-            padding-right: f.pixelsToRem(46);
+            padding-left: f.pixelsToRem(46);
+        }
+
+        &.no-compiler {
+            background-color: var(--color-specific-red);
+            border-color: var(--color-specific-red);
+            padding-left: f.pixelsToRem(206);
+        }
+
+        &.stay-red {
+            background-color: var(--color-specific-red);
+            border-color: var(--color-specific-red);
+        }
+
+        &.stay-red:focus,
+        &.stay-red:hover {
+            padding-left: f.pixelsToRem(206);
         }
 
         &::after {
             top: f.pixelsToRem(7);
-            left: f.pixelsToRem(43);
+            right: f.pixelsToRem(43);
         }
     }
 }

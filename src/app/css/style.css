@@ -779,7 +779,8 @@ body[data-color-theme=dark] .naming-file-container #name-file-frm input::placeho
   border-radius: 0.625rem;
   padding: 0 0.3125em;
   overflow: hidden;
-  transition: padding 300ms ease;
+  transition: padding 300ms ease, background-color 300ms ease;
+  right: 0.9375rem;
 }
 .editor-container .copy-code-btn:hover, .editor-container .copy-code-btn:focus,
 .editor-container .open-compiler-btn:hover,
@@ -793,6 +794,7 @@ body[data-color-theme=dark] .naming-file-container #name-file-frm input::placeho
 }
 .editor-container .copy-code-btn::after,
 .editor-container .open-compiler-btn::after {
+  white-space: nowrap;
   content: attr(data-tooltip);
   position: absolute;
   font-size: 1.125rem;
@@ -805,26 +807,44 @@ body[data-color-theme=dark] .naming-file-container #name-file-frm input::placeho
   opacity: 1;
 }
 .editor-container .copy-code-btn {
-  bottom: 0.625rem;
-  right: 0.625rem;
+  bottom: 4.375rem;
 }
 .editor-container .copy-code-btn:hover, .editor-container .copy-code-btn:focus {
   padding-left: 3.375rem;
+}
+.editor-container .copy-code-btn.clicked {
+  background-color: #2AB572;
+  border-color: #2AB572;
+  padding-left: 6.625rem;
+}
+.editor-container .copy-code-btn.clicked::after {
+  opacity: 1;
 }
 .editor-container .copy-code-btn::after {
   top: 0.375rem;
   right: 2.75rem;
 }
 .editor-container .open-compiler-btn {
-  bottom: 0.625rem;
-  left: 0.625rem;
+  bottom: 0.9375rem;
 }
 .editor-container .open-compiler-btn:hover, .editor-container .open-compiler-btn:focus {
-  padding-right: 2.875rem;
+  padding-left: 2.875rem;
+}
+.editor-container .open-compiler-btn.no-compiler {
+  background-color: var(--color-specific-red);
+  border-color: var(--color-specific-red);
+  padding-left: 12.875rem;
+}
+.editor-container .open-compiler-btn.stay-red {
+  background-color: var(--color-specific-red);
+  border-color: var(--color-specific-red);
+}
+.editor-container .open-compiler-btn.stay-red:focus, .editor-container .open-compiler-btn.stay-red:hover {
+  padding-left: 12.875rem;
 }
 .editor-container .open-compiler-btn::after {
   top: 0.4375rem;
-  left: 2.6875rem;
+  right: 2.6875rem;
 }
 
 footer {
