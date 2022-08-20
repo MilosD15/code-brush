@@ -14,7 +14,7 @@
         background-color 300ms ease,
         border-color 300ms ease;
 
-    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         height: f.pixelsToEm(65);
     }
 
@@ -26,7 +26,7 @@
         transform: translateX(0);
         transition: transform 500ms ease;
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             transform: translateX(f.pixelsToEm(50));
         }
 
@@ -34,7 +34,7 @@
             height: 90%;
             width: auto;
 
-            img {
+            svg {
                 height: 100%;
                 width: auto;
                 user-select: none;
@@ -45,7 +45,7 @@
             margin-left: f.pixelsToEm(2);
             font-size: f.pixelsToRem($medium-font-size);
 
-            @media (min-width: f.pixelsToEm(900)) {
+            @media (min-width: f.pixelsToRem(900)) {
                 font-size: f.pixelsToRem($large-font-size);
             }
         }
@@ -70,7 +70,7 @@
             background-color: var(--color-btn-edge);
         }
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             transform: translateX(f.pixelsToEm(50, true));
         }
 

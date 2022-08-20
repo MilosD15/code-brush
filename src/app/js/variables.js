@@ -1,8 +1,10 @@
 
+import { makeResponsiveSize } from "./utilities.js";
+
 export const ANIMATION_FEATURE_CONTAINER_DURATION = 900;
 export const ANIMATION_FEATURE_DURATION = 600;
 
-export const LARGE_SCREENS_BREAKPOINT = 900;
+export const LARGE_SCREENS_BREAKPOINT = makeResponsiveSize(900);
 
 export const PROGRAMMING_LANGUAGES_DATA = [
     {
@@ -53,4 +55,4 @@ export const PROGRAMMING_LANGUAGES_DATA = [
         editorModeName: 'text/x-ruby',
         compilerURL: 'https://replit.com/languages/ruby'
     },
-]
+];

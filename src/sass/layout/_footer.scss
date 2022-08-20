@@ -22,7 +22,7 @@ footer {
         padding: f.pixelsToRem(10) 0;
     }
 
-    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         padding: f.pixelsToRem(12) 0;
         font-size: f.pixelsToRem($medium-font-size + 1);
     }
@@ -40,7 +40,7 @@ footer {
             padding-left: f.pixelsToEm(10);
         }
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             transform: translateX(f.pixelsToEm(50));
         }
 
@@ -100,7 +100,7 @@ footer {
             padding-right: f.pixelsToEm(10);
         }
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             transform: translateX(f.pixelsToEm(50, true));
         }
 

@@ -60,7 +60,9 @@
 
         svg {
             stroke: var(--color-text);
-            transform: translateY(3px);
+            transform: translateY(f.pixelsToRem(3));
+            width: f.pixelsToRem(40);
+            height: f.pixelsToRem(40);
         }
     }
 

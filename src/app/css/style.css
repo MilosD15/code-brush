@@ -59,7 +59,9 @@ html {
 }
 .naming-file-hint .hint-btn svg {
   stroke: var(--color-text);
-  transform: translateY(3px);
+  transform: translateY(0.1875rem);
+  width: 2.5rem;
+  height: 2.5rem;
 }
 .naming-file-hint .hint {
   position: absolute;
@@ -238,7 +240,7 @@ body[data-color-theme=light] .CodeMirror-simplescroll-horizontal div, body[data-
   flex-direction: column;
   justify-content: space-between;
 }
-@media (min-width: 100em) {
+@media (min-width: 100rem) {
   .app {
     border-left: 0.125em solid var(--color-text);
     border-right: 0.125em solid var(--color-text);
@@ -250,7 +252,7 @@ main {
   margin: 6.25em auto;
   height: max(60vh, 500px);
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   main {
     width: 85%;
   }
@@ -373,7 +375,7 @@ li.CodeMirror-hint-active {
   border-bottom: 0.125em solid var(--color-text);
   transition: background-color 300ms ease, border-color 300ms ease;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .website-name {
     height: 4.0625em;
   }
@@ -386,7 +388,7 @@ li.CodeMirror-hint-active {
   transform: translateX(0);
   transition: transform 500ms ease;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .website-name .logo-container {
     transform: translateX(3.125em);
   }
@@ -395,7 +397,7 @@ li.CodeMirror-hint-active {
   height: 90%;
   width: auto;
 }
-.website-name .logo-container .logo-img img {
+.website-name .logo-container .logo-img svg {
   height: 100%;
   width: auto;
   user-select: none;
@@ -404,7 +406,7 @@ li.CodeMirror-hint-active {
   margin-left: 0.125em;
   font-size: 1.4375rem;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .website-name .logo-container .logo-name {
     font-size: 1.625rem;
   }
@@ -424,7 +426,7 @@ li.CodeMirror-hint-active {
 .website-name .dark-mode-btn:hover, .website-name .dark-mode-btn:focus {
   background-color: var(--color-btn-edge);
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .website-name .dark-mode-btn {
     transform: translateX(-3.125em);
   }
@@ -455,7 +457,7 @@ li.CodeMirror-hint-active {
 .features-container button {
   color: inherit;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container {
     height: 4.375rem;
     width: 100%;
@@ -477,7 +479,7 @@ li.CodeMirror-hint-active {
   font-size: 1.625rem;
   display: none;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container > .title {
     display: block;
   }
@@ -498,7 +500,7 @@ li.CodeMirror-hint-active {
 .features-container .features-title:hover, .features-container .features-title:focus {
   background-color: var(--color-btn-edge);
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features-title {
     display: none;
   }
@@ -517,7 +519,7 @@ li.CodeMirror-hint-active {
   transform: translateY(0.1875em) rotate(0deg);
   transition: transform 900ms ease, opacity 300ms ease;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features-title .arrow {
     opacity: 0;
     pointer-events: none;
@@ -533,7 +535,7 @@ li.CodeMirror-hint-active {
   height: auto;
   opacity: 0;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features {
     opacity: 1;
     display: flex;
@@ -542,7 +544,7 @@ li.CodeMirror-hint-active {
     width: 82%;
   }
 }
-@media (min-width: 87.5em) {
+@media (min-width: 87.5rem) {
   .features-container .features {
     margin-right: 2.5em;
   }
@@ -551,7 +553,7 @@ li.CodeMirror-hint-active {
   width: 100%;
   height: auto;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature {
     width: max-content;
   }
@@ -570,7 +572,7 @@ li.CodeMirror-hint-active {
   align-items: center;
   position: relative;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature .wrapper {
     height: auto;
     border-bottom: 0;
@@ -591,7 +593,7 @@ li.CodeMirror-hint-active {
 .features-container .features .feature .wrapper button:hover, .features-container .features .feature .wrapper button:focus {
   background-color: var(--color-secondary);
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature .wrapper button {
     width: inherit;
     height: auto;
@@ -607,7 +609,7 @@ li.CodeMirror-hint-active {
   font-size: 1.125rem;
   text-transform: uppercase;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature .wrapper button .title {
     font-size: 1.1875rem;
     margin-left: 0em;
@@ -622,13 +624,13 @@ li.CodeMirror-hint-active {
   transition: transform 600ms ease, margin-left 300ms ease;
   margin-left: 0;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature .wrapper button .arrow {
     margin-right: 0em;
     margin-left: 1.5625em;
   }
 }
-@media (min-width: 68.75em) {
+@media (min-width: 68.75rem) {
   .features-container .features .feature .wrapper button .arrow {
     margin-left: 5vw;
   }
@@ -652,7 +654,7 @@ li.CodeMirror-hint-active {
   opacity: 1;
   z-index: 100;
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature .description {
     opacity: 0;
     width: auto;
@@ -674,18 +676,18 @@ li.CodeMirror-hint-active {
 .features-container .features .feature .description .content:first-child {
   padding-top: 1.25em;
 }
-@media (min-width: 31.25em) {
+@media (min-width: 31.25rem) {
   .features-container .features .feature .description .content {
     font-size: 1.0625rem;
   }
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   .features-container .features .feature .description .content {
     width: 100%;
     font-size: 1.125rem;
   }
 }
-@media (min-width: 87.5em) {
+@media (min-width: 87.5rem) {
   .features-container .features .feature .description .content {
     font-size: 1.1875rem;
   }
@@ -874,6 +876,8 @@ body[data-color-theme=dark] .naming-file-container #name-file-frm input::placeho
 .editor-container .open-compiler-btn svg {
   stroke: var(--color-text);
   transform: translateY(0.25rem);
+  width: 2rem;
+  height: 2rem;
 }
 .editor-container .copy-code-btn::after,
 .editor-container .open-compiler-btn::after {
@@ -948,7 +952,7 @@ footer {
     padding: 0.625rem 0;
   }
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   footer {
     padding: 0.75rem 0;
     font-size: 1.5rem;
@@ -968,7 +972,7 @@ footer .credits {
     padding-left: 0.625em;
   }
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   footer .credits {
     transform: translateX(3.125em);
   }
@@ -1015,7 +1019,7 @@ footer .author {
     padding-right: 0.625em;
   }
 }
-@media (min-width: 56.25em) {
+@media (min-width: 56.25rem) {
   footer .author {
     transform: translateX(-3.125em);
   }

@@ -18,7 +18,7 @@ $animation-feature-duration: 600;
         color: inherit;
     }
 
-    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         height: f.pixelsToRem(70);
         width: 100%;
         background-color: var(--color-secondary);
@@ -46,7 +46,7 @@ $animation-feature-duration: 600;
         font-size: f.pixelsToRem($large-font-size);
         display: none;
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             display: block;
         }
     }
@@ -71,7 +71,7 @@ $animation-feature-duration: 600;
             background-color: var(--color-btn-edge);
         }
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             display: none;
         }
 
@@ -92,7 +92,7 @@ $animation-feature-duration: 600;
                 transform $animation-feature-container-duration + ms ease,
                 opacity 300ms ease;
 
-            @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                 opacity: 0;
                 pointer-events: none;
             }
@@ -110,7 +110,7 @@ $animation-feature-duration: 600;
         height: auto;
         opacity: 0;
 
-        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             opacity: 1;
             display: flex;
             justify-content: space-between;
@@ -118,7 +118,7 @@ $animation-feature-duration: 600;
             width: 82%;
         }
 
-        @media (min-width: f.pixelsToEm($extra-large-screens-breakpoint)) {
+        @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
             margin-right: f.pixelsToEm(40);
         }
 
@@ -126,7 +126,7 @@ $animation-feature-duration: 600;
             width: 100%;
             height: auto;
 
-            @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                 width: max-content;
             }
 
@@ -154,7 +154,7 @@ $animation-feature-duration: 600;
                 // overflow: hidden;
                 position: relative;
 
-                @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                     height: auto;
                     border-bottom: 0;
                 }
@@ -178,7 +178,7 @@ $animation-feature-duration: 600;
                         background-color: var(--color-secondary);
                     }
 
-                    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                         width: inherit;
                         height: auto;
                         padding: f.pixelsToEm(8) f.pixelsToEm(16);
@@ -195,7 +195,7 @@ $animation-feature-duration: 600;
                         font-size: f.pixelsToRem($extra-small-font-size + 2);
                         text-transform: uppercase;
             
-                        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                             font-size: f.pixelsToRem($small-font-size);
                             margin-left: f.pixelsToEm(0);
                         }
@@ -212,12 +212,12 @@ $animation-feature-duration: 600;
                             margin-left 300ms ease;
                         margin-left: 0;
 
-                        @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                             margin-right: f.pixelsToEm(0);
                             margin-left: f.pixelsToEm(25);
                         }
 
-                        @media (min-width: f.pixelsToEm(1100)) {
+                        @media (min-width: f.pixelsToRem(1100)) {
                             margin-left: 5vw;
                         }
             
@@ -246,7 +246,7 @@ $animation-feature-duration: 600;
                 opacity: 1;
                 z-index: 100;
 
-                @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                     opacity: 0;
                     width: auto;
                     position: absolute;
@@ -268,16 +268,16 @@ $animation-feature-duration: 600;
                         padding-top: f.pixelsToEm(20);
                     }
 
-                    @media (min-width: f.pixelsToEm($medium-screens-breakpoint)) {
+                    @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
                         font-size: f.pixelsToRem($extra-small-font-size + 1);
                     }
 
-                    @media (min-width: f.pixelsToEm($large-screens-breakpoint)) {
+                    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                         width: 100%;
                         font-size: f.pixelsToRem($extra-small-font-size + 2);
                     }
 
-                    @media (min-width: f.pixelsToEm($extra-large-screens-breakpoint)) {
+                    @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
                         font-size: f.pixelsToRem($small-font-size);
                     }
 

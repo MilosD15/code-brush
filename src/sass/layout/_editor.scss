@@ -31,6 +31,8 @@
         svg {
             stroke: var(--color-text);
             transform: translateY(f.pixelsToRem(4));
+            width: f.pixelsToRem(32);
+            height: f.pixelsToRem(32);
         }
 
         &::after {
