@@ -1,3 +1,89 @@
+html {
+  font-family: Calibri, sans-serif;
+}
+
+.naming-file-hint {
+  width: 100%;
+}
+.naming-file-hint .hint-btn {
+  padding: 0.375em 1.25em;
+  border: 0.125em solid var(--color-btn-edge);
+  background-color: var(--color-bg-btn);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+  position: absolute;
+  bottom: calc(100% + 0.3125rem);
+  right: 0.3125em;
+  padding: 0 0.3125em;
+  border-radius: 50%;
+}
+.naming-file-hint .hint-btn:hover, .naming-file-hint .hint-btn:focus {
+  background-color: var(--color-btn-edge);
+}
+@media (min-width: 56.25rem) {
+  .naming-file-hint .hint-btn {
+    right: 0;
+  }
+}
+.naming-file-hint .hint-btn:hover::before, .naming-file-hint .hint-btn:hover::after, .naming-file-hint .hint-btn:focus::before, .naming-file-hint .hint-btn:focus::after {
+  opacity: 1;
+}
+.naming-file-hint .hint-btn::before {
+  z-index: 102;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(-100% - 0.3125rem);
+  right: 0;
+  width: max-content;
+  font-size: 1.0625rem;
+  background-color: var(--color-btn-edge);
+  border-radius: 0.625em;
+  padding: 0.3125em 0.625em;
+}
+.naming-file-hint .hint-btn::after {
+  z-index: 101;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  content: "";
+  position: absolute;
+  top: -1.0625rem;
+  right: 1.25rem;
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: var(--color-btn-edge) transparent transparent transparent;
+}
+.naming-file-hint .hint-btn svg {
+  stroke: var(--color-text);
+  transform: translateY(3px);
+}
+.naming-file-hint .hint {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-size: 1rem;
+  padding: 0.125em 0;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  background-color: var(--color-bg-btn);
+  display: flex;
+  align-items: center;
+  transition: border-color 300ms ease, background-color 300ms ease;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-hint .hint {
+    font-size: 1.125rem;
+    padding-left: 1.875rem;
+    padding-right: 4.0625rem;
+  }
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -161,7 +247,7 @@ body[data-color-theme=light] .CodeMirror-simplescroll-horizontal div, body[data-
 
 main {
   width: 100%;
-  margin: 3.125em auto;
+  margin: 6.25em auto;
   height: max(60vh, 500px);
 }
 @media (min-width: 56.25em) {
@@ -195,10 +281,6 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-btn-edge);
-}
-
-html {
-  font-family: Calibri, sans-serif;
 }
 
 /* OVERRIDING DEFAULT CodeMirror STYLINGS */
@@ -635,6 +717,7 @@ li.CodeMirror-hint-active {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container {

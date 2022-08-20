@@ -1,7 +1,8 @@
 
-import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
+import { PROGRAMMING_LANGUAGES_DATA, ANIMATION_FEATURE_DURATION } from './variables.js';
 
 $("document").ready(() => {
+    $('.hint').hide();
     $("#name-file-frm").submit(e => {
         e.preventDefault();
         const namingFileContainer = $(".naming-file-container");
@@ -30,13 +31,23 @@ $("document").ready(() => {
             }
         }
     });
-});
-
-$("#name-file-frm input").keyup(() => {
-    const result = validateInput();
-    if (result.isValid) {
-        $("#name-file-frm .input span").slideUp(300).fadeOut(300);
-    }
+    $("#name-file-frm input").keyup(() => {
+        const result = validateInput();
+        if (result.isValid) {
+            $("#name-file-frm .input span").slideUp(300).fadeOut(300);
+        }
+    });
+    // showing and hiding hint for naming file
+    $('.hint-btn').click(() => {
+        const tooltipText = $('.hint-btn').attr('data-tooltip');
+        if (tooltipText === 'Show filename hint') {
+            $('.hint-btn').attr('data-tooltip', 'Hide filename hint');
+            $('.hint').slideDown(ANIMATION_FEATURE_DURATION).fadeIn(ANIMATION_FEATURE_DURATION);
+        } else {
+            $('.hint-btn').attr('data-tooltip', 'Show filename hint');
+            $('.hint').slideUp(ANIMATION_FEATURE_DURATION).fadeOut(ANIMATION_FEATURE_DURATION);
+        }
+    });
 });
 
 function validateInput() {

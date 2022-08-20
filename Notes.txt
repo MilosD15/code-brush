@@ -1,6 +1,3 @@
 Implement that previous content is saved and rerendered every time you open a website.
-Add hint for describing how the file should be named.
 Add option for saving all previous files.
 Add instructions button.
-Add button for copying the whole text in editor.
-Add button for opening proper online editor based on currently used programming language.

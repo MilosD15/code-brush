@@ -1,0 +1,94 @@
+@use '../utils/functions' as f;
+@use '../utils/variables' as *;
+@use '../utils/colors' as *;
+@use '../utils/typography' as *;
+@use '../components/mixins' as *;
+
+.naming-file-hint {
+    width: 100%;
+
+    .hint-btn {
+        @include primary-btn-styling;
+        position: absolute;
+        bottom: calc(100% + f.pixelsToRem(5));
+        right: f.pixelsToEm(5);
+        padding: 0 f.pixelsToEm(5);
+        border-radius: 50%;
+
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+            right: 0;
+        }
+
+        &:hover,
+        &:focus {
+            &::before,
+            &::after {
+                opacity: 1;
+            }
+        }
+
+        &::before {
+            z-index: 102;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 300ms ease;
+            content: attr(data-tooltip);
+            position: absolute;
+            top: calc(-100% - f.pixelsToRem(5));
+            right: 0;
+            width: max-content;
+            font-size: f.pixelsToRem($extra-small-font-size + 1);
+            background-color: var(--color-btn-edge);
+            border-radius: f.pixelsToEm(10);
+            // border: 2px solid var(--color-btn-edge);
+            padding: f.pixelsToEm(5) f.pixelsToEm(10);
+        }
+
+        &::after {
+            z-index: 101;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 300ms ease;
+            content: '';
+            position: absolute;
+            top: f.pixelsToRem(17, true);
+            right: f.pixelsToRem(20);
+            border-width: f.pixelsToRem(8);
+            border-style: solid;
+            border-color: var(--color-btn-edge) transparent transparent transparent;
+        }
+
+        svg {
+            stroke: var(--color-text);
+            transform: translateY(3px);
+        }
+    }
+
+    .hint {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        font-size: f.pixelsToRem($extra-small-font-size);
+        padding: f.pixelsToEm(2) 0;
+        padding-left: f.pixelsToRem(10);
+        padding-right: f.pixelsToRem(10);
+        background-color: var(--color-bg-btn);
+        display: flex;
+        align-items: center;
+        // border-block: 2px solid var(--color-text);
+        // border-bottom: 0;
+        transition: 
+            border-color 300ms ease,
+            background-color 300ms ease;
+        
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+            // border: 2px solid var(--color-text);
+            // border-bottom: 0;
+            font-size: f.pixelsToRem($small-font-size - 1);
+            padding-left: f.pixelsToRem(30);
+            padding-right: f.pixelsToRem(65);
+        }
+    }
+}

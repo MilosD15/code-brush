@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
     
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         height: f.pixelsToRem($naming-file-container-height);
