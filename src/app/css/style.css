@@ -64,6 +64,7 @@ html {
   height: 2.5rem;
 }
 .naming-file-hint .hint {
+  z-index: 104;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -474,14 +475,20 @@ li.CodeMirror-hint-active {
   transform: translateY(0.1875em) rotate(180deg);
 }
 .features-container > .title {
-  margin-left: 0.625em;
-  margin-right: 0.625em;
+  margin-left: 0.9375rem;
+  margin-right: 0.625rem;
   font-size: 1.625rem;
   display: none;
+  transition: margin-left 300ms ease;
 }
 @media (min-width: 56.25rem) {
   .features-container > .title {
     display: block;
+  }
+}
+@media (min-width: 87.5rem) {
+  .features-container > .title {
+    margin-left: 2.5rem;
   }
 }
 .features-container .features-title {
@@ -534,6 +541,7 @@ li.CodeMirror-hint-active {
   width: 100%;
   height: auto;
   opacity: 0;
+  transition: margin-right 300ms ease;
 }
 @media (min-width: 56.25rem) {
   .features-container .features {

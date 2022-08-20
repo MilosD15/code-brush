@@ -1,0 +1,11 @@
+Keep in mind:
+
+ - Every time you make a new file, it will be saved and you can see all of your previous files by clicking on History icon above the header in the right corner.
+
+ - Every time you make a change in any of your files, it will be saved automatically.
+
+ - The editor is optimized for mobile phones and tablets as well, but it is mainly made for computers and laptops. Some of the editor features won't work on mobile devices.
+
+ - Files with .xml and .json extension cannot be compiled.
+
+ - Every time you want to see this info again, just click on a button above the header in the left corner.

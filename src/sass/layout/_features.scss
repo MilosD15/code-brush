@@ -41,13 +41,18 @@ $animation-feature-duration: 600;
     }
 
     & > .title {
-        margin-left: f.pixelsToEm(10);
-        margin-right: f.pixelsToEm(10);
+        margin-left: f.pixelsToRem(15);
+        margin-right: f.pixelsToRem(10);
         font-size: f.pixelsToRem($large-font-size);
         display: none;
+        transition: margin-left 300ms ease;
 
         @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             display: block;
+        }
+
+        @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+            margin-left: f.pixelsToRem(40);
         }
     }
 
@@ -109,6 +114,7 @@ $animation-feature-duration: 600;
         width: 100%;
         height: auto;
         opacity: 0;
+        transition: margin-right 300ms ease;
 
         @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             opacity: 1;

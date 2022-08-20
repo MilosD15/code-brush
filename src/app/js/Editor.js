@@ -31,14 +31,18 @@ export default class Editor {
 
     #setInitialValue() {
         this.clear();
-        let initialMessage = '// Every time you make a new file, it will be saved and\n';
+        let initialMessage = '\n//\t\tKEEP IN MIND:\n\n';
+        initialMessage += '// Every time you make a new file, it will be saved and\n';
         initialMessage += '// you can see all of your previous files by clicking on\n';
-        initialMessage += '// History icon in the top right corner of the editor.\n';
-        initialMessage += '\n// Every time you make a change on any of your files,\n';
+        initialMessage += '// History icon below the header in the right corner.\n';
+        initialMessage += '\n// Every time you make a change in any of your files,\n';
         initialMessage += '// it will be saved automatically.\n';
         initialMessage += '\n// The editor is optimized for mobile phones and tablets\n';
         initialMessage += '// as well, but it is mainly made for computers and laptops.\n';
-        initialMessage += '// Some of the editor features won\'t work on mobile devices.';
+        initialMessage += '// Some of the editor features won\'t work on mobile devices.\n';
+        initialMessage += '\n// Files with .xml and .json extension cannot be compiled.\n';
+        initialMessage += '\n// Every time you want to see this info again, just click';
+        initialMessage += '\n// on the Info button below the header in the left corner.';
         this.#editor.setValue(initialMessage);
     }
 
