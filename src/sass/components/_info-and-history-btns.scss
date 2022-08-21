@@ -1,0 +1,158 @@
+@use '../utils/functions' as f;
+@use '../utils/variables' as *;
+@use '../utils/colors' as *;
+@use '../utils/typography' as *;
+@use '../components/mixins' as *;
+
+$info-and-history-btns-height: 50;
+
+.info-btn,
+.history-btn {
+    position: absolute;
+    bottom: f.pixelsToRem($info-and-history-btns-height + 5, true);
+    @include primary-btn-styling;
+    padding: f.pixelsToRem(2) f.pixelsToRem(6);
+    border-radius: f.pixelsToRem(50);
+    transition: all 300ms ease;
+    overflow: hidden;
+
+    &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: 48%;
+        transform: translateY(-50%);
+        font-size: f.pixelsToRem($small-font-size - 1);
+    }
+
+    svg {
+        stroke: var(--color-text);
+        stroke-width: 1.3;
+        width: f.pixelsToRem(34);
+        height: f.pixelsToRem(34);
+        transform: translateY(f.pixelsToRem(3));
+    }
+}
+
+.info-btn {
+    left: f.pixelsToRem(5);
+
+    &::after {
+        left: f.pixelsToRem(46);
+    }
+
+    &:hover,
+    &:focus {
+        padding-right: f.pixelsToRem(46);
+    }
+}
+
+.history-btn {
+    right: f.pixelsToRem(5);
+    // overflow: visible;
+
+    &::after {
+        right: f.pixelsToRem(47);
+    }
+
+    &:hover,
+    &:focus {
+        padding-left: f.pixelsToRem(70);
+    }
+}
+
+// this is a container that will be opened once you click on the info btn
+.general-info-container {
+    display: none;
+    z-index: 105;
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg-btn);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: background-color 300ms ease;
+    
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-track-piece {
+        background-color: var(--color-bg-btn);
+    }
+
+    h3 {
+        // height: f.pixelsToRem(70);
+        font-size: f.pixelsToRem($small-font-size + 1);
+        text-transform: uppercase;
+        padding: f.pixelsToRem(25) f.pixelsToRem(15) f.pixelsToRem(20);
+        transition: color 300ms ease;
+
+        @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+            padding-left: f.pixelsToRem(30);
+        }
+
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+            font-size: f.pixelsToRem($medium-font-size);
+        }
+    }
+
+    ul {
+        // height: calc(100% - f.pixelsToRem(70));
+        list-style-type: square;
+        font-size: f.pixelsToRem($small-font-size - 2);
+        padding-left: f.pixelsToRem(40);
+        padding-right: f.pixelsToEm(30);
+        padding-bottom: f.pixelsToRem(30);
+        transition: color 300ms ease;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: space-around;
+
+        @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+            padding-left: f.pixelsToRem(50);
+        }
+
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+            font-size: f.pixelsToRem($small-font-size);
+        }
+
+        li {
+            padding: f.pixelsToEm(3);
+            margin-bottom: f.pixelsToEm(15);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    button {
+        position: absolute;
+        top: f.pixelsToRem(5);
+        right: f.pixelsToRem(5);
+        background-color: transparent;
+        transition: all 300ms ease;
+        padding-inline: f.pixelsToRem(5);
+        border: 1px solid transparent;
+        cursor: pointer;
+
+        &:focus {
+            background-color: var(--color-secondary);
+            border-color: var(--color-text);
+            border-radius: 50%;
+            transform: rotate(0) scale(1);
+        }
+
+        &:hover {
+            transform: rotate(-8deg) scale(1.15);
+        }
+
+        svg {
+            stroke: var(--color-text);
+            width: f.pixelsToRem(34);
+            height: f.pixelsToRem(34);
+            transform: translateY(f.pixelsToRem(3));
+
+            @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                width: f.pixelsToRem(40);
+            height: f.pixelsToRem(40);
+            }
+        }
+    }
+}

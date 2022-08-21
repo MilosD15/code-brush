@@ -3,6 +3,7 @@ import './featuresAnimations.js';
 import { isFileNamedProperly } from './namingFile.js';
 import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
+import './infoEvents.js';
 
 // initializing the editor one page loaded
 export let editor = new Editor("editor", getCurrentColorTheme());
@@ -21,7 +22,7 @@ $("document").ready(() => {
             editor.clear();
         }
     });
-    $('.copy-code-btn').click(handleCopyingCode);
+    $('.copy-code-btn').click(handleCopyingEditorCode);
     $('.open-compiler-btn').click(() => {
         const currentEditorMode = $('.editor-container').attr('data-prog-lang');
         const currentLanguageObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.editorModeName === currentEditorMode);
@@ -36,7 +37,7 @@ $("document").ready(() => {
                 $('.open-compiler-btn').blur();
             }, 2000);
         } else {
-            handleCopyingCode();
+            handleCopyingEditorCode();
             setTimeout(() => {
                 window.open(currentLanguageCompilerURL, "_blank");
             }, 600);
@@ -44,7 +45,7 @@ $("document").ready(() => {
     });
 });
 
-function handleCopyingCode() {
+function handleCopyingEditorCode() {
     const editorText = editor.getEditorCode();
     navigator.clipboard.writeText(editorText);
 

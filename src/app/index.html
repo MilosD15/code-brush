@@ -213,6 +213,21 @@
                     </div>
                 </div>
             </div>
+            <button class="info-btn" data-tooltip="Info">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="12" cy="12" r="9" />
+                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                </svg>
+            </button>
+            <button class="history-btn" data-tooltip="History">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-history" width="64" height="64" viewBox="0 0 24 24" stroke-width="1.5" stroke="#edbb2f" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <polyline points="12 8 12 12 14 14" />
+                    <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
+                </svg>
+            </button>
         </header>
         <main>
             <div class="naming-file-container" data-file="unnamed">
@@ -257,6 +272,23 @@
                         <rect x="3" y="4" width="18" height="16" rx="2" />
                     </svg>
                 </button>
+                <div class="general-info-container">
+                    <h3><em>keep in mind:</em></h3>
+                    <ul>
+                        <li>Every time you make a new file, it will be saved and you can see all of your previous files by clicking on History icon above the header in the right corner.</li>
+                        <li>Every time you make a change in any of your files, it will be saved automatically.</li>
+                        <li>The editor is optimized for mobile phones and tablets as well, but it is mainly made for computers and laptops. Some of the editor features won't work on mobile devices.</li>
+                        <li>Files with .xml and .json extension cannot be compiled.</li>
+                        <li>Every time you want to see this info again, just click on a button above the header in the left corner.</li>
+                    </ul>
+                    <button data-close-btn>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </main>
         <footer>
