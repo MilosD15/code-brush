@@ -111,7 +111,7 @@ html {
 .history-btn::after {
   content: attr(data-tooltip);
   position: absolute;
-  top: 48%;
+  top: 52%;
   transform: translateY(-50%);
   font-size: 1.125rem;
 }

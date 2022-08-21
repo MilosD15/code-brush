@@ -1,3 +1,2 @@
 Implement that previous content is saved and rerendered every time you open a website.
 Add option for saving all previous files.
-Add instructions button.
