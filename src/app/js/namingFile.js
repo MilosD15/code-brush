@@ -32,6 +32,13 @@ $("document").ready(() => {
         }
     });
     $("#name-file-frm input").keyup(() => {
+        // show label
+        if ($("#name-file-frm input")[0].value === '') {
+            $("#name-file-frm .input").attr("data-typing", "off");
+        } else {
+            $("#name-file-frm .input").attr("data-typing", "on");
+        }
+        // hide error message if the filename is correct
         const result = validateInput();
         if (result.isValid) {
             $("#name-file-frm .input span").slideUp(300).fadeOut(300);

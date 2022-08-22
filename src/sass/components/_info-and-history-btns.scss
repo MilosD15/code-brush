@@ -7,7 +7,7 @@
 $info-and-history-btns-height: 50;
 
 .info-btn,
-.history-btn {
+.history-link {
     position: absolute;
     bottom: f.pixelsToRem($info-and-history-btns-height + 5, true);
     @include primary-btn-styling;
@@ -46,7 +46,7 @@ $info-and-history-btns-height: 50;
     }
 }
 
-.history-btn {
+.history-link {
     right: f.pixelsToRem(5);
     // overflow: visible;
 
