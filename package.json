@@ -24,5 +24,8 @@
     "@snowpack/plugin-sass": "^1.4.0",
     "sass": "^1.54.0",
     "snowpack": "^3.8.8"
+  },
+  "dependencies": {
+    "codemirror": "^6.0.1"
   }
 }
