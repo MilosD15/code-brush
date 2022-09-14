@@ -1,0 +1,34 @@
+@use '../utils/functions' as f;
+@use './mixins' as *;
+@use '../utils/typography' as *;
+@use '../utils/variables' as *;
+
+.back-to-homepage-btn {
+    @include primary-btn-styling;
+
+    display: flex;
+    align-items: center;
+    margin: 1.5rem;
+    padding-left: f.pixelsToRem(12);
+    width: max-content;
+    text-decoration: none;
+
+    @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+        margin: 2rem;
+    }
+
+    svg {
+        stroke: var(--color-text);
+        height: f.pixelsToRem(30);
+        width: f.pixelsToRem(30);
+    }
+
+    .text {
+        margin-left: f.pixelsToRem(10);
+        font-size: f.pixelsToRem($small-font-size - 2);
+
+        @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+            font-size: f.pixelsToRem($small-font-size);
+        }
+    }
+}

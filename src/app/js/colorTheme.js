@@ -1,6 +1,5 @@
-import { editor } from './main.js';
 
-$("document").ready(() => {
+export function setInitialColorTheme() {
     // determining color theme once the page is loaded
     const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     setColorTheme(isDark);
@@ -8,18 +7,17 @@ $("document").ready(() => {
     // watching for changing preferred color theme
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => setColorTheme(e.matches));
 
-    $(".dark-mode-btn").click(() => {
-        const isDark = $("body").attr('data-color-theme') === "dark";
-        setColorTheme(!isDark);
-    });
-});
+    return $("body").attr('data-color-theme');
+}
 
-function setColorTheme(isDark) {
+export function setColorTheme(isDark) {
     const currentColorTheme = isDark ? 'dark' : 'light';
     $("body").attr('data-color-theme', currentColorTheme);
-    editor.setTheme(currentColorTheme);
+    localStorage.setItem('currentColorTheme', currentColorTheme);
+
+    return $("body").attr('data-color-theme');
 }
 
 export function getCurrentColorTheme() {
-    return document.body.dataset.colorTheme;
+    return localStorage.getItem('currentColorTheme');
 }

@@ -2,11 +2,12 @@
 @use '../utils/variables' as *;
 @use '../utils/colors' as *;
 @use '../utils/typography' as *;
-@use '../components' as *;
+@use '../components/mixins' as *;
 
 .editor-container {
     height: calc(100% - f.pixelsToRem($naming-file-container-height-sm));
     position: relative;
+    overflow: hidden;
 
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         height: calc(100% - f.pixelsToRem($naming-file-container-height));

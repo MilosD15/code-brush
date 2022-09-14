@@ -1,5 +1,4 @@
 @use '../utils/functions' as f;
-@use '../utils/variables' as *;
 
 *,
 *::before,
@@ -8,6 +7,15 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+// prevents blue highlight on mobile devices and tablets
+button,
+textarea,
+input,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 header {
@@ -28,20 +36,4 @@ $max-content-width: 1600;
         border-left: f.pixelsToEm(2) solid var(--color-text);
         border-right: f.pixelsToEm(2) solid var(--color-text);
     }
-}
-
-// main content on the home page (naming file and editor sections)
-main {
-    width: 100%;
-    margin: f.pixelsToEm(114) auto;
-    height: max(55vh, 500px);
-
-    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
-        width: 85%;
-    }
-}
-
-::selection {
-    background-color: var(--color-text);
-    color: var(--color-primary);
 }

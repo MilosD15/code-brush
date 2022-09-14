@@ -40,9 +40,6 @@ import 'codemirror/addon/lint/lint.css';
 import 'codemirror/addon/lint/css-lint.js';
 import 'codemirror/addon/lint/javascript-lint.js';
 import 'codemirror/addon/lint/json-lint.js';
-import 'https://unpkg.com/jshint@2.13.2/dist/jshint.js';
-import 'https://unpkg.com/jsonlint@1.6.3/web/jsonlint.js';
-import 'https://unpkg.com/csslint@1.0.5/dist/csslint.js';
 // folding
 import 'codemirror/addon/fold/foldcode.js';
 import 'codemirror/addon/fold/brace-fold.js';
@@ -86,8 +83,8 @@ export default class Editor {
 
     #setInitialValue() {
         this.clear();
-        let initialMessage = '//\t\tKEEP IN MIND:\n\n';
-        initialMessage += '// Every time you make a new file, it will be saved and\n';
+        let initialMessage = '//\t\tKEEP IN MIND:\n';
+        initialMessage += '\n// Every time you make a new file, it will be saved and\n';
         initialMessage += '// you can see all of your previous files by clicking on\n';
         initialMessage += '// History icon below the header in the right corner.\n';
         initialMessage += '\n// Every time you make a change in any of your files,\n';

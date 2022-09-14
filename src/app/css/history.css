@@ -1,0 +1,56 @@
+html {
+  font-family: Calibri, sans-serif;
+}
+
+.back-to-homepage-btn {
+  padding: 0.375em 1.25em;
+  border: 0.125em solid var(--color-btn-edge);
+  background-color: var(--color-bg-btn);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+  display: flex;
+  align-items: center;
+  margin: 1.5rem;
+  padding-left: 0.75rem;
+  width: max-content;
+  text-decoration: none;
+}
+.back-to-homepage-btn:hover, .back-to-homepage-btn:focus {
+  background-color: var(--color-btn-edge);
+}
+@media (min-width: 31.25rem) {
+  .back-to-homepage-btn {
+    margin: 2rem;
+  }
+}
+.back-to-homepage-btn svg {
+  stroke: var(--color-text);
+  height: 1.875rem;
+  width: 1.875rem;
+}
+.back-to-homepage-btn .text {
+  margin-left: 0.625rem;
+  font-size: 1.0625rem;
+}
+@media (min-width: 31.25rem) {
+  .back-to-homepage-btn .text {
+    font-size: 1.1875rem;
+  }
+}
+
+.app {
+  display: block;
+}
+
+.saved-files {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.saved-files .file-container {
+  width: 80%;
+}
+
+/*# sourceMappingURL=history.css.map */

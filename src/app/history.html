@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Code Mirror -->
+    <!-- themes -->
+    <link rel="stylesheet" href="./css/cm-themes-modified/base16-light.css">
+    <link rel="stylesheet" href="./css/cm-themes-modified/base16-dark.css">
+    <!-- lint -->
+    <script src="https://unpkg.com/jshint@2.13.2/dist/jshint.js"></script>
+    <script src="https://unpkg.com/jsonlint@1.6.3/web/jsonlint.js"></script>
+    <script src="https://unpkg.com/csslint@1.0.5/dist/csslint.js"></script>
+    <!-- -------------------------------------------------------------------- -->
     <title>Code Brush - Online Code Editor</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/history.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/history.js" type="module"></script>
 </head>
 <body>
-    <h1>Coming soon...</h1>
+    <div class="app">
+        <a href="./index.html" class="back-to-homepage-btn" aria-label="A button for returning to homepage">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <line x1="5" y1="12" x2="11" y2="18" />
+                <line x1="5" y1="12" x2="11" y2="6" />
+            </svg>
+            <div class="text">Back to editor</div>
+        </a>
+        <!-- <section class="saved-files">
+            <div class="file-container" data-file-name="main.js">
+                <textarea id="code-editor-for-main.js"></textarea>
+                <div class="description">
+                    <div class="file-name">main.js</div>
+                    <div class="actions">
+                        <button class="delete">Delete</button>
+                        <button class="edit">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </div>
 </body>
 </html>

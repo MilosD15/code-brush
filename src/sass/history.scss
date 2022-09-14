@@ -1,0 +1,17 @@
+@forward './components/back-to-homepage-btn';
+
+.app {
+    display: block;
+}
+
+// saved files styling
+.saved-files {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .file-container {
+        width: 80%;
+    }
+}

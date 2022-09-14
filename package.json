@@ -1,31 +1,31 @@
 {
-  "name": "code-brush",
-  "version": "1.0.0",
-  "description": "🔨 IN PROGRESS 🔨",
-  "main": "./src/main.js",
-  "scripts": {
-    "snowpack": "snowpack",
-    "start": "snowpack dev",
-    "build": "snowpack build",
-    "compile-sass": "sass --watch src/sass:src/app/css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MilosD15/code-brush.git"
-  },
-  "keywords": [],
-  "author": "MDWebDev",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MilosD15/code-brush/issues"
-  },
-  "homepage": "https://github.com/MilosD15/code-brush#readme",
-  "devDependencies": {
-    "@snowpack/plugin-sass": "^1.4.0",
-    "sass": "^1.54.0",
-    "snowpack": "^3.8.8"
-  },
-  "dependencies": {
-    "codemirror": "5.65.8"
-  }
+    "name": "code-brush",
+    "version": "1.0.0",
+    "description": "🔨 IN PROGRESS 🔨",
+    "main": "./src/main.js",
+    "scripts": {
+        "snowpack": "snowpack",
+        "start": "snowpack dev",
+        "build": "snowpack build",
+        "compile-sass": "sass --watch src/sass/history.scss:src/app/css/history.css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MilosD15/code-brush.git"
+    },
+    "keywords": [],
+    "author": "MDWebDev",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MilosD15/code-brush/issues"
+    },
+    "homepage": "https://github.com/MilosD15/code-brush#readme",
+    "devDependencies": {
+        "@snowpack/plugin-sass": "^1.4.0",
+        "sass": "^1.54.0",
+        "snowpack": "^3.8.8"
+    },
+    "dependencies": {
+        "codemirror": "5.65.8"
+    }
 }

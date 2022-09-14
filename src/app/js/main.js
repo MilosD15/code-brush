@@ -1,4 +1,4 @@
-import { getCurrentColorTheme } from './colorTheme.js';
+import { getCurrentColorTheme, setInitialColorTheme, setColorTheme } from './colorTheme.js';
 import './featuresAnimations.js';
 import { isFileNamedProperly } from './namingFile.js';
 import Editor from './Editor.js';
@@ -6,20 +6,34 @@ import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import './infoEvents.js';
 
 // initializing the editor one page loaded
-export let editor = new Editor("editor", getCurrentColorTheme());
+let mainEditor = new Editor("editor", getCurrentColorTheme());
 
 // initializing new editor every time new name of the file is submitted
 $("document").ready(() => {
+    // setting initial color theme
+    if (getCurrentColorTheme == null) {
+        mainEditor.setTheme(setInitialColorTheme());
+    } else {
+        const isDark = getCurrentColorTheme() === 'dark';
+        setColorTheme(isDark);
+    }
+
+    // changing color themes
+    $(".dark-mode-btn").click(() => {
+        const isDark = $("body").attr('data-color-theme') === "dark";
+        mainEditor.setTheme(setColorTheme(!isDark));
+    });
+
     $("#name-file-frm").submit(() => {
         const result = isFileNamedProperly();
         if (result) {
             $('.open-compiler-btn').removeClass('stay-red');
             $('.open-compiler-btn').attr('data-tooltip', 'Run');
             erasePreviousEditor();
-            editor = null;
-            editor = new Editor("editor", getCurrentColorTheme());
-            editor.setLanguage(result.fileType);
-            editor.clear();
+            mainEditor = null;
+            mainEditor = new Editor("editor", getCurrentColorTheme());
+            mainEditor.setLanguage(result.fileType);
+            mainEditor.clear();
         }
     });
     $('.copy-code-btn').click(handleCopyingEditorCode);

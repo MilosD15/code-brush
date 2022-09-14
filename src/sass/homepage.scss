@@ -1,0 +1,21 @@
+@forward 'components/info-and-history-btns';
+@forward 'components/naming-file-hint';
+@forward 'layout/editor';
+@forward 'layout/features';
+@forward 'layout/footer';
+@forward 'layout/naming-file';
+@forward 'layout/top-header';
+
+@use './utils/functions' as f;
+@use './utils/variables' as *;
+
+// main content on the home page (naming file and editor sections)
+main {
+    width: 100%;
+    margin: f.pixelsToEm(114) auto;
+    height: max(55vh, 500px);
+
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+        width: 85%;
+    }
+}
