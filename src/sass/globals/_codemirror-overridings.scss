@@ -6,22 +6,22 @@
 /* OVERRIDING DEFAULT CodeMirror STYLINGS */
 .CodeMirror {
     // border: 1px solid currentColor !important;
-    padding-top: f.pixelsToRem(5);
-    font-size: f.pixelsToRem($extra-small-font-size - 1);
-    height: 100%;
+    padding-top: f.pixelsToRem(5) !important;
+    font-size: f.pixelsToRem($extra-small-font-size - 1) !important;
+    height: 100% !important;
 
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
-        font-size: f.pixelsToRem($extra-small-font-size);
+        font-size: f.pixelsToRem($extra-small-font-size) !important;
     }
 }
 
 .CodeMirror-hints {
-    -webkit-box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge);
-    -moz-box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge);
-    box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge);
-    border-radius: f.pixelsToRem(3);
-    border: f.pixelsToRem(1) solid var(--color-primary);
-    background: var(--color-secondary);
+    -webkit-box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge) !important;
+    -moz-box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge) !important;
+    box-shadow: f.pixelsToRem(2) f.pixelsToRem(3) f.pixelsToRem(5) var(--color-btn-edge) !important;
+    border-radius: f.pixelsToRem(3) !important;
+    border: f.pixelsToRem(1) solid var(--color-primary) !important;
+    background: var(--color-secondary) !important;
 }
 
 // change appearance of hints container (dark/light mode)
@@ -32,56 +32,56 @@
 }
   
 .CodeMirror-hint {
-    color: var(--color-text);
+    color: var(--color-text) !important;
 }
 
 li.CodeMirror-hint-active {
-    background: $specific-blue;
-    color: var(--color-primary);
+    background: $specific-blue !important;
+    color: var(--color-primary) !important;
 }
 
 .CodeMirror-linenumber {
-    text-align: center;
+    text-align: center !important;
 }
 
 .cm-searching {
-    background-color: var(--color-specific-red);
+    background-color: var(--color-specific-red) !important;
 }
 
 .CodeMirror-search-hint {
-    display: none;
+    display: none !important;
 }
 
 .CodeMirror-dialog-top {
-    margin-top: f.pixelsToRem(10);
-    padding: f.pixelsToRem(10) f.pixelsToRem(15);
-    border-radius: f.pixelsToRem(10);
-    border: f.pixelsToRem(1) solid var(--color-text);
+    margin-top: f.pixelsToRem(10) !important;
+    padding: f.pixelsToRem(10) f.pixelsToRem(15) !important;
+    border-radius: f.pixelsToRem(10) !important;
+    border: f.pixelsToRem(1) solid var(--color-text) !important;
 }
 
 .CodeMirror-dialog {
-    left: 50%;
-    width: 70%;
-    transform: translateX(-50%);
+    left: 50% !important;
+    width: 70% !important;
+    transform: translateX(-50%) !important;
 }
 
 #CodeMirror-search-field {
-    margin-left: f.pixelsToRem(5);
+    margin-left: f.pixelsToRem(5) !important;
     width: 70% !important;
 }
 
 .CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-    border: none;
-    border-radius: f.pixelsToRem(5);
-    transition: background 300ms ease;
+    border: none !important;
+    border-radius: f.pixelsToRem(5) !important;
+    transition: background 300ms ease !important;
 }
 
 .CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
-    background: var(--color-secondary);
-    transition: background 300ms ease;
+    background: var(--color-secondary) !important;
+    transition: background 300ms ease !important;
 }
 
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-    background: var(--color-secondary);
-    transition: background-color 300ms ease;
+    background: var(--color-secondary) !important;
+    transition: background-color 300ms ease !important;
 }

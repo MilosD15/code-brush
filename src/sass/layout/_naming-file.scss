@@ -38,7 +38,7 @@
             overflow: hidden;
             margin-bottom: f.pixelsToEm(20);
             position: relative;
-            transition: margin-bottom 600ms ease-in-out;
+            transition: margin-bottom 400ms ease-in-out;
 
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                 width: calc(70% + f.pixelsToEm(40));
@@ -55,7 +55,6 @@
                     }
                 }
                 label {
-                    opacity: 1;
                     transform: translate(f.pixelsToRem(5, true), f.pixelsToRem(2, true));
                     font-size: f.pixelsToRem($extra-small-font-size);
                     pointer-events: initial;
@@ -77,7 +76,7 @@
                     position: relative;
                     transition: 
                         border-bottom-color 300ms ease,
-                        margin-top 600ms ease-in-out;
+                        margin-top 400ms ease-in-out;
         
                     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                         margin: f.pixelsToRem(5) 0;
@@ -108,14 +107,13 @@
                 font-size: f.pixelsToRem($extra-small-font-size + 1);
                 top: 0;
                 left: f.pixelsToEm(5);
-                opacity: 0;
                 color: var(--color-text);
                 pointer-events: none;
+                transform: translateY(5px);
                 transition: 
-                    color 600ms ease-in-out,
-                    opacity 600ms ease-in-out,
-                    transform 600ms ease-in-out,
-                    font-size 600ms ease-in-out;
+                    color 400ms ease-in-out,
+                    transform 400ms ease-in-out,
+                    font-size 400ms ease-in-out;
             }
 
             .error {
@@ -194,10 +192,10 @@ body[data-color-theme="light"] {
             .input-field {
                 input {
                     border-color: $color-black-secondary;
-    
-                    &::placeholder {
-                        color: $color-black-secondary;
-                    }
+                }
+
+                label {
+                    color: $color-black-secondary;
                 }
             }
         }
@@ -210,10 +208,10 @@ body[data-color-theme="dark"] {
             .input-field {
                 input {
                     border-color: $color-white-bg-btn;
-    
-                    &::placeholder {
-                        color: $color-white-bg-btn;
-                    }
+                }
+
+                label {
+                    color: $color-white-bg-btn;
                 }
             }
         }

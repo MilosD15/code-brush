@@ -435,23 +435,23 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 
 /* OVERRIDING DEFAULT CodeMirror STYLINGS */
 .CodeMirror {
-  padding-top: 0.3125rem;
-  font-size: 0.9375rem;
-  height: 100%;
+  padding-top: 0.3125rem !important;
+  font-size: 0.9375rem !important;
+  height: 100% !important;
 }
 @media (min-width: 56.25rem) {
   .CodeMirror {
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
 }
 
 .CodeMirror-hints {
-  -webkit-box-shadow: 0.125rem 0.1875rem 0.3125rem var(--color-btn-edge);
-  -moz-box-shadow: 0.125rem 0.1875rem 0.3125rem var(--color-btn-edge);
-  box-shadow: 0.125rem 0.1875rem 0.3125rem var(--color-btn-edge);
-  border-radius: 0.1875rem;
-  border: 0.0625rem solid var(--color-primary);
-  background: var(--color-secondary);
+  -webkit-box-shadow: 0.125rem 0.1875rem 0.3125rem var(--color-btn-edge) !important;
+  -moz-box-shadow: 0.125rem 0.1875rem 0.3125rem var(--color-btn-edge) !important;
+  box-shadow: 0.125rem 0.1875rem 0.3125rem var(--color-btn-edge) !important;
+  border-radius: 0.1875rem !important;
+  border: 0.0625rem solid var(--color-primary) !important;
+  background: var(--color-secondary) !important;
 }
 
 .CodeMirror-hints::-webkit-scrollbar {
@@ -459,58 +459,58 @@ body[data-color-theme=light]::-webkit-scrollbar-thumb:hover {
 }
 
 .CodeMirror-hint {
-  color: var(--color-text);
+  color: var(--color-text) !important;
 }
 
 li.CodeMirror-hint-active {
-  background: #45a8ff;
-  color: var(--color-primary);
+  background: #45a8ff !important;
+  color: var(--color-primary) !important;
 }
 
 .CodeMirror-linenumber {
-  text-align: center;
+  text-align: center !important;
 }
 
 .cm-searching {
-  background-color: var(--color-specific-red);
+  background-color: var(--color-specific-red) !important;
 }
 
 .CodeMirror-search-hint {
-  display: none;
+  display: none !important;
 }
 
 .CodeMirror-dialog-top {
-  margin-top: 0.625rem;
-  padding: 0.625rem 0.9375rem;
-  border-radius: 0.625rem;
-  border: 0.0625rem solid var(--color-text);
+  margin-top: 0.625rem !important;
+  padding: 0.625rem 0.9375rem !important;
+  border-radius: 0.625rem !important;
+  border: 0.0625rem solid var(--color-text) !important;
 }
 
 .CodeMirror-dialog {
-  left: 50%;
-  width: 70%;
-  transform: translateX(-50%);
+  left: 50% !important;
+  width: 70% !important;
+  transform: translateX(-50%) !important;
 }
 
 #CodeMirror-search-field {
-  margin-left: 0.3125rem;
+  margin-left: 0.3125rem !important;
   width: 70% !important;
 }
 
 .CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-  border: none;
-  border-radius: 0.3125rem;
-  transition: background 300ms ease;
+  border: none !important;
+  border-radius: 0.3125rem !important;
+  transition: background 300ms ease !important;
 }
 
 .CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
-  background: var(--color-secondary);
-  transition: background 300ms ease;
+  background: var(--color-secondary) !important;
+  transition: background 300ms ease !important;
 }
 
 .CodeMirror-scrollbar-filler, .CodeMirror-gutter-filler {
-  background: var(--color-secondary);
-  transition: background-color 300ms ease;
+  background: var(--color-secondary) !important;
+  transition: background-color 300ms ease !important;
 }
 
 .website-name {
@@ -897,7 +897,7 @@ li.CodeMirror-hint-active {
   overflow: hidden;
   margin-bottom: 1.25em;
   position: relative;
-  transition: margin-bottom 600ms ease-in-out;
+  transition: margin-bottom 400ms ease-in-out;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input {
@@ -913,7 +913,6 @@ li.CodeMirror-hint-active {
   margin-top: 1.25rem;
 }
 .naming-file-container #name-file-frm .input[data-typing=on] label {
-  opacity: 1;
   transform: translate(-0.3125rem, -0.125rem);
   font-size: 1rem;
   pointer-events: initial;
@@ -931,7 +930,7 @@ li.CodeMirror-hint-active {
   font-size: 1.0625rem;
   padding: 0 0.3125em;
   position: relative;
-  transition: border-bottom-color 300ms ease, margin-top 600ms ease-in-out;
+  transition: border-bottom-color 300ms ease, margin-top 400ms ease-in-out;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input .input-field input {
@@ -960,10 +959,10 @@ li.CodeMirror-hint-active {
   font-size: 1.0625rem;
   top: 0;
   left: 0.3125em;
-  opacity: 0;
   color: var(--color-text);
   pointer-events: none;
-  transition: color 600ms ease-in-out, opacity 600ms ease-in-out, transform 600ms ease-in-out, font-size 600ms ease-in-out;
+  transform: translateY(5px);
+  transition: color 400ms ease-in-out, transform 400ms ease-in-out, font-size 400ms ease-in-out;
 }
 .naming-file-container #name-file-frm .input .error {
   margin-top: 0.125em;
@@ -1036,14 +1035,14 @@ li.CodeMirror-hint-active {
 body[data-color-theme=light] .naming-file-container #name-file-frm .input-field input {
   border-color: #343434;
 }
-body[data-color-theme=light] .naming-file-container #name-file-frm .input-field input::placeholder {
+body[data-color-theme=light] .naming-file-container #name-file-frm .input-field label {
   color: #343434;
 }
 
 body[data-color-theme=dark] .naming-file-container #name-file-frm .input-field input {
   border-color: #D9D9D9;
 }
-body[data-color-theme=dark] .naming-file-container #name-file-frm .input-field input::placeholder {
+body[data-color-theme=dark] .naming-file-container #name-file-frm .input-field label {
   color: #D9D9D9;
 }
 

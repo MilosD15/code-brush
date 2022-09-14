@@ -6,60 +6,13 @@
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Code Mirror -->
-    <!-- general -->
-    <link rel="stylesheet" href="./codemirror-source-code/lib/codemirror.css">
-    <script src="./codemirror-source-code/lib/codemirror.js"></script>
     <!-- themes -->
-    <link rel="stylesheet" href="./codemirror-source-code/theme/base16-dark.css">
-    <link rel="stylesheet" href="./codemirror-source-code/theme/base16-light.css">
-    <!-- language modes -->
-    <script src="./codemirror-source-code/mode/xml/xml.js"></script>
-    <script src="./codemirror-source-code/mode/css/css.js"></script>
-    <script src="./codemirror-source-code/mode/javascript/javascript.js"></script>
-    <script src="./codemirror-source-code/mode/jsx/jsx.js"></script>
-    <script src="./codemirror-source-code/mode/python/python.js"></script>
-    <script src="./codemirror-source-code/mode/go/go.js"></script>
-    <script src="./codemirror-source-code/mode/ruby/ruby.js"></script>
-    <!-- Addons -->
-    <script src="./codemirror-source-code/addon/edit/closebrackets.js"></script>
-    <script src="./codemirror-source-code/addon/edit/closetag.js"></script>
-    <script src="./codemirror-source-code/addon/selection/active-line.js"></script>
-    <script src="./codemirror-source-code/addon/wrap/hardwrap.js"></script>
-    <!-- Hints -->
-    <script src="./codemirror-source-code/addon/hint/show-hint.js"></script>
-    <script src="./codemirror-source-code/addon/hint/html-hint.js"></script>
-    <script src="./codemirror-source-code/addon/hint/css-hint.js"></script>
-    <script src="./codemirror-source-code/addon/hint/javascript-hint.js"></script>
-    <script src="./codemirror-source-code/addon/hint/xml-hint.js"></script>
-    <script src="./codemirror-source-code/addon/hint/anyword-hint.js"></script>
-    <link rel="stylesheet" href="./codemirror-source-code/addon/hint/show-hint.css">
-    <!-- Search bar -->
-    <script src="./codemirror-source-code/addon/search/search.js"></script>
-    <script src="./codemirror-source-code/addon/search/searchcursor.js"></script>
-    <script src="./codemirror-source-code/addon/search/jump-to-line.js"></script>
-    <script src="./codemirror-source-code/addon/dialog/dialog.js"></script>
-    <link rel="stylesheet" href="./codemirror-source-code/addon/dialog/dialog.css">
-    <!-- Custom Scrollbars -->
-    <script src="./codemirror-source-code/addon/scroll/simplescrollbars.js"></script>
-    <link rel="stylesheet" href="./codemirror-source-code/addon/scroll/simplescrollbars.css">
-    <!-- Lints -->
-    <script src="./codemirror-source-code/addon/lint/css-lint.js"></script>
-    <script src="./codemirror-source-code/addon/lint/javascript-lint.js"></script>
-    <script src="./codemirror-source-code/addon/lint/json-lint.js"></script>
-    <script src="./codemirror-source-code/addon/lint/lint.js"></script>
-    <link rel="stylesheet" href="./codemirror-source-code/addon/lint/lint.css">
+    <link rel="stylesheet" href="./css/cm-themes-modified/base16-light.css">
+    <link rel="stylesheet" href="./css/cm-themes-modified/base16-dark.css">
+    <!-- lint -->
     <script src="https://unpkg.com/jshint@2.13.2/dist/jshint.js"></script>
     <script src="https://unpkg.com/jsonlint@1.6.3/web/jsonlint.js"></script>
     <script src="https://unpkg.com/csslint@1.0.5/dist/csslint.js"></script>
-    <!-- Folding -->
-    <script src="./codemirror-source-code/addon/fold/foldcode.js"></script>
-    <script src="./codemirror-source-code/addon/fold/brace-fold.js"></script>
-    <script src="./codemirror-source-code/addon/fold/comment-fold.js"></script>
-    <script src="./codemirror-source-code/addon/fold/foldgutter.js"></script>
-    <script src="./codemirror-source-code/addon/fold/indent-fold.js"></script>
-    <script src="./codemirror-source-code/addon/fold/markdown-fold.js"></script>
-    <script src="./codemirror-source-code/addon/fold/xml-fold.js"></script>
-    <link rel="stylesheet" href="./codemirror-source-code/addon/fold/foldgutter.css">
     <!-- -------------------------------------------------------------------- -->
     <title>CodeBrush - Online Code Editor</title>
     <link rel="stylesheet" href="./css/style.css">
@@ -249,7 +202,7 @@
                 <form id="name-file-frm">
                     <div class="input" data-typing="">
                         <div class="input-field">
-                            <input type="text" id="name-file-input" alt="Provide file name here" placeholder="Name your file... ( e.g. script.js )">
+                            <input type="text" id="name-file-input" alt="Provide file name here">
                             <div class="line-below-input"></div>
                         </div>
                         <label for="name-file-input">Name your file... ( e.g. script.js )</label>
