@@ -38,7 +38,7 @@
             overflow: hidden;
             margin-bottom: f.pixelsToEm(20);
             position: relative;
-            transition: margin-bottom 400ms ease-in-out;
+            transition: margin-bottom 300ms ease;
 
             @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                 width: calc(70% + f.pixelsToEm(40));
@@ -69,14 +69,14 @@
                     height: auto;
                     background-color: transparent;
                     border: 0;
-                    border-bottom: f.pixelsToEm(2) solid var(--color-text);
+                    border-bottom: f.pixelsToRem(2) solid var(--color-text);
                     color: var(--color-text);
                     font-size: f.pixelsToRem($extra-small-font-size + 1);
                     padding: 0 f.pixelsToEm(5);
                     position: relative;
                     transition: 
                         border-bottom-color 300ms ease,
-                        margin-top 400ms ease-in-out;
+                        margin-top 300ms ease;
         
                     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                         margin: f.pixelsToRem(5) 0;
@@ -88,7 +88,7 @@
                 }
     
                 .line-below-input {
-                    height: f.pixelsToRem(2);
+                    height: f.pixelsToRem(1);
                     position: absolute;
                     left: 0;
                     right: 100%;
@@ -98,6 +98,7 @@
     
                     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
                         bottom: f.pixelsToEm(5);
+                        height: f.pixelsToRem(1);
                     }
                 }
             }
@@ -109,11 +110,15 @@
                 left: f.pixelsToEm(5);
                 color: var(--color-text);
                 pointer-events: none;
-                transform: translateY(5px);
+                transform: translateY(0);
                 transition: 
-                    color 400ms ease-in-out,
-                    transform 400ms ease-in-out,
-                    font-size 400ms ease-in-out;
+                    color 300ms ease,
+                    transform 300ms ease,
+                    font-size 300ms ease;
+
+                @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+                    transform: translateY(f.pixelsToRem(5));
+                }
             }
 
             .error {
@@ -184,6 +189,11 @@
             }
         }
     }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 body[data-color-theme="light"] {

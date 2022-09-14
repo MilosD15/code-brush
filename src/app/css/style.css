@@ -897,7 +897,7 @@ li.CodeMirror-hint-active {
   overflow: hidden;
   margin-bottom: 1.25em;
   position: relative;
-  transition: margin-bottom 400ms ease-in-out;
+  transition: margin-bottom 300ms ease;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input {
@@ -925,12 +925,12 @@ li.CodeMirror-hint-active {
   height: auto;
   background-color: transparent;
   border: 0;
-  border-bottom: 0.125em solid var(--color-text);
+  border-bottom: 0.125rem solid var(--color-text);
   color: var(--color-text);
   font-size: 1.0625rem;
   padding: 0 0.3125em;
   position: relative;
-  transition: border-bottom-color 300ms ease, margin-top 400ms ease-in-out;
+  transition: border-bottom-color 300ms ease, margin-top 300ms ease;
 }
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input .input-field input {
@@ -941,7 +941,7 @@ li.CodeMirror-hint-active {
   right: 0;
 }
 .naming-file-container #name-file-frm .input .input-field .line-below-input {
-  height: 0.125rem;
+  height: 0.0625rem;
   position: absolute;
   left: 0;
   right: 100%;
@@ -952,6 +952,7 @@ li.CodeMirror-hint-active {
 @media (min-width: 56.25rem) {
   .naming-file-container #name-file-frm .input .input-field .line-below-input {
     bottom: 0.3125em;
+    height: 0.0625rem;
   }
 }
 .naming-file-container #name-file-frm .input label {
@@ -961,8 +962,13 @@ li.CodeMirror-hint-active {
   left: 0.3125em;
   color: var(--color-text);
   pointer-events: none;
-  transform: translateY(5px);
-  transition: color 400ms ease-in-out, transform 400ms ease-in-out, font-size 400ms ease-in-out;
+  transform: translateY(0);
+  transition: color 300ms ease, transform 300ms ease, font-size 300ms ease;
+}
+@media (min-width: 56.25rem) {
+  .naming-file-container #name-file-frm .input label {
+    transform: translateY(0.3125rem);
+  }
 }
 .naming-file-container #name-file-frm .input .error {
   margin-top: 0.125em;
@@ -1032,6 +1038,14 @@ li.CodeMirror-hint-active {
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body[data-color-theme=light] .naming-file-container #name-file-frm .input-field input {
   border-color: #343434;
 }
