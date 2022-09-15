@@ -6,6 +6,8 @@ import { getSavedFiles } from './localStorageManip.js';
 const savedFilesContainer = document.querySelector('[data-saved-files-container]');
 const fileContainerTemplate = document.getElementById('file-container-template');
 
+let editors =  [];
+
 $("document").ready(() => {
     // setting initial color theme
     if (getCurrentColorTheme() == null) {
@@ -17,12 +19,10 @@ $("document").ready(() => {
     // initializing editors
     checkWhetherFilesCountIs0();
     loadFiles();
+    // focusing the very first editor if history is not empty
+    if (editors.length !== 0) editors[0].focus();
 
-
-    const editors = document.querySelectorAll('.file-container[data-file-name] > textarea');
-    editors.forEach(editor => {
-        const newEditor = new Editor(editor, getCurrentColorTheme(), true);
-    });
+    // make delete and edit btn work and start working on deleting animation
 });
 
 function loadFiles() {
@@ -38,7 +38,18 @@ function loadFiles() {
 function renderFile({ name, langName, text}) {
     const fileContainer = fileContainerTemplate.content.cloneNode(true);
 
-    
+    const editorElement = fileContainer.querySelector('textarea');
+
+    const filenameElement = fileContainer.querySelector('[data-file-name-field]');
+    filenameElement.textContent = name;
+
+    savedFilesContainer.appendChild(fileContainer);
+
+    const newEditor = new Editor(editorElement, getCurrentColorTheme(), true);
+    const progLangObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.name === langName);
+    newEditor.setLanguage(progLangObject.editorModeName);
+    newEditor.setValue(text);
+    editors.push(newEditor);
 }
 
 // if there is no single file saved yet, display message that history is empty

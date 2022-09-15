@@ -17,17 +17,8 @@ $("document").ready(() => {
         } else {
             const result = validateInput();
             if (result.isValid) {
-                // apply programming language
-                $(".editor-container").attr('data-prog-lang', result.fileType);
-                // change other things that should be changed
-                $("#name-file-frm .input").hide();
                 const inputValue = $('#name-file-frm input')[0].value.trim();
-                $("#name-file-frm .file-name").text(`./${inputValue}`);
-                $("#name-file-frm .file-name").fadeIn(300);
-                $("#name-file-frm .file-name").attr('data-file-name', inputValue);
-                $("#name-file-frm button").text('Change file name');
-                $("#name-file-frm button").attr('data-role', 'change-btn');
-                $(".naming-file-container").attr('data-file', 'named');
+                onFileProperlyNamed(result.fileType, inputValue);
             } else {
                 $("#name-file-frm .input span").text(`${result.errorMessage}.`);
                 $("#name-file-frm .input span").slideDown(300).fadeIn(300);
@@ -59,6 +50,19 @@ $("document").ready(() => {
         }
     });
 });
+
+export function onFileProperlyNamed(fileType, filename) {
+    // apply programming language
+    $(".editor-container").attr('data-prog-lang', fileType);
+    // change other things that should be changed
+    $("#name-file-frm .input").hide();
+    $("#name-file-frm .file-name").text(`./${filename}`);
+    $("#name-file-frm .file-name").fadeIn(300);
+    $("#name-file-frm .file-name").attr('data-file-name', filename);
+    $("#name-file-frm button").text('Change file name');
+    $("#name-file-frm button").attr('data-role', 'change-btn');
+    $(".naming-file-container").attr('data-file', 'named');
+}
 
 function validateInput() {
     const inputValue = $('#name-file-frm input')[0].value.trim();

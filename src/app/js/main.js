@@ -1,18 +1,29 @@
 import { getCurrentColorTheme, setInitialColorTheme, setColorTheme } from './colorTheme.js';
 import './featuresAnimations.js';
-import { isFileNamedProperly } from './namingFile.js';
+import { isFileNamedProperly, onFileProperlyNamed } from './namingFile.js';
 import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import './infoEvents.js';
-import { findFile, saveFileInLocalStorage } from './localStorageManip.js';
+import { findFile, saveFileInLocalStorage, getSavedFiles } from './localStorageManip.js';
 
 
 $("document").ready(() => {
-    $("#name-file-frm input").focus();
-
     // initializing the editor once page is loaded
+    let mainEditor;
     const editorElement = document.querySelector('textarea#mainEditor');
-    let mainEditor = new Editor(editorElement, getCurrentColorTheme(), true);
+    if (getSavedFiles().length === 0) {
+        // user didn't make any file in the past
+        mainEditor = new Editor(editorElement, getCurrentColorTheme(), true);
+        $("#name-file-frm input").focus();
+    } else {
+        // user used the editor previously, so open the last file they edited
+        const activeFile = getSavedFiles().find(file => file.isActive === true);
+        mainEditor = new Editor(editorElement, getCurrentColorTheme());
+        const progLangObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.name === activeFile.langName);
+        mainEditor.setLanguage(progLangObject.editorModeName);
+        mainEditor.setValue(activeFile.text);
+        onFileProperlyNamed(progLangObject.editorModeName, activeFile.name);
+    }
     
     // setting initial color theme
     if (getCurrentColorTheme() == null) {
@@ -53,7 +64,8 @@ $("document").ready(() => {
             saveFileInLocalStorage({
                 name: $("#name-file-frm .file-name").attr('data-file-name'),
                 langName: mainEditor.getEditorMode(),
-                text: mainEditor.getEditorCode()
+                text: mainEditor.getEditorCode(),
+                isActive: true
             });
         }
 
@@ -67,13 +79,14 @@ $("document").ready(() => {
             saveFileInLocalStorage({
                 name: $("#name-file-frm .file-name").attr('data-file-name'),
                 langName: mainEditor.getEditorMode(),
-                text: mainEditor.getEditorCode()
+                text: mainEditor.getEditorCode(),
+                isActive: true
             });
         } else {
             mainEditor.readOnly = false;
         }
     });
-    $('.copy-code-btn').click(handleCopyingEditorCode);
+    $('.copy-code-btn').click(() => { handleCopyingEditorCode(mainEditor); });
     $('.open-compiler-btn').click(() => {
         const currentEditorMode = $('.editor-container').attr('data-prog-lang');
         const currentLanguageObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.editorModeName === currentEditorMode);
@@ -88,7 +101,7 @@ $("document").ready(() => {
                 $('.open-compiler-btn').blur();
             }, 2000);
         } else {
-            handleCopyingEditorCode();
+            handleCopyingEditorCode(mainEditor);
             setTimeout(() => {
                 window.open(currentLanguageCompilerURL, "_blank");
             }, 600);
@@ -101,13 +114,14 @@ $("document").ready(() => {
         saveFileInLocalStorage({
             name: $("#name-file-frm .file-name").attr('data-file-name'),
             langName: mainEditor.getEditorMode(),
-            text: mainEditor.getEditorCode()
+            text: mainEditor.getEditorCode(),
+            isActive: true
         });
     });
 });
 
-function handleCopyingEditorCode() {
-    const editorText = editor.getEditorCode();
+function handleCopyingEditorCode(mainEditor) {
+    const editorText = mainEditor.getEditorCode();
     navigator.clipboard.writeText(editorText);
 
     $('.copy-code-btn').addClass('clicked');

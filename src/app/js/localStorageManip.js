@@ -7,18 +7,28 @@ export function saveFileInLocalStorage(newFile) {
     let files = getSavedFiles() === '[]' ? [] : getSavedFiles();
     const existingFileObject = findFile(newFile.name);
 
+    files = deactivatePreviousActiveElement(files);
+
     if (existingFileObject === undefined) {
         files.push(newFile);
     } else {
         files = files.map(file => {
             if (file.name === newFile.name) {
                 file.text = newFile.text;
+                file.isActive = true;
             }
             return file;
         });
     }
 
     saveFiles(files);
+}
+
+function deactivatePreviousActiveElement(files) {
+    return files.map(file => {
+        file.isActive = false;
+        return file;
+    });
 }
 
 export function findFile(filename) {

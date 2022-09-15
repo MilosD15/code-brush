@@ -81,6 +81,11 @@ export default class Editor {
         });
     }
 
+    addShortcut(keyCombination, callback) {
+        const map = {[keyCombination]: function(cm) { callback(cm); }}
+        this.#editor.addKeyMap(map);
+    }
+
     getInitialValue() {
         let initialMessage = '//\t\tKEEP IN MIND:\n';
         initialMessage += '\n// Every time you make a new file, it will be saved and\n';
@@ -110,6 +115,10 @@ export default class Editor {
     clear() {
         this.#editor.setValue('');
         this.#editor.clearHistory();
+        this.#editor.focus();
+    }
+
+    focus() {
         this.#editor.focus();
     }
 

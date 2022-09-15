@@ -50,10 +50,12 @@ html {
   opacity: 0;
   pointer-events: none;
   transition: opacity 500ms ease;
+  height: 0;
 }
 .empty-files-box[data-active=true] {
   opacity: 1;
   pointer-events: initial;
+  height: auto;
 }
 @media (min-width: 31.25rem) {
   .empty-files-box {
@@ -73,10 +75,12 @@ html {
   opacity: 0;
   pointer-events: none;
   transition: opacity 500ms ease;
+  height: 0;
 }
 .saved-files[data-active=true] {
   opacity: 1;
   pointer-events: initial;
+  height: auto;
 }
 @media (min-width: 56.25rem) {
   .saved-files {

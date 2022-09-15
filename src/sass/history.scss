@@ -17,10 +17,12 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 500ms ease;
+    height: 0;
 
     &[data-active="true"] {
         opacity: 1;
         pointer-events: initial;
+        height: auto;
     }
 
     @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
@@ -41,10 +43,12 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 500ms ease;
+    height: 0;
 
     &[data-active="true"] {
         opacity: 1;
         pointer-events: initial;
+        height: auto;
     }
 
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
