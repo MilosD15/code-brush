@@ -10,6 +10,24 @@
     display: block;
 }
 
+.empty-files-box {
+    font-size: f.pixelsToRem($small-font-size + 1);
+    text-align: center;
+    text-shadow: 0 0 f.pixelsToRem(15) $color-white-bg-btn;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms ease;
+
+    &[data-active="true"] {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+        font-size: f.pixelsToRem($medium-font-size);
+    }
+}
+
 // saved files styling
 .saved-files {
     display: grid;
@@ -20,6 +38,14 @@
     padding-inline: 1rem;
     grid-gap: 2rem;
     padding-bottom: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 500ms ease;
+
+    &[data-active="true"] {
+        opacity: 1;
+        pointer-events: initial;
+    }
 
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         padding-inline: 0;

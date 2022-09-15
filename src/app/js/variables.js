@@ -4,6 +4,8 @@ import { makeResponsiveSize } from "./utilities.js";
 export const ANIMATION_FEATURE_CONTAINER_DURATION = 900;
 export const ANIMATION_FEATURE_DURATION = 600;
 
+export const APP_PREFIX = 'CODE_BRUSH';
+
 export const LARGE_SCREENS_BREAKPOINT = makeResponsiveSize(900);
 
 export const PROGRAMMING_LANGUAGES_DATA = [

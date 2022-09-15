@@ -12,6 +12,7 @@ $("document").ready(() => {
             $("#name-file-frm .file-name").hide();
             $(".naming-file-container").attr('data-file', 'unnamed');
             $("#name-file-frm button").text('Save');
+            $("#name-file-frm button").attr('data-role', 'save-btn');
             $("#name-file-frm input").focus();
         } else {
             const result = validateInput();
@@ -23,7 +24,9 @@ $("document").ready(() => {
                 const inputValue = $('#name-file-frm input')[0].value.trim();
                 $("#name-file-frm .file-name").text(`./${inputValue}`);
                 $("#name-file-frm .file-name").fadeIn(300);
+                $("#name-file-frm .file-name").attr('data-file-name', inputValue);
                 $("#name-file-frm button").text('Change file name');
+                $("#name-file-frm button").attr('data-role', 'change-btn');
                 $(".naming-file-container").attr('data-file', 'named');
             } else {
                 $("#name-file-frm .input span").text(`${result.errorMessage}.`);
@@ -91,11 +94,13 @@ function getEditorLandMode(fileExtension) {
 export function isFileNamedProperly() {
     const namingFileContainer = $(".naming-file-container");
     const isFileNamed = namingFileContainer.attr('data-file') === 'named';
+
     if (isFileNamed) {
         const result = validateInput();
         if (result.isValid) {
             return result;
         }
     }
+    
     return false;
 }

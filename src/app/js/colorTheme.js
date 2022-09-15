@@ -13,11 +13,11 @@ export function setInitialColorTheme() {
 export function setColorTheme(isDark) {
     const currentColorTheme = isDark ? 'dark' : 'light';
     $("body").attr('data-color-theme', currentColorTheme);
-    localStorage.setItem('currentColorTheme', currentColorTheme);
+    localStorage.setItem('CODE_BRUSH-currentColorTheme', currentColorTheme);
 
     return $("body").attr('data-color-theme');
 }
 
 export function getCurrentColorTheme() {
-    return localStorage.getItem('currentColorTheme');
+    return localStorage.getItem('CODE_BRUSH-currentColorTheme');
 }

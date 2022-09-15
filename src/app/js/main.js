@@ -4,15 +4,18 @@ import { isFileNamedProperly } from './namingFile.js';
 import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import './infoEvents.js';
+import { findFile, saveFileInLocalStorage } from './localStorageManip.js';
 
-// initializing the editor one page loaded
-const editorElement = document.querySelector('textarea#mainEditor');
-let mainEditor = new Editor(editorElement, getCurrentColorTheme());
 
-// initializing new editor every time new name of the file is submitted
 $("document").ready(() => {
+    $("#name-file-frm input").focus();
+
+    // initializing the editor once page is loaded
+    const editorElement = document.querySelector('textarea#mainEditor');
+    let mainEditor = new Editor(editorElement, getCurrentColorTheme(), true);
+    
     // setting initial color theme
-    if (getCurrentColorTheme == null) {
+    if (getCurrentColorTheme() == null) {
         mainEditor.setTheme(setInitialColorTheme());
     } else {
         const isDark = getCurrentColorTheme() === 'dark';
@@ -25,16 +28,49 @@ $("document").ready(() => {
         mainEditor.setTheme(setColorTheme(!isDark));
     });
 
+    // initializing new editor every time new name of the file is submitted
     $("#name-file-frm").submit(() => {
         const result = isFileNamedProperly();
         if (result) {
+            // resetting editor buttons
             $('.open-compiler-btn').removeClass('stay-red');
             $('.open-compiler-btn').attr('data-tooltip', 'Run');
+
             erasePreviousEditor();
+
+            // initializing new editor
             mainEditor = null;
-            mainEditor = new Editor("editor", getCurrentColorTheme());
+            mainEditor = new Editor(editorElement, getCurrentColorTheme());
             mainEditor.setLanguage(result.fileType);
             mainEditor.clear();
+            const currentFilename = $("#name-file-frm .file-name").attr('data-file-name');
+            const existingFileObject = findFile(currentFilename);
+            if (existingFileObject) {
+                mainEditor.setValue(existingFileObject.text);
+            }
+
+            // save file every time user enters correct file name
+            saveFileInLocalStorage({
+                name: $("#name-file-frm .file-name").attr('data-file-name'),
+                langName: mainEditor.getEditorMode(),
+                text: mainEditor.getEditorCode()
+            });
+        }
+
+        // when a file is unnamed or user changing the name of his file, 
+        // user cannot edit code in editor, once file is successfully named correctly,
+        // user again has an option to edit the his file
+        if ($("#name-file-frm button").attr('data-role') === 'save-btn') {
+            mainEditor.readOnly = true;
+
+            // save file before user change the name of the file(create new file or load existing one)
+            saveFileInLocalStorage({
+                name: $("#name-file-frm .file-name").attr('data-file-name'),
+                langName: mainEditor.getEditorMode(),
+                text: mainEditor.getEditorCode()
+            });
+        } else {
+            mainEditor.readOnly = false;
         }
     });
     $('.copy-code-btn').click(handleCopyingEditorCode);
@@ -57,6 +93,16 @@ $("document").ready(() => {
                 window.open(currentLanguageCompilerURL, "_blank");
             }, 600);
         }
+    });
+    // save file before page is closed, or user opened another website or page
+    window.addEventListener('beforeunload', () => {
+        if (mainEditor.getEditorCode() === mainEditor.getInitialValue()) return;
+
+        saveFileInLocalStorage({
+            name: $("#name-file-frm .file-name").attr('data-file-name'),
+            langName: mainEditor.getEditorMode(),
+            text: mainEditor.getEditorCode()
+        });
     });
 });
 

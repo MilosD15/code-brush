@@ -54,15 +54,16 @@ import 'codemirror/addon/fold/foldgutter.css';
 export default class Editor {
     #editor
 
-    constructor(editorElement, currentColorTheme) {
-        this.#editor = Editor.#initializeEditor(editorElement);
+    constructor(editorElement, currentColorTheme, readOnly = false) {
+        this.#editor = Editor.#initializeEditor(editorElement, readOnly);
         this.#setInitialValue();
         this.setTheme(currentColorTheme);
     }
 
-    static #initializeEditor(editorElement) {
+    static #initializeEditor(editorElement, readOnly) {
         return CodeMirror.fromTextArea(editorElement, {
             lineNumbers: true,
+            readOnly: readOnly,
             mode: 'text/javascript',
             theme: 'base16-dark',
             autoCloseBrackets: true,
@@ -80,8 +81,7 @@ export default class Editor {
         });
     }
 
-    #setInitialValue() {
-        this.clear();
+    getInitialValue() {
         let initialMessage = '//\t\tKEEP IN MIND:\n';
         initialMessage += '\n// Every time you make a new file, it will be saved and\n';
         initialMessage += '// you can see all of your previous files by clicking on\n';
@@ -94,7 +94,17 @@ export default class Editor {
         initialMessage += '\n// Files with .xml and .json extension cannot be compiled.\n';
         initialMessage += '\n// Every time you want to see this info again, just click';
         initialMessage += '\n// on the Info button below the header in the left corner.\n';
+        return initialMessage;
+    }
+
+    #setInitialValue() {
+        this.clear();
+        const initialMessage = this.getInitialValue();
         this.#editor.setValue(initialMessage);
+    }
+
+    setValue(newValue) {
+        this.#editor.setValue(newValue);
     }
 
     clear() {
@@ -112,7 +122,15 @@ export default class Editor {
         this.#editor.setOption('mode', language);
     }
 
+    set readOnly(value) {
+        this.#editor.setOption('readOnly', value);
+    }
+
     getEditorCode() {
         return this.#editor.getValue();
+    }
+
+    getEditorMode() {
+        return this.#editor.getMode().name;
     }
 }
