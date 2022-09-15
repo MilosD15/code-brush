@@ -6,7 +6,8 @@ import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import './infoEvents.js';
 
 // initializing the editor one page loaded
-let mainEditor = new Editor("editor", getCurrentColorTheme());
+const editorElement = document.querySelector('textarea#mainEditor');
+let mainEditor = new Editor(editorElement, getCurrentColorTheme());
 
 // initializing new editor every time new name of the file is submitted
 $("document").ready(() => {

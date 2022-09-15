@@ -54,8 +54,7 @@ import 'codemirror/addon/fold/foldgutter.css';
 export default class Editor {
     #editor
 
-    constructor(id, currentColorTheme) {
-        const editorElement = document.querySelector(`textarea#${id}`);
+    constructor(editorElement, currentColorTheme) {
         this.#editor = Editor.#initializeEditor(editorElement);
         this.#setInitialValue();
         this.setTheme(currentColorTheme);

@@ -7,6 +7,9 @@ $("document").ready(() => {
     const isDark = getCurrentColorTheme() === 'dark';
     setColorTheme(isDark);
     // initializing editors
-    // const editor = new Editor('code-editor-for-main.js', getCurrentColorTheme());
+    const editors = document.querySelectorAll('.file-container[data-file-name] > textarea');
+    editors.forEach(editor => {
+        const newEditor = new Editor(editor, getCurrentColorTheme());
+    });
 });
 

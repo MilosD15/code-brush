@@ -1,17 +1,107 @@
 @forward './components/back-to-homepage-btn';
 
+@use './utils/functions' as f;
+@use './utils/typography' as *;
+@use './components/mixins' as *;
+@use './utils/colors' as *;
+@use './utils/variables' as *;
+
 .app {
     display: block;
 }
 
 // saved files styling
 .saved-files {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    width: 100%;
+    place-items: center;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    padding-inline: 1rem;
+    grid-gap: 2rem;
+    padding-bottom: 2rem;
+
+    @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+        padding-inline: 0;
+    }
+
+    @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+        grid-template-columns: 1fr 1fr;
+        padding-inline: 2rem;
+    }
 
     .file-container {
-        width: 80%;
+        width: 100%;
+        height: f.pixelsToRem(400);
+        border: f.pixelsToRem(2) solid var(--color-btn-edge);
+        position: relative;
+
+        @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
+            width: 80%;
+        }
+
+        @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+            width: 100%;
+        }
+
+        .description {
+            z-index: 100;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            padding: f.pixelsToRem(16) f.pixelsToRem(28);
+            background-color: var(--color-secondary);
+
+            @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                flex-direction: row;
+                gap: 0;
+                padding: f.pixelsToRem(16) f.pixelsToRem(28) f.pixelsToRem(16) f.pixelsToRem(48);
+            }
+
+            .file-name {
+                font-size: f.pixelsToRem($extra-small-font-size);
+                align-self: flex-start;
+
+                @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                    align-self: center;
+                    font-size: f.pixelsToRem($extra-small-font-size + 1);
+                }
+            }
+
+            .actions {
+                display: flex;
+                gap: 1rem;
+                font-size: f.pixelsToRem($extra-small-font-size);
+
+                @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                    font-size: f.pixelsToRem($extra-small-font-size + 1);
+                }
+
+                .delete {
+                    @include primary-btn-styling;
+
+                    background-color: $color-white-primary;
+                    color: var(--color-specific-red);
+                    border-color: var(--color-specific-red);
+                    border-width: f.pixelsToRem(2);
+
+                    &:hover,
+                    &:focus {
+                        background-color: var(--color-specific-red);
+                        color: $color-white-primary;
+                    }
+                }
+                
+                .edit {
+                    @include primary-btn-styling;
+                }
+            }
+        }
     }
 }

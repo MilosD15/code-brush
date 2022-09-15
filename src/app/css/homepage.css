@@ -973,7 +973,7 @@ body[data-color-theme=dark] .naming-file-container #name-file-frm .input-field l
 main {
   width: 100%;
   margin: 7.125em auto;
-  height: max(55vh, 500px);
+  height: max(55vh, 31.25rem);
 }
 @media (min-width: 56.25rem) {
   main {

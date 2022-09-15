@@ -13,7 +13,7 @@
 main {
     width: 100%;
     margin: f.pixelsToEm(114) auto;
-    height: max(55vh, 500px);
+    height: max(55vh, f.pixelsToRem(500));
 
     @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
         width: 85%;
