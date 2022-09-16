@@ -19,7 +19,7 @@ $("document").ready(() => {
         // user used the editor previously, so open the last file they edited
         const activeFile = getSavedFiles().find(file => file.isActive === true);
         mainEditor = new Editor(editorElement, getCurrentColorTheme());
-        const progLangObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.name === activeFile.langName);
+        const progLangObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.editorModeName === activeFile.editorMode);
         mainEditor.setLanguage(progLangObject.editorModeName);
         mainEditor.setValue(activeFile.text);
         onFileProperlyNamed(progLangObject.editorModeName, activeFile.name);
@@ -63,7 +63,7 @@ $("document").ready(() => {
             // save file every time user enters correct file name
             saveFileInLocalStorage({
                 name: $("#name-file-frm .file-name").attr('data-file-name'),
-                langName: mainEditor.getEditorMode(),
+                editorMode: mainEditor.getEditorMode(),
                 text: mainEditor.getEditorCode(),
                 isActive: true
             });
@@ -78,7 +78,7 @@ $("document").ready(() => {
             // save file before user change the name of the file(create new file or load existing one)
             saveFileInLocalStorage({
                 name: $("#name-file-frm .file-name").attr('data-file-name'),
-                langName: mainEditor.getEditorMode(),
+                editorMode: mainEditor.getEditorMode(),
                 text: mainEditor.getEditorCode(),
                 isActive: true
             });
@@ -113,7 +113,7 @@ $("document").ready(() => {
 
         saveFileInLocalStorage({
             name: $("#name-file-frm .file-name").attr('data-file-name'),
-            langName: mainEditor.getEditorMode(),
+            editorMode: mainEditor.getEditorMode(),
             text: mainEditor.getEditorCode(),
             isActive: true
         });

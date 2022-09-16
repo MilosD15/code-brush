@@ -11,49 +11,49 @@ export const LARGE_SCREENS_BREAKPOINT = makeResponsiveSize(900);
 export const PROGRAMMING_LANGUAGES_DATA = [
     {
         name: 'xml',
-        extension: 'xml',
+        extensions: ['xml'],
         editorModeName: 'application/xml',
         compilerURL: '/'
     },
     {
         name: 'html',
-        extension: 'html',
+        extensions: ['html', 'htm'],
         editorModeName: 'text/html',
         compilerURL: 'https://www.programiz.com/html/online-compiler/'
     },
     {
         name: 'css',
-        extension: 'css',
+        extensions: ['css'],
         editorModeName: 'text/css',
         compilerURL: 'https://www.programiz.com/html/online-compiler/'
     },
     {
         name: 'javascript',
-        extension: 'js',
+        extensions: ['js'],
         editorModeName: 'text/javascript',
         compilerURL: 'https://www.programiz.com/javascript/online-compiler/'
     },
     {
         name: 'json',
-        extension: 'json',
+        extensions: ['json'],
         editorModeName: 'application/x-json',
         compilerURL: '/'
     },
     {
         name: 'python',
-        extension: 'py',
+        extensions: ['py'],
         editorModeName: 'text/x-python',
         compilerURL: 'https://www.programiz.com/python-programming/online-compiler/'
     },
     {
         name: 'golang',
-        extension: 'go',
+        extensions: ['go'],
         editorModeName: 'text/x-go',
         compilerURL: 'https://replit.com/languages/go'
     },
     {
         name: 'ruby',
-        extension: 'rb',
+        extensions: ['rb'],
         editorModeName: 'text/x-ruby',
         compilerURL: 'https://replit.com/languages/ruby'
     },

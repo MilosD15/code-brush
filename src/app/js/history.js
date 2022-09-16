@@ -52,7 +52,7 @@ function handleEditFile(filename) {
 }
 
 function loadFiles() {
-    const files = getSavedFiles() === '[]' ? [] : getSavedFiles();
+    const files = getSavedFiles();
 
     if (files.length === 0) return;
 
@@ -61,7 +61,7 @@ function loadFiles() {
     });
 }
 
-function renderFile({ name, langName, text}) {
+function renderFile({ name, editorMode, text}) {
     const fileContainer = fileContainerTemplate.content.cloneNode(true);
     fileContainer.querySelector('[data-file-container]').dataset.fileName = name;
 
@@ -73,7 +73,7 @@ function renderFile({ name, langName, text}) {
     savedFilesContainer.appendChild(fileContainer);
 
     const newEditor = new Editor(editorElement, getCurrentColorTheme(), true);
-    const progLangObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.name === langName);
+    const progLangObject = PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.editorModeName === editorMode);
     newEditor.setLanguage(progLangObject.editorModeName);
     newEditor.setValue(text);
     editors.push(newEditor);

@@ -73,7 +73,7 @@ function validateInput() {
         }
     }
 
-    const FILE_NAME_REGEX = /^\w+\.(xml|html|css|js|json|py|go|rb)$/;
+    const FILE_NAME_REGEX = /^\w+\.(xml|html|htm|css|js|json|py|go|rb)$/;
 
     if (inputValue.match(FILE_NAME_REGEX) == null) {
         return {
@@ -84,15 +84,23 @@ function validateInput() {
 
     const fileNamePieces = inputValue.split('.');
     const fileExtension = fileNamePieces[fileNamePieces.length - 1].toLowerCase();
-    const fileType = getEditorLandMode(fileExtension);
+    const fileType = getEditorLangMode(fileExtension);
     return {
         isValid: true,
         fileType
     }
 }
 
-function getEditorLandMode(fileExtension) {
-    return PROGRAMMING_LANGUAGES_DATA.find(progLang => progLang.extension === fileExtension).editorModeName;
+function getEditorLangMode(fileExtension) {
+    for (let i = 0; i < PROGRAMMING_LANGUAGES_DATA.length; i++) {
+        const progLangObject = PROGRAMMING_LANGUAGES_DATA[i];
+        const hasTargetedExtension =  progLangObject.extensions.some(extension => extension === fileExtension);
+        if (hasTargetedExtension) {
+            return progLangObject.editorModeName;
+        }
+    }
+    // default case which never gonna happen
+    return 'js';
 }
 
 export function isFileNamedProperly() {

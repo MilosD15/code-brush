@@ -140,6 +140,6 @@ export default class Editor {
     }
 
     getEditorMode() {
-        return this.#editor.getMode().name;
+        return this.#editor.getOption('mode');
     }
 }
