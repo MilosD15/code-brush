@@ -4,7 +4,7 @@ import { APP_PREFIX } from './variables.js';
 // local storage manipulation
 
 export function saveFileInLocalStorage(newFile) {
-    let files = getSavedFiles() === '[]' ? [] : getSavedFiles();
+    let files = getSavedFiles();
     const existingFileObject = findFile(newFile.name);
 
     files = deactivatePreviousActiveElement(files);
@@ -24,6 +24,27 @@ export function saveFileInLocalStorage(newFile) {
     saveFiles(files);
 }
 
+export function setActiveFile(filename) {
+    let files = getSavedFiles();
+
+    files = deactivatePreviousActiveElement(files);
+    
+    const targetedFile = files.find(file => file.name === filename);
+    if (targetedFile != undefined) targetedFile.isActive = true;
+
+    saveFiles(files);
+}
+
+export function deleteFile(filename) {
+    const files = getSavedFiles();
+    const newFiles = files.filter(file => file.name !== filename);
+
+    const activeFileExist = newFiles.some(file => file.isActive);
+    if (!activeFileExist && newFiles.length !== 0) newFiles[0].isActive = true;
+
+    saveFiles(newFiles);
+}
+
 function deactivatePreviousActiveElement(files) {
     return files.map(file => {
         file.isActive = false;
@@ -32,7 +53,7 @@ function deactivatePreviousActiveElement(files) {
 }
 
 export function findFile(filename) {
-    const files = getSavedFiles() === '[]' ? [] : getSavedFiles();
+    const files = getSavedFiles();
     return files.find(file => file.name === filename);
 }
 
@@ -42,7 +63,7 @@ export function saveFiles(files) {
 
 export function getSavedFiles() {
     const files = localStorage.getItem(`${APP_PREFIX}-files`);
-    if (files == null) {
+    if (files == null || files === '[]') {
         saveFiles([]);
         return [];
     }

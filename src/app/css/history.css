@@ -98,6 +98,7 @@ html {
   height: 25rem;
   border: 0.125rem solid var(--color-btn-edge);
   position: relative;
+  transition: opacity 500ms ease;
 }
 @media (min-width: 56.25rem) {
   .saved-files .file-container {

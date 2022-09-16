@@ -65,6 +65,7 @@
         height: f.pixelsToRem(400);
         border: f.pixelsToRem(2) solid var(--color-btn-edge);
         position: relative;
+        transition: opacity 500ms ease;
 
         @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             width: 80%;

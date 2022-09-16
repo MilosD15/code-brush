@@ -1,7 +1,7 @@
 import { getCurrentColorTheme, setColorTheme, setInitialColorTheme } from './colorTheme.js';
 import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
-import { getSavedFiles } from './localStorageManip.js';
+import { getSavedFiles, deleteFile, setActiveFile } from './localStorageManip.js';
 
 const savedFilesContainer = document.querySelector('[data-saved-files-container]');
 const fileContainerTemplate = document.getElementById('file-container-template');
@@ -22,8 +22,34 @@ $("document").ready(() => {
     // focusing the very first editor if history is not empty
     if (editors.length !== 0) editors[0].focus();
 
-    // make delete and edit btn work and start working on deleting animation
+    savedFilesContainer.addEventListener('click', e => {
+        if (e.target.matches('[data-delete-btn]')) {
+            const fileContainer = e.target.closest('[data-file-container]');
+            handleDeleteFile(fileContainer);
+        }
+        if (e.target.matches('[data-edit-btn]')) {
+            const fileContainer = e.target.closest('[data-file-container]');
+            handleEditFile(fileContainer.dataset.fileName);
+        }
+    });
 });
+
+function handleDeleteFile(fileContainerElement) {
+    deleteFile(fileContainerElement.dataset.fileName);
+
+    fileContainerElement.style.opacity = 0;
+    setTimeout(() => {
+        fileContainerElement.remove();
+    }, 500);
+
+    checkWhetherFilesCountIs0(500);
+}
+
+function handleEditFile(filename) {
+    setActiveFile(filename);
+
+    location.href = '../index.html';
+}
 
 function loadFiles() {
     const files = getSavedFiles() === '[]' ? [] : getSavedFiles();
@@ -37,6 +63,7 @@ function loadFiles() {
 
 function renderFile({ name, langName, text}) {
     const fileContainer = fileContainerTemplate.content.cloneNode(true);
+    fileContainer.querySelector('[data-file-container]').dataset.fileName = name;
 
     const editorElement = fileContainer.querySelector('textarea');
 
@@ -53,14 +80,16 @@ function renderFile({ name, langName, text}) {
 }
 
 // if there is no single file saved yet, display message that history is empty
-function checkWhetherFilesCountIs0() {
+function checkWhetherFilesCountIs0(delay = 0) {
     const emptyHistoryElement = document.querySelector('[data-empty-files-box]');
     
     const files = getSavedFiles() === '[]' ? [] : getSavedFiles();
     
     if (files.length === 0) {
-        emptyHistoryElement.dataset.active = true;
-        savedFilesContainer.dataset.active = false;
+        setTimeout(() => {
+            emptyHistoryElement.dataset.active = true;
+            savedFilesContainer.dataset.active = false;
+        }, delay);
     } else {
         emptyHistoryElement.dataset.active = false;
         savedFilesContainer.dataset.active = true;
