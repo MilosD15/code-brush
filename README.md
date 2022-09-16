@@ -1,5 +1,5 @@
 ## 💎 CodeBrush - Online Code Editor 💎
 
-🔨 IN PROGRESS 🔨
+IT'S ALMOST DONE! 🤗
 
-See how it goes -> https://codebrush.netlify.app
+Check it out -> https://codebrush.netlify.app
