@@ -2,6 +2,7 @@ import { getCurrentColorTheme, setColorTheme, setInitialColorTheme } from './col
 import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import { getSavedFiles, deleteFile, setActiveFile } from './localStorageManip.js';
+import { performDeletingVisually } from './deletingAnimation.js';
 
 const savedFilesContainer = document.querySelector('[data-saved-files-container]');
 const fileContainerTemplate = document.getElementById('file-container-template');
@@ -37,10 +38,7 @@ $("document").ready(() => {
 function handleDeleteFile(fileContainerElement) {
     deleteFile(fileContainerElement.dataset.fileName);
 
-    fileContainerElement.style.opacity = 0;
-    setTimeout(() => {
-        fileContainerElement.remove();
-    }, 500);
+    performDeletingVisually(fileContainerElement);
 
     checkWhetherFilesCountIs0(500);
 }

@@ -7,6 +7,7 @@ export const ANIMATION_FEATURE_DURATION = 600;
 export const APP_PREFIX = 'CODE_BRUSH';
 
 export const LARGE_SCREENS_BREAKPOINT = makeResponsiveSize(900);
+export const MEDIUM_SCREENS_BREAKPOINT = makeResponsiveSize(500);
 
 export const PROGRAMMING_LANGUAGES_DATA = [
     {

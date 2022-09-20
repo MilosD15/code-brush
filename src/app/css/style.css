@@ -89,6 +89,7 @@ body[data-color-theme=dark] {
   --color-btn-edge: #585353;
   --color-text: #FFFFFF;
   --color-specific-red: #f84242;
+  --bg-color-deleting-cover: #E71E1E;
 }
 body[data-color-theme=dark] .moon {
   opacity: 1 !important;
@@ -107,6 +108,7 @@ body[data-color-theme=light] {
   --color-btn-edge: #FFFFFF;
   --color-text: #000000;
   --color-specific-red: #E71E1E;
+  --bg-color-deleting-cover: #f84242;
 }
 body[data-color-theme=light] .sun {
   opacity: 1 !important;
@@ -125,6 +127,7 @@ body[data-color-theme=light] .CodeMirror-simplescroll-horizontal div, body[data-
     --color-btn-edge: #FFFFFF;
     --color-text: #000000;
     --color-specific-red: #E71E1E;
+    --bg-color-deleting-cover: #f84242;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -135,6 +138,7 @@ body[data-color-theme=light] .CodeMirror-simplescroll-horizontal div, body[data-
     --color-btn-edge: #585353;
     --color-text: #FFFFFF;
     --color-specific-red: #f84242;
+    --bg-color-deleting-cover: #E71E1E;
   }
 }
 ::selection {

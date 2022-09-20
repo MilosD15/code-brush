@@ -10,3 +10,7 @@ export function makeResponsiveSize(sizeInPixels) {
     const responsiveSize = sizeInPixels * (fontSizeNumber / 16);
     return responsiveSize;
 }
+
+export function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}

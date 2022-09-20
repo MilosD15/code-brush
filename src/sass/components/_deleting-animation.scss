@@ -1,0 +1,100 @@
+
+@use '../utils/functions' as f;
+@use '../utils/colors' as *;
+@use '../utils/variables' as *;
+
+:root {
+    --deleting-animation-pieces-count-column: 30;
+    --deleting-animation-pieces-count-row: 24;
+
+    @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+        --deleting-animation-pieces-count-column: 50;
+    }
+}
+
+.deleting-animation-cover {
+    z-index: 100;
+    position: absolute;
+    top: f.pixelsToRem(2, true);
+    left: f.pixelsToRem(2, true);
+    width: calc(100% + f.pixelsToRem(4));
+    height: calc(100% + f.pixelsToRem(4));
+    background-color: var(--bg-color-deleting-cover);
+    display: grid;
+    grid-template-columns: repeat(var(--deleting-animation-pieces-count-column), 1fr);
+    grid-template-rows: repeat(var(--deleting-animation-pieces-count-row), 1fr);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1000ms ease;
+
+    &[data-state="container-active"] {
+
+        opacity: 1;
+        pointer-events: initial;
+    }
+
+    &[data-state="pieces-active"] {
+        opacity: 1;
+        pointer-events: initial;
+        background-color: transparent;
+
+        .piece {
+            opacity: 1;
+            pointer-events: initial;
+
+            &[data-animation-type="long"] {
+                animation-name: fall-down-and-fade-out-long;
+                animation-duration: 900ms;
+            }
+            &[data-animation-type="normal"] {
+                animation-name: fall-down-and-fade-out-normal;
+                animation-duration: 600ms;
+            }
+            &[data-animation-type="short"] {
+                animation-name: fall-down-and-fade-out-short;
+                animation-duration: 300ms;
+            }
+        }
+    }
+
+    .piece {
+        background-color: var(--bg-color-deleting-cover);
+        opacity: 0;
+        pointer-events: none;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes fall-down-and-fade-out-long {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(240px) rotate(-360deg);
+    }
+}
+
+@keyframes fall-down-and-fade-out-normal {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(160px) rotate(-270deg);
+    }
+}
+
+@keyframes fall-down-and-fade-out-short {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(80px) rotate(-180deg);
+    }
+}

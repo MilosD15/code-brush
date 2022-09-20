@@ -1,4 +1,5 @@
 @forward './components/back-to-homepage-btn';
+@forward './components/deleting-animation';
 
 @use './utils/functions' as f;
 @use './utils/typography' as *;
@@ -65,7 +66,15 @@
         height: f.pixelsToRem(400);
         border: f.pixelsToRem(2) solid var(--color-btn-edge);
         position: relative;
-        transition: opacity 500ms ease;
+
+        &[data-state="deleting"] {
+            border: 0;
+
+            & > *:not(.deleting-animation-cover) {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
 
         @media (min-width: f.pixelsToRem($large-screens-breakpoint)) {
             width: 80%;

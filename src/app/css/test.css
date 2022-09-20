@@ -1,6 +1,6 @@
 
 .saved-files {
-    place-items: center;
+    place-items: center !important;
     opacity: 1;
     pointer-events: initial;
     min-height: 100vh;
