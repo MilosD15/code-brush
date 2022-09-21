@@ -5,6 +5,7 @@ import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import './infoEvents.js';
 import { findFile, saveFileInLocalStorage, getSavedFiles } from './localStorageManip.js';
+import './loader.js';
 
 
 $("document").ready(() => {

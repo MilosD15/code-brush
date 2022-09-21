@@ -16,7 +16,8 @@ const MAKING_FILE_CONTAINER_RED_DELAY = 1000;
 // global variables
 let numberOfCallsAnimatePiecesFunction = getNumberOfCallsOfAnimatePiecesFunction(0, 0, getPieceColumnCount() * 24, 0);
 // average time needed for animating pieces in one function call (depends on ANIMATION_DELAY properties)
-const averageAnimatePiecesTime = ANIMATION_DELAY.max / 5 * 1;
+const averageAnimatePiecesTime = ANIMATION_DELAY.max / 5 * 1.3;
+const deleteFileTimeConsumption = MAKING_FILE_CONTAINER_RED_DELAY + ANIMATION_DURATION + numberOfCallsAnimatePiecesFunction * averageAnimatePiecesTime;
 
 export function performDeletingVisually(fileElement) {
     // create cover container
@@ -36,7 +37,9 @@ export function performDeletingVisually(fileElement) {
     // remove the file from the DOM
     setTimeout(() => {
         fileElement.remove();
-    }, MAKING_FILE_CONTAINER_RED_DELAY + ANIMATION_DURATION + numberOfCallsAnimatePiecesFunction * averageAnimatePiecesTime);
+        console.log('now')
+    }, deleteFileTimeConsumption);
+    return deleteFileTimeConsumption;
 }
 
 function performDeletingAnimation(deletingCoverElement) {

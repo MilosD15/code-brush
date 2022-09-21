@@ -287,4 +287,139 @@ header {
   }
 }
 
+.loader-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-secondary);
+  transition: opacity 800ms ease;
+}
+.loader-container .loader-wrapper {
+  width: max-content;
+  position: relative;
+  overflow: hidden;
+  width: 3.125rem;
+  height: 3.125rem;
+  transition: padding 500ms ease, transform 4s ease;
+}
+@media (min-width: 31.25rem) {
+  .loader-container .loader-wrapper {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media (min-width: 87.5rem) {
+  .loader-container .loader-wrapper {
+    width: 5.625rem;
+    height: 5.625rem;
+  }
+}
+.loader-container .loader-wrapper .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  transform: scale(0);
+  transition: transform 500ms ease;
+  background-color: var(--color-secondary);
+}
+.loader-container .loader-wrapper .logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.loader-container .loader-wrapper .editor-name {
+  font-size: 1.625rem;
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: left 500ms ease, opacity 500ms ease;
+}
+@media (min-width: 31.25rem) {
+  .loader-container .loader-wrapper .editor-name {
+    font-size: 2.625rem;
+    right: 1.25rem;
+  }
+}
+@media (min-width: 87.5rem) {
+  .loader-container .loader-wrapper .editor-name {
+    font-size: 3.25rem;
+    right: 1.75rem;
+  }
+}
+.loader-container[data-animation-state=show-logo] .loader-wrapper .logo {
+  transform: scale(1);
+}
+.loader-container[data-animation-state=show-editor-name] .loader-wrapper {
+  padding-right: 11.25rem;
+}
+@media (min-width: 31.25rem) {
+  .loader-container[data-animation-state=show-editor-name] .loader-wrapper {
+    padding-right: 18.75rem;
+  }
+}
+@media (min-width: 87.5rem) {
+  .loader-container[data-animation-state=show-editor-name] .loader-wrapper {
+    padding-right: 22.5rem;
+  }
+}
+.loader-container[data-animation-state=show-editor-name] .loader-wrapper .logo {
+  transform: scale(1);
+}
+.loader-container[data-animation-state=show-editor-name] .loader-wrapper .editor-name {
+  opacity: 1;
+}
+.loader-container[data-animation-state=enlargement] .loader-wrapper {
+  padding-right: 11.25rem;
+  transform: scale(1.2);
+}
+@media (min-width: 31.25rem) {
+  .loader-container[data-animation-state=enlargement] .loader-wrapper {
+    padding-right: 18.75rem;
+  }
+}
+@media (min-width: 87.5rem) {
+  .loader-container[data-animation-state=enlargement] .loader-wrapper {
+    padding-right: 22.5rem;
+  }
+}
+.loader-container[data-animation-state=enlargement] .loader-wrapper .logo {
+  transform: scale(1);
+}
+.loader-container[data-animation-state=enlargement] .loader-wrapper .editor-name {
+  opacity: 1;
+}
+.loader-container[data-animation-state=fade-out] {
+  opacity: 0;
+}
+.loader-container[data-animation-state=fade-out] .loader-wrapper {
+  padding-right: 11.25rem;
+  transform: scale(1.2);
+}
+@media (min-width: 31.25rem) {
+  .loader-container[data-animation-state=fade-out] .loader-wrapper {
+    padding-right: 18.75rem;
+  }
+}
+@media (min-width: 87.5rem) {
+  .loader-container[data-animation-state=fade-out] .loader-wrapper {
+    padding-right: 22.5rem;
+  }
+}
+.loader-container[data-animation-state=fade-out] .loader-wrapper .logo {
+  transform: scale(1);
+}
+.loader-container[data-animation-state=fade-out] .loader-wrapper .editor-name {
+  opacity: 1;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,159 @@
+@use '../utils/functions' as f;
+@use '../utils/typography' as *;
+@use '../utils/variables' as *;
+
+$transition-between-states-duration: 500ms;
+$transition-of-enlargement-duration: 4s;
+$fading-out-duration: 800ms;
+
+.loader-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--color-secondary);
+    transition: opacity $fading-out-duration ease;
+
+    .loader-wrapper {
+        width: max-content;
+        position: relative;
+        overflow: hidden;
+        width: f.pixelsToRem(50);
+        height: f.pixelsToRem(50);
+        transition: 
+            padding $transition-between-states-duration ease,
+            transform $transition-of-enlargement-duration ease;
+
+        @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+            width: f.pixelsToRem(80);
+            height: f.pixelsToRem(80);
+        }
+
+        @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+            width: f.pixelsToRem(90);
+            height: f.pixelsToRem(90);
+        }
+
+        .logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: inherit;
+            height: inherit;
+            transform: scale(0);
+            transition: transform $transition-between-states-duration ease;
+            background-color: var(--color-secondary);
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        .editor-name {
+            font-size: f.pixelsToRem($large-font-size);
+            position: absolute;
+            top: 50%;
+            right: f.pixelsToRem(8);
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: 
+                left $transition-between-states-duration ease,
+                opacity $transition-between-states-duration ease;
+
+            @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                font-size: f.pixelsToRem($large-font-size * 2 - 10);
+                right: f.pixelsToRem(20);
+            }
+
+            @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+                font-size: f.pixelsToRem($large-font-size * 2);
+                right: f.pixelsToRem(28);
+            }
+        }
+    }
+
+    &[data-animation-state="show-logo"] {
+        .loader-wrapper {
+            .logo {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &[data-animation-state="show-editor-name"] {
+        .loader-wrapper {
+            padding-right: f.pixelsToRem(180);
+
+            @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                padding-right: f.pixelsToRem(300);
+            }
+
+            @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+                padding-right: f.pixelsToRem(360);
+            }
+
+            .logo {
+                transform: scale(1);
+            }
+
+            .editor-name {
+                opacity: 1;
+            }
+        }
+    }
+
+    &[data-animation-state="enlargement"] {
+        .loader-wrapper {
+            padding-right: f.pixelsToRem(180);
+            transform: scale(1.2);
+
+            @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                padding-right: f.pixelsToRem(300);
+            }
+
+            @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+                padding-right: f.pixelsToRem(360);
+            }
+
+            .logo {
+                transform: scale(1);
+            }
+
+            .editor-name {
+                opacity: 1;
+            }
+        }
+    }
+
+    &[data-animation-state="fade-out"] {
+        opacity: 0;
+
+        .loader-wrapper {
+            padding-right: f.pixelsToRem(180);
+            transform: scale(1.2);
+
+            @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
+                padding-right: f.pixelsToRem(300);
+            }
+
+            @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
+                padding-right: f.pixelsToRem(360);
+            }
+
+            .logo {
+                transform: scale(1);
+            }
+
+            .editor-name {
+                opacity: 1;
+            }
+        }
+    }
+}

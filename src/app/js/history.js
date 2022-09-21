@@ -3,6 +3,7 @@ import Editor from './Editor.js';
 import { PROGRAMMING_LANGUAGES_DATA } from './variables.js';
 import { getSavedFiles, deleteFile, setActiveFile } from './localStorageManip.js';
 import { performDeletingVisually } from './deletingAnimation.js';
+import './loader.js';
 
 const savedFilesContainer = document.querySelector('[data-saved-files-container]');
 const fileContainerTemplate = document.getElementById('file-container-template');
@@ -38,9 +39,9 @@ $("document").ready(() => {
 function handleDeleteFile(fileContainerElement) {
     deleteFile(fileContainerElement.dataset.fileName);
 
-    performDeletingVisually(fileContainerElement);
+    const deleteFileTimeConsumption = performDeletingVisually(fileContainerElement);
 
-    checkWhetherFilesCountIs0(500);
+    checkWhetherFilesCountIs0(deleteFileTimeConsumption);
 }
 
 function handleEditFile(filename) {
