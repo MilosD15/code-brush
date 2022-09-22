@@ -2,7 +2,7 @@
 @use '../utils/typography' as *;
 @use '../utils/variables' as *;
 
-$transition-between-states-duration: 500ms;
+$transition-between-states-duration: 300ms;
 $transition-of-enlargement-duration: 4s;
 $fading-out-duration: 800ms;
 
@@ -89,7 +89,7 @@ $fading-out-duration: 800ms;
 
     &[data-animation-state="show-editor-name"] {
         .loader-wrapper {
-            padding-right: f.pixelsToRem(180);
+            padding-right: f.pixelsToRem(190);
 
             @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
                 padding-right: f.pixelsToRem(300);
@@ -111,7 +111,7 @@ $fading-out-duration: 800ms;
 
     &[data-animation-state="enlargement"] {
         .loader-wrapper {
-            padding-right: f.pixelsToRem(180);
+            padding-right: f.pixelsToRem(190);
             transform: scale(1.2);
 
             @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {
@@ -136,7 +136,7 @@ $fading-out-duration: 800ms;
         opacity: 0;
 
         .loader-wrapper {
-            padding-right: f.pixelsToRem(180);
+            padding-right: f.pixelsToRem(190);
             transform: scale(1.2);
 
             @media (min-width: f.pixelsToRem($medium-screens-breakpoint)) {

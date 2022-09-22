@@ -5,7 +5,7 @@ const loader = document.querySelector("[data-loader]");
 // variables
 const transitionBetweenStatesDuration = 500;
 const numberOfLoadingAnimationStates = 3;
-const additionalLoadingAnimationDelay = 300;
+const additionalLoadingAnimationDelay = 200;
 const loaderFadingOutDuration = 800;
 const loadingAnimationDuration = transitionBetweenStatesDuration * numberOfLoadingAnimationStates + additionalLoadingAnimationDelay;
 

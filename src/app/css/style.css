@@ -306,7 +306,7 @@ header {
   overflow: hidden;
   width: 3.125rem;
   height: 3.125rem;
-  transition: padding 500ms ease, transform 4s ease;
+  transition: padding 300ms ease, transform 4s ease;
 }
 @media (min-width: 31.25rem) {
   .loader-container .loader-wrapper {
@@ -327,7 +327,7 @@ header {
   width: inherit;
   height: inherit;
   transform: scale(0);
-  transition: transform 500ms ease;
+  transition: transform 300ms ease;
   background-color: var(--color-secondary);
 }
 .loader-container .loader-wrapper .logo img {
@@ -342,7 +342,7 @@ header {
   right: 0.5rem;
   transform: translateY(-50%);
   opacity: 0;
-  transition: left 500ms ease, opacity 500ms ease;
+  transition: left 300ms ease, opacity 300ms ease;
 }
 @media (min-width: 31.25rem) {
   .loader-container .loader-wrapper .editor-name {
@@ -360,7 +360,7 @@ header {
   transform: scale(1);
 }
 .loader-container[data-animation-state=show-editor-name] .loader-wrapper {
-  padding-right: 11.25rem;
+  padding-right: 11.875rem;
 }
 @media (min-width: 31.25rem) {
   .loader-container[data-animation-state=show-editor-name] .loader-wrapper {
@@ -379,7 +379,7 @@ header {
   opacity: 1;
 }
 .loader-container[data-animation-state=enlargement] .loader-wrapper {
-  padding-right: 11.25rem;
+  padding-right: 11.875rem;
   transform: scale(1.2);
 }
 @media (min-width: 31.25rem) {
@@ -402,7 +402,7 @@ header {
   opacity: 0;
 }
 .loader-container[data-animation-state=fade-out] .loader-wrapper {
-  padding-right: 11.25rem;
+  padding-right: 11.875rem;
   transform: scale(1.2);
 }
 @media (min-width: 31.25rem) {
