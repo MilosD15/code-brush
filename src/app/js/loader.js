@@ -1,13 +1,15 @@
 
+// imports
+import { APP_PREFIX } from './variables.js';
+
 // DOM elements
 const loader = document.querySelector("[data-loader]");
 
 // variables
 const transitionBetweenStatesDuration = 500;
-const numberOfLoadingAnimationStates = 3;
+let numberOfLoadingAnimationStates = 3;
 const additionalLoadingAnimationDelay = 200;
-const loaderFadingOutDuration = 800;
-const loadingAnimationDuration = transitionBetweenStatesDuration * numberOfLoadingAnimationStates + additionalLoadingAnimationDelay;
+let loaderFadingOutDuration = 800;
 
 startLoaderAnimation();
 
@@ -21,6 +23,8 @@ window.onload = () => {
 };
 
 function removeLoader(loadingTime) {
+    const loadingAnimationDuration = transitionBetweenStatesDuration * numberOfLoadingAnimationStates + additionalLoadingAnimationDelay;
+
     if (loadingTime >= loadingAnimationDuration) {
         loader.dataset.animationState = 'fade-out';
         removeLoaderFromDOM(0);
@@ -39,11 +43,23 @@ function removeLoaderFromDOM(delay) {
 }
 
 function startLoaderAnimation() {
-    loader.dataset.animationState = 'show-logo';
-    setTimeout(() => {
-        loader.dataset.animationState = 'show-editor-name';
-    }, 600);
-    setTimeout(() => {
+    // if the user has just entered the website, then play long loader animation
+    const playShorterAnimation = sessionStorage.getItem(`${APP_PREFIX}-browsingCodeBrush`);
+    if (playShorterAnimation === 'true') {
+        // make animation shorter
+        numberOfLoadingAnimationStates = 1;
+        loaderFadingOutDuration = 600;
+
         loader.dataset.animationState = 'enlargement';
-    }, 1200);
+    } else {
+        loader.dataset.animationState = 'show-logo';
+        setTimeout(() => {
+            loader.dataset.animationState = 'show-editor-name';
+        }, transitionBetweenStatesDuration);
+        setTimeout(() => {
+            loader.dataset.animationState = 'enlargement';
+        }, transitionBetweenStatesDuration * 2);
+
+        sessionStorage.setItem(`${APP_PREFIX}-browsingCodeBrush`, true);
+    }
 }

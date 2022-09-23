@@ -1,2 +1,0 @@
-Check loader animation on mobile devices
-Add another shorter loading animation
