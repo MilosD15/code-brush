@@ -1,0 +1,285 @@
+/* dist/css/history.css */
+html {
+  font-family: Calibri, sans-serif;
+}
+.back-to-homepage-btn {
+  padding: 0.375em 1.25em;
+  border: 0.125em solid var(--color-btn-edge);
+  background-color: var(--color-bg-btn);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+  display: flex;
+  align-items: center;
+  margin: 1.5rem;
+  padding-left: 0.75rem;
+  width: max-content;
+  text-decoration: none;
+}
+.back-to-homepage-btn:hover,
+.back-to-homepage-btn:focus {
+  background-color: var(--color-btn-edge);
+}
+@media (min-width: 31.25rem) {
+  .back-to-homepage-btn {
+    margin: 2rem;
+  }
+}
+.back-to-homepage-btn svg {
+  stroke: var(--color-text);
+  height: 1.875rem;
+  width: 1.875rem;
+}
+.back-to-homepage-btn .text {
+  margin-left: 0.625rem;
+  font-size: 1.0625rem;
+}
+@media (min-width: 31.25rem) {
+  .back-to-homepage-btn .text {
+    font-size: 1.1875rem;
+  }
+}
+:root {
+  --deleting-animation-pieces-count-column: 30;
+  --deleting-animation-pieces-count-row: 24;
+}
+@media (min-width: 31.25rem) {
+  :root {
+    --deleting-animation-pieces-count-column: 50;
+  }
+}
+.deleting-animation-cover {
+  z-index: 100;
+  position: absolute;
+  top: -0.125rem;
+  left: -0.125rem;
+  width: calc(100% + 0.25rem);
+  height: calc(100% + 0.25rem);
+  background-color: var(--bg-color-deleting-cover);
+  display: grid;
+  grid-template-columns: repeat(var(--deleting-animation-pieces-count-column), 1fr);
+  grid-template-rows: repeat(var(--deleting-animation-pieces-count-row), 1fr);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1000ms ease;
+}
+.deleting-animation-cover[data-state=container-active] {
+  opacity: 1;
+  pointer-events: initial;
+}
+.deleting-animation-cover[data-state=pieces-active] {
+  opacity: 1;
+  pointer-events: initial;
+  background-color: transparent;
+}
+.deleting-animation-cover[data-state=pieces-active] .piece {
+  opacity: 1;
+  pointer-events: initial;
+}
+.deleting-animation-cover[data-state=pieces-active] .piece[data-animation-type=long] {
+  animation-name: fall-down-and-fade-out-long;
+  animation-duration: 900ms;
+}
+.deleting-animation-cover[data-state=pieces-active] .piece[data-animation-type=normal] {
+  animation-name: fall-down-and-fade-out-normal;
+  animation-duration: 600ms;
+}
+.deleting-animation-cover[data-state=pieces-active] .piece[data-animation-type=short] {
+  animation-name: fall-down-and-fade-out-short;
+  animation-duration: 300ms;
+}
+.deleting-animation-cover .piece {
+  background-color: var(--bg-color-deleting-cover);
+  opacity: 0;
+  pointer-events: none;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes fall-down-and-fade-out-long {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(240px) rotate(-360deg);
+  }
+}
+@keyframes fall-down-and-fade-out-normal {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(160px) rotate(-270deg);
+  }
+}
+@keyframes fall-down-and-fade-out-short {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(80px) rotate(-180deg);
+  }
+}
+.app {
+  display: block;
+}
+.empty-files-box {
+  font-size: 1.25rem;
+  text-align: center;
+  text-shadow: 0 0 0.9375rem #D9D9D9;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease;
+  height: 0;
+}
+.empty-files-box[data-active=true] {
+  opacity: 1;
+  pointer-events: initial;
+  height: auto;
+}
+@media (min-width: 31.25rem) {
+  .empty-files-box {
+    font-size: 1.4375rem;
+  }
+}
+.saved-files {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  padding-inline: 1rem;
+  grid-gap: 2rem;
+  padding-bottom: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms ease;
+  height: 0;
+}
+.saved-files[data-active=true] {
+  opacity: 1;
+  pointer-events: initial;
+  height: auto;
+}
+@media (min-width: 56.25rem) {
+  .saved-files {
+    padding-inline: 0;
+  }
+}
+@media (min-width: 87.5rem) {
+  .saved-files {
+    grid-template-columns: 1fr 1fr;
+    padding-inline: 2rem;
+  }
+}
+.saved-files .file-container {
+  width: 100%;
+  height: 25rem;
+  border: 0.125rem solid var(--color-btn-edge);
+  position: relative;
+}
+.saved-files .file-container[data-state=deleting] {
+  border: 0;
+}
+.saved-files .file-container[data-state=deleting] > *:not(.deleting-animation-cover) {
+  opacity: 0;
+  pointer-events: none;
+}
+@media (min-width: 56.25rem) {
+  .saved-files .file-container {
+    width: 80%;
+  }
+}
+@media (min-width: 87.5rem) {
+  .saved-files .file-container {
+    width: 100%;
+  }
+}
+.saved-files .file-container .description {
+  z-index: 100;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.75rem;
+  background-color: var(--color-secondary);
+}
+@media (min-width: 31.25rem) {
+  .saved-files .file-container .description {
+    flex-direction: row;
+    gap: 0;
+    padding: 1rem 1.75rem 1rem 3rem;
+  }
+}
+.saved-files .file-container .description .file-name {
+  font-size: 1rem;
+  align-self: flex-start;
+}
+@media (min-width: 31.25rem) {
+  .saved-files .file-container .description .file-name {
+    align-self: center;
+    font-size: 1.0625rem;
+  }
+}
+.saved-files .file-container .description .actions {
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+}
+@media (min-width: 31.25rem) {
+  .saved-files .file-container .description .actions {
+    font-size: 1.0625rem;
+  }
+}
+.saved-files .file-container .description .actions .delete {
+  padding: 0.375em 1.25em;
+  border: 0.125em solid var(--color-btn-edge);
+  background-color: var(--color-bg-btn);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+  background-color: #f4f4f4;
+  color: var(--color-specific-red);
+  border-color: var(--color-specific-red);
+  border-width: 0.125rem;
+}
+.saved-files .file-container .description .actions .delete:hover,
+.saved-files .file-container .description .actions .delete:focus {
+  background-color: var(--color-btn-edge);
+}
+.saved-files .file-container .description .actions .delete:hover,
+.saved-files .file-container .description .actions .delete:focus {
+  background-color: var(--color-specific-red);
+  color: #f4f4f4;
+}
+.saved-files .file-container .description .actions .edit {
+  padding: 0.375em 1.25em;
+  border: 0.125em solid var(--color-btn-edge);
+  background-color: var(--color-bg-btn);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+}
+.saved-files .file-container .description .actions .edit:hover,
+.saved-files .file-container .description .actions .edit:focus {
+  background-color: var(--color-btn-edge);
+}

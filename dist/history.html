@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Code Mirror -->
+    <!-- themes -->
+    <link rel="stylesheet" href="./css/cm-themes-modified/base16-light.css">
+    <link rel="stylesheet" href="./css/cm-themes-modified/base16-dark.css">
+    <!-- lint -->
+    <script src="https://unpkg.com/jshint@2.13.2/dist/jshint.js"></script>
+    <script src="https://unpkg.com/jsonlint@1.6.3/web/jsonlint.js"></script>
+    <script src="https://unpkg.com/csslint@1.0.5/dist/csslint.js"></script>
+    <!-- -------------------------------------------------------------------- -->
+    <title>CodeBrush - Online Code Editor</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/history.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/history.js" type="module"></script>
+<link rel="stylesheet" href="/js/history.css"></head>
+<body>
+    <!-- loader -->
+    <div class="loader-container" data-loader="" data-animation-state="">
+        <div class="loader-wrapper">
+            <div class="editor-name">CodeBrush</div>
+            <div class="logo">
+                <img src="./images/logo.png" alt="The picture of the CodeBrush Logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="app">
+        <a href="./index.html" class="back-to-homepage-btn" aria-label="A button for returning to homepage">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" viewBox="0 0 24 24" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <line x1="5" y1="12" x2="11" y2="18"></line>
+                <line x1="5" y1="12" x2="11" y2="6"></line>
+            </svg>
+            <div class="text">Back to editor</div>
+        </a>
+        <div class="empty-files-box" data-empty-files-box="">Nothing in History</div>
+        <section class="saved-files" data-saved-files-container="">
+            
+        </section>
+    </div>
+
+    <template id="file-container-template">
+        <div class="file-container" data-file-container="">
+            <textarea></textarea>
+            <div class="description">
+                <div class="file-name" data-file-name-field=""></div>
+                <div class="actions">
+                    <button class="delete" data-delete-btn="">Delete</button>
+                    <button class="edit" data-edit-btn="">Edit</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body></html>
