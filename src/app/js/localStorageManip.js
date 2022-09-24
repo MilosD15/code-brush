@@ -4,6 +4,8 @@ import { APP_PREFIX } from './variables.js';
 // local storage manipulation
 
 export function saveFileInLocalStorage(newFile) {
+    if (newFile.name == undefined) return;
+
     let files = getSavedFiles();
     const existingFileObject = findFile(newFile.name);
 
