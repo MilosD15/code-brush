@@ -518,6 +518,11 @@ html {
     margin-left: 5vw;
   }
 }
+@media (min-width: 100rem) {
+  .features-container .features .feature .wrapper button .arrow {
+    margin-left: 6.25rem;
+  }
+}
 .features-container .features .feature .wrapper button .arrow svg {
   position: absolute;
   left: 0;

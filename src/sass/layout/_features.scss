@@ -226,6 +226,10 @@ $animation-feature-duration: 600;
                         @media (min-width: f.pixelsToRem(1100)) {
                             margin-left: 5vw;
                         }
+
+                        @media (min-width: f.pixelsToRem(1600)) {
+                            margin-left: f.pixelsToRem(100);
+                        }
             
                         svg {
                             position: absolute;
