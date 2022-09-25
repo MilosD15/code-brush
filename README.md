@@ -30,7 +30,7 @@ edit them again on the History page. Finally, there are lots of transitions,
 animations, and dark/light mode implemented just to make it all look a little 
 prettier. Enjoy it! 😊🤗
 
-## Project Goal and Learned Lessons 💡🏁
+## Project Goal and Lessons 💡🏁
 
 At first, the aim of this project was to get familiar with Sass and JQuery. 
 Throughout building it, I learned two important lessons. Sass is an incredible 
