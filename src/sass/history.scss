@@ -81,7 +81,7 @@
         }
 
         @media (min-width: f.pixelsToRem($extra-large-screens-breakpoint)) {
-            width: 100%;
+            width: f.pixelsToRem(650);
         }
 
         .description {
