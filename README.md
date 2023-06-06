@@ -51,7 +51,7 @@ and headings for screen readers. 📱💻🖥
 Eventually, I said to myself why I wouldn't make a real online tool that I can 
 use as a programmer as well as my colleagues. And I did it. As always, I learned 
 or at least started to learn a lot of web technologies and tools that were 
-extraneous to me and, of course, had great fun building CodeBursh. 💫💎
+extraneous to me and, of course, had great fun building CodeBrush. 💫💎
 
 ## Languages and Tools 🛠
 
